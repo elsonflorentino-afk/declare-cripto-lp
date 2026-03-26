@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-book Gratuito — Declare seus Criptoativos sem Cair na Malha Fina | Boost Research</title>
+<meta name="description" content="Declare seus criptoativos em 2026 sem cair na malha fina. E-book gratuito com 6 capítulos, checklist e exemplos práticos. Curadoria: André Franco — Boost Research.">
+<meta property="og:title" content="E-book Gratuito — IR para Cripto 2026 | Boost Research">
+<meta property="og:description" content="Tudo o que você precisa saber para declarar cripto em 2026 — sem juridiquês, sem improviso. Gratuito.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://s3.amazonaws.com/plugcrm-app/69a1cc3e5a0b690013d94fe3/instance_file/69bc7d6c0bb9b20023f3e540.jpg">
+
+<!-- RD Station Monitoramento — seta cookies rdtrk e __trf.src na carga -->
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/a29b8726-033c-4cc1-a744-197be5be3b79-loader.js"></script>
+<!-- End RD Station Monitoramento -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2HT6HBX');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1062572485162288');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1062572485162288&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   PRECISION BLACK — Design System v3
+   Referências: Epic.net · Apple iPhone · Dropbox Brand · Scott Snyder
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #000000;
+  --bg-2:      #0D0D0D;
+  --bg-3:      #111111;
+  --bg-card:   #0A0A0A;
+
+  --border:    #1C1C1C;
+  --border-md: #242424;
+  --border-hi: #2E2E2E;
+
+  --green:     #00B37E;
+  --green-hi:  #00C98D;
+  --green-dim: rgba(0,179,126,0.08);
+  --green-bdr: rgba(0,179,126,0.2);
+
+  --white:     #FFFFFF;
+  --gray-1:    #C8C8D8;
+  --gray-2:    #7878A0;
+  --gray-3:    #3E3E58;
+  --red:       #FF4444;
+
+  --font:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Easing refinado — Dropbox cubic */
+  --ease-out:  cubic-bezier(.5,0,.2,1);
+  --ease-in:   cubic-bezier(.4,0,1,1);
+  --ease-swoop: cubic-bezier(.6,0,0,1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: var(--green); z-index: 9999;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* ── CONTAINER ── */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+
+@media (max-width: 768px) { .container { padding: 0 24px; } }
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+
+/* ════════════════════════════════
+   NAVBAR
+   ════════════════════════════════ */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.3s var(--ease-out);
+  padding: 0;
+}
+.navbar.scrolled { border-color: var(--border-md); }
+
+.navbar .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo img {
+  height: 52px; width: auto;
+  mix-blend-mode: screen; filter: contrast(1.1);
+  display: block;
+}
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green); color: #000;
+  font-weight: 700; font-size: 0.82rem; padding: 9px 20px;
+  letter-spacing: 0.01em; text-decoration: none;
+  transition: background 0.2s var(--ease-out);
+  /* Cantos retos — inspirado Dropbox */
+  border-radius: 4px;
+}
+.nav-cta:hover { background: var(--green-hi); }
+.nav-cta::after { content: '↓'; font-size: 0.9em; }
+
+/* ════════════════════════════════
+   HERO
+   ════════════════════════════════ */
+.hero {
+  padding: 88px 0 80px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+
+/* Linha decorativa vertical à direita — Epic-inspired */
+.hero::before {
+  content: '';
+  position: absolute; top: 0; right: calc(50% - 560px + 420px);
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  pointer-events: none;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Copy */
+.hero-copy {}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 20px; height: 1px; background: var(--green);
+}
+
+.hero-h1 {
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  margin-bottom: 28px;
+  text-wrap: balance;
+  color: var(--white);
+}
+
+.hero-h1 .accent { color: var(--green); }
+
+.hero-sub {
+  font-size: 1.05rem; color: var(--gray-1); line-height: 1.7;
+  margin-bottom: 40px; max-width: 480px;
+  font-weight: 400;
+}
+
+/* Trust row — horizontal, minimal */
+.hero-trust {
+  display: flex; gap: 0; align-items: stretch;
+  border: 1px solid var(--border-md);
+  border-radius: 4px; overflow: hidden;
+  margin-bottom: 40px;
+}
+.hero-trust-item {
+  flex: 1; padding: 14px 20px;
+  border-right: 1px solid var(--border-md);
+  text-align: center;
+}
+.hero-trust-item:last-child { border-right: none; }
+.hero-trust-item .t-val {
+  display: block; font-size: 1.4rem; font-weight: 800;
+  color: var(--green); letter-spacing: -0.03em; line-height: 1.1;
+}
+.hero-trust-item .t-label {
+  display: block; font-size: 10px; color: var(--gray-2);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-top: 3px; font-weight: 600;
+}
+
+/* Steps */
+.hero-steps-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray-2);
+  margin-bottom: 16px; padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.steps { display: flex; flex-direction: column; gap: 0; }
+.step { display: flex; gap: 18px; padding-bottom: 20px; position: relative; }
+.step:not(:last-child)::before {
+  content: ''; position: absolute; left: 11px; top: 24px;
+  width: 1px; height: calc(100% - 4px); background: var(--border-md);
+}
+.step-num {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border: 1px solid var(--border-hi);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: var(--green);
+  background: var(--bg-3); margin-top: 2px;
+}
+.step-body strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+.step-body span { font-size: 0.8rem; color: var(--gray-2); line-height: 1.5; }
+
+/* ── FORM CARD ── */
+.hero-form {
+  position: sticky; top: 80px;
+  background: var(--bg-3);
+  border: 1px solid var(--border-md);
+  border-radius: 4px;
+  padding: 32px;
+  /* Linha verde no topo */
+  border-top: 2px solid var(--green);
+}
+
+.form-badge {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; margin-bottom: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  border-left: 2px solid var(--green);
+}
+.form-badge-icon { font-size: 1.6rem; flex-shrink: 0; }
+.form-badge-text strong {
+  display: block; font-size: 12px; font-weight: 700; color: var(--white);
+  margin-bottom: 2px;
+}
+.form-badge-text span { font-size: 11px; color: var(--gray-2); }
+
+.form-dots { display: flex; gap: 4px; margin-bottom: 20px; }
+.form-dots span {
+  flex: 1; height: 2px; background: var(--green); border-radius: 0;
+}
+
+.hero-form h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+  margin-bottom: 4px;
+}
+.hero-form .form-sub {
+  font-size: 11px; color: var(--gray-2); margin-bottom: 20px; line-height: 1.5;
+}
+
+/* Field group */
+.f-group { margin-bottom: 14px; }
+.f-group label {
+  display: block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-2); margin-bottom: 6px;
+}
+.f-group input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-md);
+  color: var(--white);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 14px; font-family: var(--font); font-weight: 400;
+  outline: none;
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+.f-group input::placeholder { color: var(--gray-3); }
+.f-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-dim);
+}
+
+.btn-submit {
+  display: block; width: 100%;
+  background: var(--green); color: #000;
+  border: none; font-weight: 800; font-size: 14px;
+  padding: 15px; border-radius: 4px;
+  cursor: pointer; font-family: var(--font);
+  letter-spacing: 0.01em; margin-top: 8px;
+  transition: background 0.2s var(--ease-out), transform 0.1s;
+  position: relative; overflow: hidden;
+}
+.btn-submit::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease-out);
+}
+.btn-submit:hover { background: var(--green-hi); }
+.btn-submit:hover::after { left: 140%; }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.form-micro {
+  font-size: 10px; color: var(--gray-2); text-align: center;
+  margin-top: 10px; line-height: 1.5; letter-spacing: 0.02em;
+}
+.form-error {
+  display: none; color: var(--red); font-size: 11px;
+  text-align: center; margin-top: 8px;
+}
+.form-success {
+  display: none; text-align: center; padding: 24px 8px;
+}
+.form-success .success-icon {
+  width: 48px; height: 48px; background: var(--green);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-size: 20px; margin: 0 auto 14px;
+}
+.form-success h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.form-success p { font-size: 12px; color: var(--gray-2); line-height: 1.6; }
+
+.form-lgpd {
+  font-size: 10px; color: var(--gray-3); margin-top: 16px;
+  line-height: 1.5; padding-top: 16px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* ════════════════════════════════
+   STATS BAR
+   ════════════════════════════════ */
+.stats-bar {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.stats-bar .container {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.stat-cell {
+  padding: 40px 48px;
+  border-right: 1px solid var(--border);
+}
+.stat-cell:last-child { border-right: none; }
+
+.stat-num {
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.stat-num .stat-accent { color: var(--green); }
+.stat-desc {
+  font-size: 0.875rem; color: var(--gray-2); line-height: 1.5;
+  max-width: 200px;
+}
+
+/* ════════════════════════════════
+   SECTION LABEL (eyebrow)
+   ════════════════════════════════ */
+.s-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 20px;
+}
+.s-label::before { content: ''; width: 16px; height: 1px; background: var(--green); }
+
+/* Section headings */
+.s-h2 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800; letter-spacing: -0.035em; line-height: 1.05;
+  margin-bottom: 16px; text-wrap: balance;
+}
+.s-h2 em { font-style: normal; color: var(--green); }
+
+.s-sub {
+  font-size: 1rem; color: var(--gray-2); line-height: 1.7;
+  max-width: 560px; margin-bottom: 48px;
+}
+
+/* ════════════════════════════════
+   PROBLEMA
+   ════════════════════════════════ */
+.section-problem {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.problem-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border); margin-top: 48px;
+  border: 1px solid var(--border);
+}
+.problem-item {
+  background: var(--bg);
+  padding: 32px;
+  font-size: 0.95rem; color: var(--gray-1); line-height: 1.75;
+  transition: background 0.2s var(--ease-out);
+  position: relative;
+}
+.problem-item:hover { background: var(--bg-2); }
+.problem-item::before {
+  content: attr(data-n);
+  display: block;
+  font-size: 10px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.problem-item strong { color: var(--white); }
+
+.problem-note {
+  margin-top: 40px;
+  padding: 28px 32px;
+  border: 1px solid var(--border-md);
+  border-left: 2px solid var(--green);
+  background: var(--bg-card);
+  font-size: 1rem; color: var(--gray-1); line-height: 1.75;
+  border-radius: 0 4px 4px 0;
+}
+.problem-note strong { color: var(--white); }
+
+/* ════════════════════════════════
+   RISCO / FATOS
+   ════════════════════════════════ */
+.section-risk {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+.risk-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border-md);
+  border: 1px solid var(--border-md); margin-top: 48px;
+}
+.risk-card {
+  background: var(--bg-3); padding: 32px 28px;
+  transition: background 0.2s var(--ease-out);
+}
+.risk-card:hover { background: var(--bg-card); }
+.risk-card .r-num {
+  font-size: 10px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.risk-card .r-title {
+  font-size: 1.05rem; font-weight: 700; color: var(--white);
+  margin-bottom: 12px; line-height: 1.3; letter-spacing: -0.01em;
+}
+.risk-card .r-body {
+  font-size: 0.875rem; color: var(--gray-2); line-height: 1.7;
+}
+.risk-card .r-body strong { color: var(--gray-1); }
+
+/* ════════════════════════════════
+   CAPÍTULOS
+   ════════════════════════════════ */
+.section-chapters {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.chapters-list { margin-top: 48px; }
+.chapter-item {
+  display: flex; align-items: flex-start; gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+  cursor: default;
+}
+.chapter-item:first-child { border-top: 1px solid var(--border); }
+.chapter-item:hover { padding-left: 8px; transition: padding 0.3s var(--ease-out); }
+
+.c-num {
+  font-size: 10px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  white-space: nowrap; margin-top: 3px; flex-shrink: 0;
+  min-width: 56px;
+}
+.c-body {}
+.c-title {
+  font-size: 1rem; font-weight: 700; color: var(--white);
+  margin-bottom: 4px; letter-spacing: -0.01em;
+}
+.c-desc { font-size: 0.875rem; color: var(--gray-2); line-height: 1.6; }
+
+/* Benefícios */
+.benefits-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+  margin-top: 40px;
+}
+.benefit-item {
+  background: var(--bg);
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 22px 24px;
+  transition: background 0.2s var(--ease-out);
+}
+.benefit-item:hover { background: var(--bg-2); }
+.benefit-item .b-check {
+  color: var(--green); font-weight: 700;
+  font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;
+}
+.benefit-item .b-title {
+  font-size: 0.875rem; font-weight: 700; color: var(--white);
+  margin-bottom: 3px;
+}
+.benefit-item .b-desc { font-size: 0.8rem; color: var(--gray-2); line-height: 1.55; }
+
+/* Urgência */
+.urgency {
+  margin-top: 40px; padding: 22px 28px;
+  border: 1px solid var(--green-bdr);
+  background: var(--green-dim);
+  border-radius: 0 4px 4px 0;
+  border-left: 2px solid var(--green);
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.urgency span { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.urgency p { font-size: 0.9rem; color: var(--gray-1); line-height: 1.7; }
+.urgency p strong { color: var(--green); }
+
+/* CTA inline */
+.cta-inline {
+  text-align: center; padding-top: 48px;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #000;
+  font-weight: 800; font-size: 0.95rem; padding: 16px 36px;
+  border-radius: 4px; text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.2s var(--ease-out);
+  position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease-out);
+}
+.btn-primary:hover { background: var(--green-hi); }
+.btn-primary:hover::after { left: 140%; }
+
+/* ════════════════════════════════
+   MID-PAGE CTA BANNER
+   ════════════════════════════════ */
+.cta-banner {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.cta-banner .container {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.cta-banner-copy p:first-child {
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.cta-banner-copy p:last-child { font-size: 0.9rem; color: var(--gray-2); }
+
+/* ════════════════════════════════
+   AUTORIDADE
+   ════════════════════════════════ */
+.section-authority {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+.authority-grid {
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 72px; align-items: start; margin-top: 48px;
+}
+
+.authority-photo-wrap { position: relative; }
+.authority-photo-wrap img {
+  width: 100%; display: block;
+  border-radius: 4px;
+  filter: grayscale(10%);
+}
+.photo-caption {
+  margin-top: 12px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.cap-pill {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green);
+  border: 1px solid var(--green-bdr); padding: 4px 12px;
+  border-radius: 2px;
+  background: var(--green-dim);
+}
+
+.authority-content {}
+.authority-content .s-label { margin-bottom: 16px; }
+.authority-content .a-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.authority-content p {
+  font-size: 1rem; color: var(--gray-1); line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.authority-card {
+  margin-top: 28px; padding: 24px 28px;
+  background: var(--bg-card); border: 1px solid var(--border-md);
+  border-radius: 4px;
+}
+.authority-card .ac-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 14px;
+}
+.authority-card-items { display: flex; flex-direction: column; gap: 10px; }
+.authority-card-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.875rem; color: var(--gray-2); line-height: 1.6;
+}
+.authority-card-item::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white); color: #000;
+  font-weight: 800; font-size: 0.88rem; padding: 14px 24px;
+  border-radius: 4px; text-decoration: none;
+  margin-top: 28px;
+  transition: background 0.2s var(--ease-out);
+}
+.btn-wa:hover { background: #e8e8e8; }
+.btn-wa svg { flex-shrink: 0; }
+.btn-wa-sub { font-size: 11px; color: var(--gray-2); margin-top: 8px; }
+
+/* ════════════════════════════════
+   BRAND SECTION
+   ════════════════════════════════ */
+.section-brand {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: relative; overflow: hidden;
+}
+
+/* Grid lines de fundo — Dropbox inspired */
+.section-brand::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: 0.4; pointer-events: none;
+}
+
+.brand-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.brand-logo-wrap img {
+  max-width: 380px; height: auto;
+  mix-blend-mode: screen; filter: contrast(1.1);
+}
+
+.brand-copy {}
+.brand-copy .b-rule {
+  width: 2px; height: 56px; background: var(--green);
+  margin-bottom: 24px;
+}
+.brand-copy h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+  margin-bottom: 16px;
+}
+.brand-copy h2 em { font-style: normal; color: var(--green); }
+.brand-copy p {
+  font-size: 0.95rem; color: var(--gray-2); line-height: 1.75; margin-bottom: 32px;
+}
+
+.brand-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.brand-stat .bs-num {
+  font-size: 2rem; font-weight: 800; letter-spacing: -0.04em;
+  color: var(--white); line-height: 1;
+}
+.brand-stat .bs-num em { font-style: normal; color: var(--green); }
+.brand-stat .bs-label { font-size: 11px; color: var(--gray-2); margin-top: 4px; }
+
+/* ════════════════════════════════
+   CTA FINAL
+   ════════════════════════════════ */
+.section-cta-final {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.cta-final-inner {
+  max-width: 600px; margin: 0 auto; text-align: center;
+}
+.cta-final-inner .s-label { justify-content: center; }
+.cta-final-inner .s-h2 { margin-bottom: 16px; }
+.cta-final-inner .s-sub { margin: 0 auto 48px; text-align: center; }
+
+.cta-final-btn-wrap { display: flex; justify-content: center; }
+
+/* ════════════════════════════════
+   FOOTER
+   ════════════════════════════════ */
+.footer {
+  padding: 48px 0;
+  background: var(--bg); text-align: center;
+}
+.footer-logo img {
+  height: 40px; mix-blend-mode: screen; opacity: 0.5;
+  display: inline-block; margin-bottom: 16px;
+}
+.footer-disclaimer {
+  font-size: 10px; color: var(--gray-3); line-height: 1.7;
+  max-width: 640px; margin: 0 auto;
+  letter-spacing: 0.02em;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero .container { grid-template-columns: 1fr; gap: 48px; }
+  .hero::before { display: none; }
+  .hero-form { position: static; order: -1; }
+  .stats-bar .container { grid-template-columns: 1fr 1fr 1fr; }
+  .stat-cell { padding: 32px 24px; }
+  .authority-grid { grid-template-columns: 1fr; gap: 40px; }
+  .brand-inner { grid-template-columns: 1fr; gap: 40px; }
+  .brand-logo-wrap { display: none; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 56px 0 48px; }
+  .stats-bar .container { grid-template-columns: 1fr; }
+  .stat-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 0; }
+  .stat-cell:last-child { border-bottom: none; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .cta-banner .container { flex-direction: column; gap: 24px; }
+  .hero-trust { flex-direction: column; border-radius: 4px; }
+  .hero-trust-item { border-right: none; border-bottom: 1px solid var(--border-md); }
+  .hero-trust-item:last-child { border-bottom: none; }
+  .section-problem,
+  .section-risk,
+  .section-chapters,
+  .section-authority,
+  .section-brand,
+  .section-cta-final { padding: 64px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2HT6HBX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a class="nav-logo" href="#">
+      <img src="https://s3.amazonaws.com/plugcrm-app/69a1cc3e5a0b690013d94fe3/instance_file/69bc7d48d81f8b00269a7336.jpg" alt="Boost Research">
+    </a>
+    <a href="#formulario" class="nav-cta" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'});return false;">
+      Baixar e-book gratuito
+    </a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+
+    <!-- COPY -->
+    <div class="hero-copy">
+      <div class="hero-eyebrow reveal">Material gratuito · Boost Research · André Franco</div>
+
+      <h1 class="hero-h1 reveal reveal-d1">
+        Tem cripto e chegou<br>
+        a hora do IR?<br>
+        <span class="accent">Declare sem<br>improviso.</span>
+      </h1>
+
+      <p class="hero-sub reveal reveal-d2">
+        E-book gratuito da Boost Research com tudo que você precisa para declarar
+        criptoativos em 2026 — sem juridiquês, sem generalização, sem armadilha.
+      </p>
+
+      <div class="hero-trust reveal reveal-d3">
+        <div class="hero-trust-item">
+          <span class="t-val">100%</span>
+          <span class="t-label">Gratuito</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="t-val">2026</span>
+          <span class="t-label">Atualizado</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="t-val">6</span>
+          <span class="t-label">Capítulos</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="t-val">+10</span>
+          <span class="t-label">Anos de mercado</span>
+        </div>
+      </div>
+
+      <p class="hero-steps-label reveal reveal-d4">Como funciona</p>
+      <div class="steps reveal reveal-d4">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Você preenche o formulário</strong>
+            <span>Leva menos de um minuto. Só nome, e-mail e WhatsApp.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>O e-book chega no seu e-mail</strong>
+            <span>Entrega imediata. PDF completo com 6 capítulos e checklist.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Você declara sem improviso</strong>
+            <span>Antes de abrir o programa da Receita, você sabe exatamente o que fazer.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="hero-form reveal reveal-d1" id="formulario">
+      <div class="form-badge">
+        <span class="form-badge-icon">📘</span>
+        <div class="form-badge-text">
+          <strong>Boost Research · E-book Gratuito 2026</strong>
+          <span>IR para Cripto — Declare sem improviso</span>
+        </div>
+      </div>
+
+      <div class="form-dots">
+        <span></span><span></span><span></span>
+      </div>
+
+      <h3>Receba o e-book agora</h3>
+      <p class="form-sub">Preencha abaixo. O link chega no seu e-mail em instantes.</p>
+
+      <form id="lp_ir_cripto" novalidate>
+        <div class="f-group">
+          <label for="f-nome">Nome completo</label>
+          <input type="text" id="f-nome" name="name" placeholder="Seu nome" required autocomplete="name">
+        </div>
+        <div class="f-group">
+          <label for="f-email">E-mail</label>
+          <input type="email" id="f-email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="f-group">
+          <label for="f-whatsapp">WhatsApp</label>
+          <input type="tel" id="f-whatsapp" name="whatsapp" placeholder="+55 (11) 99999-9999" required autocomplete="tel">
+        </div>
+
+        <!-- Hidden: mobile_phone populado pelo JS antes do RD ler o form -->
+        <input type="hidden" id="f-mobile-phone" name="mobile_phone">
+        <!-- UTMs ocultos -->
+        <input type="hidden" id="f-utm-source"   name="utm_source">
+        <input type="hidden" id="f-utm-medium"   name="utm_medium">
+        <input type="hidden" id="f-utm-campaign" name="utm_campaign">
+        <input type="hidden" id="f-utm-content"  name="utm_content">
+        <input type="hidden" id="f-utm-term"     name="utm_term">
+
+        <button type="submit" class="btn-submit" id="btn-enviar">
+          Quero o e-book gratuito →
+        </button>
+
+        <p class="form-micro">Gratuito. Sem spam. Entrega imediata no e-mail.</p>
+        <div class="form-error" id="form-error"></div>
+      </form>
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✓</div>
+        <h3>E-book enviado!</h3>
+        <p>Verifique seu e-mail — o link de download chega em instantes. Boa declaração.</p>
+      </div>
+
+      <p class="form-lgpd">
+        🔒 Seus dados são usados exclusivamente para envio do e-book.
+        Ao continuar, você concorda com nossa política de privacidade. Art. 7º, II da LGPD.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ STATS BAR ═══════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-cell reveal">
+      <div class="stat-num"><span class="counter" data-target="10" data-prefix="+" data-suffix=" anos">+10 anos</span></div>
+      <p class="stat-desc">de acompanhamento do mercado cripto — dois ciclos completos de alta e baixa</p>
+    </div>
+    <div class="stat-cell reveal reveal-d1">
+      <div class="stat-num"><span class="counter" data-target="19" data-prefix="+" data-suffix="k">+19k</span></div>
+      <p class="stat-desc">investidores acompanham a análise da Boost Research</p>
+    </div>
+    <div class="stat-cell reveal reveal-d2">
+      <div class="stat-num"><span class="counter" data-target="31">31</span><span class="stat-accent"> maio</span></div>
+      <p class="stat-desc">prazo final da Receita Federal — sem prorrogação</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ PROBLEMA ═══════════════════════════════════ -->
+<section class="section-problem" id="problema">
+  <div class="container">
+    <div class="reveal">
+      <div class="s-label">Um diagnóstico honesto</div>
+      <h2 class="s-h2">Você tem cripto.<br>Mas algo ainda <em>não está claro.</em></h2>
+      <p class="s-sub">A maioria dos erros na declaração de cripto não é falta de boa vontade — é falta de método.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-item reveal" data-n="Erro 01">
+        Você tem Bitcoin, Ethereum ou altcoins declarados como "saldo em conta" — sem saber que cada ativo tem <strong>código e grupo específico</strong> no programa da Receita.
+      </div>
+      <div class="problem-item reveal reveal-d1" data-n="Erro 02">
+        Você vendeu cripto em algum mês e não emitiu o DARF até o último dia útil do mês seguinte — sem saber que a <strong>multa por atraso é de 0,33% ao dia</strong>, mais 1% por mês.
+      </div>
+      <div class="problem-item reveal reveal-d2" data-n="Erro 03">
+        Você recebeu rendimentos de staking, yield farming ou cashback em exchange — e não sabe se isso é <strong>rendimento tributável, ganho de capital ou não tributável.</strong>
+      </div>
+      <div class="problem-item reveal reveal-d3" data-n="Erro 04">
+        Você tem cripto em Binance, Coinbase ou Kraken — e não sabe que <strong>posição acima de US$1.000 exige declaração como bem no exterior</strong>, com regras diferentes da Receita.
+      </div>
+    </div>
+
+    <div class="problem-note reveal">
+      Esses não são sinais de que você é descuidado. São sinais de que as regras são complexas — e que você precisa de <strong>método</strong>, não de mais informação.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ RISCO ═══════════════════════════════════ -->
+<section class="section-risk" id="risco">
+  <div class="container">
+    <div class="reveal">
+      <div class="s-label">O risco é real</div>
+      <h2 class="s-h2">A Receita sabe mais<br>sobre sua cripto do que <em>você imagina.</em></h2>
+      <p class="s-sub">Desde 2019, exchanges brasileiras são obrigadas a reportar movimentações automaticamente. Desde 2023, exchanges internacionais também.</p>
+    </div>
+
+    <div class="risk-grid">
+      <div class="risk-card reveal">
+        <div class="r-num">Fato 01</div>
+        <div class="r-title">A IN 1888 obriga exchanges a reportar.</div>
+        <div class="r-body">Toda exchange com CNPJ no Brasil é obrigada a informar à Receita Federal todas as operações — incluindo nome, CPF, valor e tipo de ativo. Se você transacionou, a Receita provavelmente já tem os dados. Declarar certo não é opcional.</div>
+      </div>
+      <div class="risk-card reveal reveal-d1">
+        <div class="r-num">Fato 02</div>
+        <div class="r-title">Multa por omissão: <strong>75% a 150%</strong> do imposto.</div>
+        <div class="r-body">Omissão de rendimentos resulta em multa de 75% sobre o imposto não pago — podendo chegar a 150% em caso de fraude. Isso sem contar juros de mora (Selic + 1%). Uma declaração errada pode custar muito mais do que qualquer ganho não declarado.</div>
+      </div>
+      <div class="risk-card reveal reveal-d2">
+        <div class="r-num">Fato 03</div>
+        <div class="r-title">Prazo: <strong>31 de maio.</strong> Sem prorrogação.</div>
+        <div class="r-body">O programa da Receita abre em março e fecha em 31 de maio. Declaração fora do prazo gera multa mínima de R$165,74, podendo chegar a 20% do imposto devido. Quem se prepara antes evita a correria — e o erro.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ CAPÍTULOS ═══════════════════════════════════ -->
+<section class="section-chapters" id="conteudo">
+  <div class="container">
+    <div class="reveal">
+      <div class="s-label">6 capítulos · checklist · exemplos práticos</div>
+      <h2 class="s-h2">O que tem <em>no e-book</em></h2>
+      <p class="s-sub">Do básico ao avançado, em linguagem de investidor — tudo antes de abrir o programa da Receita.</p>
+    </div>
+
+    <div class="chapters-list">
+      <div class="chapter-item reveal">
+        <span class="c-num">Cap. 01</span>
+        <div class="c-body">
+          <div class="c-title">A Nova Regra de Declaração Cripto 2026</div>
+          <div class="c-desc">O que mudou em relação ao ano anterior, novas exigências da Receita Federal e por que 2026 é o ano em que a fiscalização de criptoativos se tornou mais rigorosa no Brasil.</div>
+        </div>
+      </div>
+      <div class="chapter-item reveal reveal-d1">
+        <span class="c-num">Cap. 02</span>
+        <div class="c-body">
+          <div class="c-title">Quem é obrigado a declarar — e o que</div>
+          <div class="c-desc">Qualquer cripto acima de R$5 mil em 31/12 entra em Bens e Direitos. Entenda os limites, as exceções e como cada tipo de ativo é classificado no programa da Receita.</div>
+        </div>
+      </div>
+      <div class="chapter-item reveal reveal-d2">
+        <span class="c-num">Cap. 03</span>
+        <div class="c-body">
+          <div class="c-title">Como declarar Bitcoin, altcoins e stablecoins</div>
+          <div class="c-desc">Passo a passo no programa da Receita Federal — ficha de Bens e Direitos, grupo 08, códigos por tipo de ativo e custo de aquisição correto. Tabela completa incluída.</div>
+        </div>
+      </div>
+      <div class="chapter-item reveal reveal-d3">
+        <span class="c-num">Cap. 04</span>
+        <div class="c-body">
+          <div class="c-title">Ganho de Capital — cálculo, isenções e pagamento</div>
+          <div class="c-desc">Como calcular o custo médio ponderado, quando há isenção (vendas abaixo de R$35 mil/mês), como emitir o DARF e o que fazer quando há prejuízo.</div>
+        </div>
+      </div>
+      <div class="chapter-item reveal reveal-d4">
+        <span class="c-num">Cap. 05</span>
+        <div class="c-body">
+          <div class="c-title">DeFi, staking e exchanges internacionais</div>
+          <div class="c-desc">Como tratar rendimentos de staking, yield farming e liquidity pools. Cripto em Binance, Coinbase e Kraken: declaração como bem no exterior e obrigação acima de US$1.000.</div>
+        </div>
+      </div>
+      <div class="chapter-item reveal reveal-d5">
+        <span class="c-num">Cap. 06</span>
+        <div class="c-body">
+          <div class="c-title">Risco, Fiscalização e Como se Blindar</div>
+          <div class="c-desc">O que a Receita já sabe sobre você por meio das exchanges (IN 1888). Multas de 75% a 150% sobre o imposto devido, omissão de rendimentos e como evitar a malha fina.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits-grid reveal">
+      <div class="benefit-item">
+        <span class="b-check">✓</span>
+        <div>
+          <div class="b-title">Checklist de declaração</div>
+          <div class="b-desc">Lista completa de documentos e informações que você precisa reunir antes de abrir o programa da Receita.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="b-check">✓</span>
+        <div>
+          <div class="b-title">Erros mais comuns — e como evitar</div>
+          <div class="b-desc">Os equívocos que mais levam investidores à malha fina, com orientação clara de como corrigir antes de enviar.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="b-check">✓</span>
+        <div>
+          <div class="b-title">Exemplos práticos com cálculo</div>
+          <div class="b-desc">Situações reais: venda parcial, compra em parcelas, recebimento de staking e posição em exchange internacional.</div>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <span class="b-check">✓</span>
+        <div>
+          <div class="b-title">Linguagem de investidor, não de contador</div>
+          <div class="b-desc">Explicações diretas para quem investe — sem juridiquês, sem generalização, sem enrolação.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="urgency reveal">
+      <span>⏱</span>
+      <p><strong>O prazo da Receita começa em março e fecha em 31 de maio.</strong> Quem organiza cedo tem menos risco de malha fina — e mais tempo para corrigir se necessário.</p>
+    </div>
+
+    <div class="cta-inline reveal">
+      <a href="#formulario" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary">
+        Baixar o e-book gratuito agora →
+      </a>
+      <p style="font-size:11px;color:var(--gray-2);margin-top:10px;">Gratuito. Sem spam. Entrega imediata no e-mail.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ CTA BANNER ═══════════════════════════════════ -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-copy reveal">
+      <p>Declare cripto em 2026 com o mesmo rigor que aplica no resto do patrimônio.</p>
+      <p>E-book gratuito — 6 capítulos, checklist e exemplos práticos. Curadoria: André Franco.</p>
+    </div>
+    <a href="#formulario" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'});return false;"
+       class="btn-primary reveal reveal-d1">
+      Quero o e-book gratuito →
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ AUTORIDADE ═══════════════════════════════════ -->
+<section class="section-authority" id="autoridade">
+  <div class="container">
+    <div class="reveal">
+      <div class="s-label">Quem disponibiliza este e-book</div>
+    </div>
+
+    <div class="authority-grid">
+      <div class="authority-photo-wrap reveal">
+        <img src="https://s3.amazonaws.com/plugcrm-app/69a1cc3e5a0b690013d94fe3/instance_file/69bc7d6c0bb9b20023f3e540.jpg" alt="André Franco — Fundador da Boost Research">
+        <div class="photo-caption">
+          <span class="cap-pill">+10 anos em cripto</span>
+          <span class="cap-pill">Fundador Boost Research</span>
+          <span class="cap-pill">2 ciclos completos</span>
+        </div>
+      </div>
+
+      <div class="authority-content reveal reveal-d1">
+        <h2 class="a-title">André Franco e a Boost Research.</h2>
+
+        <p>A <strong style="color:var(--green)">Boost Research</strong> disponibiliza este e-book gratuitamente para qualquer investidor em criptoativos — como parte do compromisso de levar conteúdo relevante a quem trata cripto com o mesmo rigor que aplica no restante da carteira.</p>
+
+        <p style="color:var(--gray-2)">André Franco acompanha o mercado de cripto desde 2016 — o que significa que já atravessou dois ciclos completos de alta e baixa. Não é analista de bull market. É analista de ciclo. E entende as implicações tributárias que cada movimento de mercado traz.</p>
+
+        <div class="authority-card">
+          <div class="ac-label">Sobre a Boost Research</div>
+          <div class="authority-card-items">
+            <div class="authority-card-item">Honorário fixo — sem conflito de interesse, sem comissão de exchanges</div>
+            <div class="authority-card-item">André Franco revisa e assina toda análise que vai ao cliente</div>
+            <div class="authority-card-item">Research house institucional — não é curso, não é comunidade, não é influencer</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5521965622891" target="_blank" rel="noopener"
+           id="btn-whatsapp-andre" class="btn-wa"
+           onclick="if(typeof dataLayer!=='undefined')dataLayer.push({event:'whatsapp_click',section:'autoridade'});">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Falar com a Boost Research
+        </a>
+        <p class="btn-wa-sub">Resposta em até 1 dia útil · WhatsApp direto com a equipe</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ BRAND ═══════════════════════════════════ -->
+<section class="section-brand">
+  <div class="container">
+    <div class="brand-inner">
+      <div class="brand-logo-wrap reveal">
+        <img src="https://s3.amazonaws.com/plugcrm-app/69a1cc3e5a0b690013d94fe3/instance_file/69bc7d48d81f8b00269a7336.jpg" alt="Boost Research">
+      </div>
+      <div class="brand-copy reveal reveal-d1">
+        <div class="b-rule"></div>
+        <h2>A maior casa de análise de<br><em>criptoativos do Brasil</em></h2>
+        <p>Fundada por André Franco, a Boost Research entrega análise fundamentada sobre ativos digitais e macroeconomia — com método de research institucional e histórico que atravessa mais de um ciclo completo de mercado.</p>
+        <div class="brand-stats">
+          <div class="brand-stat">
+            <div class="bs-num"><em>+</em><span class="counter" data-target="10">10</span></div>
+            <div class="bs-label">anos de mercado</div>
+          </div>
+          <div class="brand-stat">
+            <div class="bs-num"><em>+</em><span class="counter" data-target="19">19</span><em>k</em></div>
+            <div class="bs-label">investidores</div>
+          </div>
+          <div class="brand-stat">
+            <div class="bs-num"><span class="counter" data-target="2">2</span></div>
+            <div class="bs-label">ciclos completos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ CTA FINAL ═══════════════════════════════════ -->
+<section class="section-cta-final" id="cta-final">
+  <div class="container">
+    <div class="cta-final-inner">
+      <div class="reveal">
+        <div class="s-label">E-book gratuito · entrega imediata</div>
+        <h2 class="s-h2">Declare cripto em 2026<br><em>sem improviso.</em></h2>
+        <p class="s-sub">Baixe agora o e-book da Boost Research e entre na declaração sabendo exatamente o que declarar, como calcular e como se proteger de multas.</p>
+      </div>
+      <div class="cta-final-btn-wrap reveal reveal-d1">
+        <a href="#formulario" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'});return false;"
+           class="btn-primary" style="padding: 18px 48px; font-size: 1rem;">
+          Baixar o e-book gratuito agora →
+        </a>
+      </div>
+      <p class="reveal reveal-d2" style="font-size:11px;color:var(--gray-2);margin-top:16px;">
+        🔒 Gratuito. Sem spam. Seus dados são usados exclusivamente para envio do e-book.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://s3.amazonaws.com/plugcrm-app/69a1cc3e5a0b690013d94fe3/instance_file/69bc7d48d81f8b00269a7336.jpg" alt="Boost Research">
+    </div>
+    <p class="footer-disclaimer">
+      Conteúdo informativo. Não é recomendação de investimento.
+      As informações deste e-book têm caráter educativo e não substituem a orientação de um profissional
+      contábil para situações específicas. Boost Research disponibiliza este conteúdo com caráter exclusivamente educativo.
+      Boost Research · 2026.
+    </p>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════ JAVASCRIPT ═══════════════════════════════════ -->
+<script>
+(function () {
+'use strict';
+
+/* ─── SCROLL PROGRESS BAR ─── */
+var prog = document.getElementById('scroll-progress');
+var navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', function () {
+  var st = window.scrollY || document.documentElement.scrollTop;
+  var dh = document.documentElement.scrollHeight - window.innerHeight;
+  if (prog && dh > 0) prog.style.width = Math.min((st / dh) * 100, 100) + '%';
+  if (navbar) navbar.classList.toggle('scrolled', st > 20);
+}, { passive: true });
+
+
+/* ─── SCROLL REVEAL (IntersectionObserver) ─── */
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    observer.observe(el);
+  });
+} else {
+  /* Fallback: mostra tudo imediatamente */
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    el.classList.add('visible');
+  });
+}
+
+
+/* ─── COUNTER ANIMATION ─── */
+function animateCounter(el) {
+  var target = parseInt(el.getAttribute('data-target'), 10);
+  var duration = 1200;
+  var start = null;
+  var startVal = 0;
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function step(ts) {
+    if (!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    var val = Math.floor(easeOut(progress) * (target - startVal) + startVal);
+    el.textContent = val;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+
+  requestAnimationFrame(step);
+}
+
+if ('IntersectionObserver' in window) {
+  var counterObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(function (el) {
+    counterObs.observe(el);
+  });
+}
+
+
+/* ─── UTM: salva em cookie 30 dias ─── */
+function setCookie(name, val, days) {
+  var d = new Date();
+  d.setTime(d.getTime() + days * 864e5);
+  document.cookie = name + '=' + encodeURIComponent(val) + '; expires=' + d.toUTCString() + '; path=/; SameSite=Lax';
+}
+function getCookie(name) {
+  var match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[2]) : '';
+}
+
+var params = new URLSearchParams(window.location.search);
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) {
+  var v = params.get(k);
+  if (v) {
+    setCookie('boost_' + k, v, 30);
+    try { sessionStorage.setItem('boost_' + k, v); } catch (e) {}
+  }
+});
+
+function getUTM(key) {
+  var c = getCookie('boost_utm_' + key);
+  if (c) return c;
+  try { return sessionStorage.getItem('boost_utm_' + key) || ''; } catch (e) { return ''; }
+}
+
+function fillUTMs() {
+  ['source','medium','campaign','content','term'].forEach(function (k) {
+    var el = document.getElementById('f-utm-' + k);
+    if (el) el.value = getCookie('boost_utm_' + k);
+  });
+}
+document.addEventListener('DOMContentLoaded', fillUTMs);
+
+
+/* ─── MÁSCARA WHATSAPP ─── */
+document.addEventListener('DOMContentLoaded', function () {
+  var wpp = document.getElementById('f-whatsapp');
+  if (!wpp) return;
+
+  wpp.addEventListener('focus', function () {
+    if (!this.value) this.value = '+55 ';
+  });
+
+  wpp.addEventListener('input', function () {
+    var digits = this.value.replace(/\D/g, '');
+    if (!digits.startsWith('55')) digits = '55' + digits;
+    digits = digits.slice(0, 13);
+    var ddd    = digits.slice(2, 4);
+    var parte1 = digits.slice(4, 9);
+    var parte2 = digits.slice(9, 13);
+    var v = '+55';
+    if (ddd)    v += ' (' + ddd + ')';
+    if (parte1) v += ' ' + parte1;
+    if (parte2) v += '-' + parte2;
+    this.value = v;
+  });
+});
+
+
+/* ─── SUBMIT: validação + RD native tracking ─── */
+window.addEventListener('submit', function (e) {
+  if (!e.target || e.target.id !== 'lp_ir_cripto') return;
+
+  var form  = e.target;
+  var btnEl = document.getElementById('btn-enviar');
+  var errEl = document.getElementById('form-error');
+  var sucEl = document.getElementById('form-success');
+
+  errEl.style.display = 'none';
+
+  var nome   = document.getElementById('f-nome').value.trim();
+  var email  = document.getElementById('f-email').value.trim();
+  var wppRaw = document.getElementById('f-whatsapp').value.trim();
+
+  if (!nome || !email || !wppRaw) {
+    e.preventDefault();
+    errEl.textContent = 'Por favor, preencha nome, e-mail e WhatsApp.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    e.preventDefault();
+    errEl.textContent = 'E-mail inválido.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  /* Popula mobile_phone (+55XXXXXXXXXXX) antes do RD ler o form */
+  document.getElementById('f-mobile-phone').value = '+' + wppRaw.replace(/\D/g, '');
+
+  btnEl.disabled = true;
+  btnEl.textContent = 'Enviando...';
+
+  /* Meta Pixel */
+  if (typeof fbq === 'function') fbq('track', 'Lead');
+
+  /* GTM DataLayer */
+  if (typeof dataLayer !== 'undefined') {
+    dataLayer.push({ event: 'form_submit', form_id: 'lp_ir_cripto' });
+  }
+
+  /* Bloqueia submit real — RD captura via click no btn antes deste handler */
+  e.preventDefault();
+
+  setTimeout(function () {
+    form.style.display = 'none';
+    sucEl.style.display = 'block';
+  }, 800);
+}, true);
+
+})();
+</script>
+
+</body>
+</html>
