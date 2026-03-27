@@ -128,6 +128,44 @@
   .legend-item { display: flex; align-items: center; gap: 5px; }
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
+
+  /* Campaign cards */
+  .camp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+  .camp-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .camp-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .camp-conjuntos { font-size: 10px; color: var(--text-3); margin-bottom: 10px; }
+  .camp-metrics { display: flex; gap: 12px; }
+  .camp-metric { display: flex; flex-direction: column; }
+  .cm-val { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+  .cm-val.ok { color: var(--ok); }
+  .cm-val.warn { color: var(--warn); }
+  .cm-val.danger { color: var(--danger); }
+  .cm-val.neutral { color: var(--text-3); }
+  .cm-lbl { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Ranking grouped */
+  .rank-phase-group { margin-bottom: 20px; }
+  .rank-phase-label { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-2); margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .rank-phase-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  
+  .rank-row2 { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--bg-2); border-radius: 8px; margin-bottom: 5px; border: 1px solid var(--border); transition: background 0.15s; }
+  .rank-row2:hover { background: var(--bg-3); }
+  .rr-left { flex: 1; min-width: 0; }
+  .rr-creative { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
+  .rr-tipo { font-size: 10px; font-weight: 400; color: var(--text-3); margin-left: 4px; }
+  .rr-adset { font-size: 10px; color: var(--text-2); margin-bottom: 6px; font-family: monospace; letter-spacing: -0.01em; }
+  .rr-bar-wrap { height: 4px; background: var(--bg-4); border-radius: 2px; overflow: hidden; }
+  .rr-bar { height: 100%; border-radius: 2px; transition: width 1s ease; }
+  
+  .rr-metrics { display: flex; gap: 20px; flex-shrink: 0; }
+  .rr-metric { display: flex; flex-direction: column; align-items: center; min-width: 44px; }
+  .rr-val { font-size: 13px; font-weight: 700; }
+  .rr-val.cpl-ok { color: var(--ok); }
+  .rr-val.cpl-warn { color: var(--warn); }
+  .rr-val.cpl-danger { color: var(--danger); }
+  .rr-val.cpl-neutral { color: var(--text-3); }
+  .rr-lbl { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em; }
+
   @media (max-width: 768px) {
     .header { padding: 16px; }
     .content { padding: 0 16px 32px; }
@@ -185,148 +223,520 @@
 <div class="content">
   <!-- RANKING VIEW -->
   <div id="view-ranking" class="view-panel active">
+    
     <div class="ranking-section">
-      <div class="legend">
+      <div class="section-title" style="margin-bottom:14px">Campanhas C4 — Visão Geral</div>
+      <div class="camp-grid">
+        
+      <div class="camp-card" style="border-top:3px solid #6366f1">
+        <div class="camp-name" style="color:#6366f1">AWARENESS</div>
+        <div class="camp-conjuntos">3 conjuntos</div>
+        <div class="camp-metrics">
+          <div class="camp-metric">
+            <span class="cm-val" style="color:var(--teal)">0</span>
+            <span class="cm-lbl">Leads</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val neutral">—</span>
+            <span class="cm-lbl">CPL</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val">R$784</span>
+            <span class="cm-lbl">Gasto</span>
+          </div>
+        </div>
+      </div>
+      <div class="camp-card" style="border-top:3px solid #f59e0b">
+        <div class="camp-name" style="color:#f59e0b">CONSIDERAÇÃO</div>
+        <div class="camp-conjuntos">4 conjuntos</div>
+        <div class="camp-metrics">
+          <div class="camp-metric">
+            <span class="cm-val" style="color:var(--teal)">5</span>
+            <span class="cm-lbl">Leads</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val danger">R$210</span>
+            <span class="cm-lbl">CPL</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val">R$1050</span>
+            <span class="cm-lbl">Gasto</span>
+          </div>
+        </div>
+      </div>
+      <div class="camp-card" style="border-top:3px solid #10b981">
+        <div class="camp-name" style="color:#10b981">CONVERSÃO LP</div>
+        <div class="camp-conjuntos">6 conjuntos</div>
+        <div class="camp-metrics">
+          <div class="camp-metric">
+            <span class="cm-val" style="color:var(--teal)">6</span>
+            <span class="cm-lbl">Leads</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val danger">R$187</span>
+            <span class="cm-lbl">CPL</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val">R$1125</span>
+            <span class="cm-lbl">Gasto</span>
+          </div>
+        </div>
+      </div>
+      <div class="camp-card" style="border-top:3px solid #1dd1a1">
+        <div class="camp-name" style="color:#1dd1a1">CONVERSÃO FORM</div>
+        <div class="camp-conjuntos">2 conjuntos</div>
+        <div class="camp-metrics">
+          <div class="camp-metric">
+            <span class="cm-val" style="color:var(--teal)">6</span>
+            <span class="cm-lbl">Leads</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val warn">R$30</span>
+            <span class="cm-lbl">CPL</span>
+          </div>
+          <div class="camp-metric">
+            <span class="cm-val">R$180</span>
+            <span class="cm-lbl">Gasto</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="legend" style="margin-bottom:16px">
         <span class="legend-item"><span class="legend-dot" style="background:var(--ok)"></span> CPL ≤ R$20</span>
         <span class="legend-item"><span class="legend-dot" style="background:var(--warn)"></span> CPL ≤ R$40</span>
         <span class="legend-item"><span class="legend-dot" style="background:var(--danger)"></span> CPL &gt; R$40</span>
       </div>
-      <div class="section-title">Performance por Criativo · Leads totais</div>
+      <div class="section-title" style="margin-bottom:14px">Conjuntos de Anúncio — por Campanha</div>
       
-    <div class="rank-row">
-      <span class="rank-badge">🥇</span>
-      <div class="rank-info">
-        <div class="rank-label">V2 — 100k reais <span class="rank-phase" style="color:#1dd1a1">CONVERSÃO FORM</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:100.0%">
-            <animate attributeName="width" from="0%" to="100.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+    <div class="rank-phase-group">
+      <div class="rank-phase-label">
+        <span class="rank-phase-dot" style="background:#6366f1"></span>
+        AWARENESS
+      </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V1 — Cripto é método <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">FRIO · CRIPTO · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:0.0%;background:#6366f180"></div>
           </div>
-          <span class="rank-leads">4 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">0</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-neutral">—</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.16%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$200</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-warn">R$38</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">🥈</span>
-      <div class="rank-info">
-        <div class="rank-label">V4 — Estrutura do serviço <span class="rank-phase" style="color:#10b981">CONVERSÃO LP</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:75.0%">
-            <animate attributeName="width" from="0%" to="75.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V6 — Espelho inv. trad <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">FRIO · TRAD · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:0.0%;background:#6366f180"></div>
           </div>
-          <span class="rank-leads">3 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">0</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-neutral">—</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.11%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$299</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$232</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">🥉</span>
-      <div class="rank-info">
-        <div class="rank-label">V5 — 100k em cripto <span class="rank-phase" style="color:#1dd1a1">CONVERSÃO FORM</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:50.0%">
-            <animate attributeName="width" from="0%" to="50.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V7 — Dor sem processo <span class="rr-tipo">Vídeo · Story</span></div>
+          <div class="rr-adset">FRIO · CRIPTO · STORY</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:0.0%;background:#6366f180"></div>
           </div>
-          <span class="rank-leads">2 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">0</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-neutral">—</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.09%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$285</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
+        </div>
+      </div></div>
+    <div class="rank-phase-group">
+      <div class="rank-phase-label">
+        <span class="rank-phase-dot" style="background:#f59e0b"></span>
+        CONSIDERAÇÃO
+      </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V3 — Proteção + renda <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">MORNO · AF-CRIPTO · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:100.0%;background:#f59e0b80"></div>
+          </div>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">2</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$228</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">1.36%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$456</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-ok">R$13</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#4</span>
-      <div class="rank-info">
-        <div class="rank-label">V3 — Proteção + renda <span class="rank-phase" style="color:#f59e0b">CONSIDERAÇÃO</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:50.0%">
-            <animate attributeName="width" from="0%" to="50.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V2 — 100k reais <span class="rr-tipo">Vídeo · Story</span></div>
+          <div class="rr-adset">MORNO · AF-CRIPTO · STORY</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:50.0%;background:#f59e0b80"></div>
           </div>
-          <span class="rank-leads">2 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$74</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.75%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$74</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$228</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#5</span>
-      <div class="rank-info">
-        <div class="rank-label">C3 — Pitch mentoria Boost <span class="rank-phase" style="color:#10b981">CONVERSÃO LP</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">C1 — Prova institucional <span class="rr-tipo">Carrossel · Feed</span></div>
+          <div class="rr-adset">MORNO · AF-TRAD · FEED · CARROSSEL</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:50.0%;background:#f59e0b80"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$250</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">1.15%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$250</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-warn">R$29</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#6</span>
-      <div class="rank-info">
-        <div class="rank-label">V2 — 100k reais <span class="rank-phase" style="color:#f59e0b">CONSIDERAÇÃO</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V6 — Espelho inv. trad <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">MORNO · BOOST-TRAD · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:50.0%;background:#f59e0b80"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$271</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.97%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$271</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
+        </div>
+      </div></div>
+    <div class="rank-phase-group">
+      <div class="rank-phase-label">
+        <span class="rank-phase-dot" style="background:#10b981"></span>
+        CONVERSÃO LP
+      </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V4 — Estrutura do serviço <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">QUENTE · AF-TRAD · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:100.0%;background:#10b98180"></div>
+          </div>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">3</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$232</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.77%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$695</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$74</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#7</span>
-      <div class="rank-info">
-        <div class="rank-label">V5 — 100k em cripto <span class="rank-phase" style="color:#10b981">CONVERSÃO LP</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">C3 — Pitch mentoria Boost <span class="rr-tipo">Carrossel · Feed</span></div>
+          <div class="rr-adset">QUENTE · BOOST-BROAD · CARROSSEL</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:33.3%;background:#10b98180"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-warn">R$29</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.98%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$29</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$85</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#8</span>
-      <div class="rank-info">
-        <div class="rank-label">C1 — Prova institucional <span class="rank-phase" style="color:#f59e0b">CONSIDERAÇÃO</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V5 — 100k em cripto <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">QUENTE · AF-CRIPTO · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:33.3%;background:#10b98180"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$85</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">1.30%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$85</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$250</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#9</span>
-      <div class="rank-info">
-        <div class="rank-label">V6 — Espelho inv. trad <span class="rank-phase" style="color:#f59e0b">CONSIDERAÇÃO</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V7 — Análise gratuita <span class="rr-tipo">Vídeo · Story</span></div>
+          <div class="rr-adset">QUENTE · BOOST-TRAD · STORY</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:33.3%;background:#10b98180"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">1</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-danger">R$275</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.60%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$275</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$271</div>
-    </div>
-    <div class="rank-row">
-      <span class="rank-badge">#10</span>
-      <div class="rank-info">
-        <div class="rank-label">V7 — Análise gratuita <span class="rank-phase" style="color:#10b981">CONVERSÃO LP</span></div>
-        <div class="rank-bar-wrap">
-          <div class="rank-bar" style="width:25.0%">
-            <animate attributeName="width" from="0%" to="25.0%" dur="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1" fill="freeze"/>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V2 — 100k reais <span class="rr-tipo">Vídeo · Story</span></div>
+          <div class="rr-adset">QUENTE · AF-CRIPTO · STORY</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:0.0%;background:#10b98180"></div>
           </div>
-          <span class="rank-leads">1 leads</span>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">0</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-neutral">—</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">0.00%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$17</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
         </div>
       </div>
-      <div class="rank-cpl cpl-danger">R$275</div>
-    </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">C2 — Pitch mentoria André <span class="rr-tipo">Carrossel · Feed</span></div>
+          <div class="rr-adset">QUENTE · AF-BROAD · CARROSSEL</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:0.0%;background:#10b98180"></div>
+          </div>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">0</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-neutral">—</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">2.06%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$24</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
+        </div>
+      </div></div>
+    <div class="rank-phase-group">
+      <div class="rank-phase-label">
+        <span class="rank-phase-dot" style="background:#1dd1a1"></span>
+        CONVERSÃO FORM
+      </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V2 — 100k reais <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">QUENTE · BOOST-CRIPTO-FORM · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:100.0%;background:#1dd1a180"></div>
+          </div>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">4</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-warn">R$38</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">1.62%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$153</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-row2">
+        <div class="rr-left">
+          <div class="rr-creative">V5 — 100k em cripto <span class="rr-tipo">Vídeo · Feed</span></div>
+          <div class="rr-adset">QUENTE · AF-CRIPTO-FORM · FEED</div>
+          <div class="rr-bar-wrap">
+            <div class="rr-bar" style="width:50.0%;background:#1dd1a180"></div>
+          </div>
+        </div>
+        <div class="rr-metrics">
+          <div class="rr-metric">
+            <span class="rr-val" style="color:var(--teal)">2</span>
+            <span class="rr-lbl">Leads</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val cpl-ok">R$13</span>
+            <span class="rr-lbl">CPL</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">3.52%</span>
+            <span class="rr-lbl">CTR</span>
+          </div>
+          <div class="rr-metric">
+            <span class="rr-val">R$27</span>
+            <span class="rr-lbl">Gasto</span>
+          </div>
+        </div>
+      </div></div>
     </div>
   </div>
 
-  <!-- CRIATIVOS VIEW -->
+    <!-- CRIATIVOS VIEW -->
   <div id="view-criativos" class="view-panel">
     
   <div class="phase-section">
