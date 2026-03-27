@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Top Criativos — Boost Research C4</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-0: #0a0a0a;
+    --bg-1: #141414;
+    --bg-2: #1c1c1c;
+    --bg-3: #242424;
+    --border: rgba(255,255,255,0.06);
+    --border-hover: rgba(255,255,255,0.12);
+    --text-1: #f0f0f0;
+    --text-2: #a0a0a0;
+    --text-3: #666;
+    --teal: #1dd1a1;
+    --teal-dim: rgba(29,209,161,0.12);
+    --ok: #10b981;
+    --warn: #f59e0b;
+    --danger: #ef4444;
+    --neutral: #666;
+  }
+
+  body {
+    background: var(--bg-0);
+    color: var(--text-1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Header */
+  .header {
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-left { display: flex; align-items: center; gap: 12px; }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--ok);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .header h1 { font-size: 15px; font-weight: 600; color: var(--text-1); }
+  .header-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .ts { font-size: 12px; color: var(--text-3); }
+  .refresh-btn {
+    background: var(--bg-3); color: var(--text-2);
+    border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 6px;
+    font-size: 12px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .refresh-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+  .container { padding: 24px 28px; max-width: 1400px; margin: 0 auto; }
+
+  /* Section title */
+  .section-title {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--text-3); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* KPIs topo */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .kpi {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi.accent { border-color: rgba(29,209,161,0.3); }
+  .kpi.accent::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--teal);
+  }
+  .kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 8px; }
+  .kpi-value { font-size: 28px; font-weight: 700; color: var(--text-1); line-height: 1.1; }
+  .kpi-value.ok { color: var(--ok); }
+  .kpi-value.teal { color: var(--teal); }
+  .kpi-sub { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+
+  /* Grid criativos */
+  .creatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
+
+  .creative-card {
+    background: var(--bg-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .creative-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  /* Imagem */
+  .card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--bg-2);
+    overflow: hidden;
+  }
+  .card-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .creative-card:hover .card-image img { transform: scale(1.03); }
+  .no-thumb {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-3); font-size: 12px;
+    background: var(--bg-2);
+  }
+
+  /* Rank badge */
+  .rank-badge {
+    position: absolute; top: 10px; left: 10px;
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .rank-other {
+    background: var(--bg-3); color: var(--text-2);
+    border-color: var(--border);
+  }
+  .ad-type-badge {
+    position: absolute; bottom: 8px; right: 8px;
+    background: rgba(0,0,0,0.75);
+    color: var(--text-2);
+    font-size: 10px; font-weight: 600;
+    padding: 3px 8px; border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Card body */
+  .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .ad-name { font-size: 13px; font-weight: 600; color: var(--text-1); line-height: 1.4; flex: 1; }
+  .ad-body { font-size: 12px; color: var(--text-3); line-height: 1.4; font-style: italic; }
+
+  /* Objetivo badge */
+  .obj-badge {
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 4px;
+    white-space: nowrap; flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .obj-form { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .obj-lp   { background: rgba(29,209,161,0.12); color: var(--teal); }
+  .obj-cons { background: rgba(245,158,11,0.12); color: var(--warn); }
+  .obj-aw   { background: rgba(74,157,224,0.12); color: #74b9ff; }
+
+  /* Métricas grid 2x2 */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .metric-item {
+    background: var(--bg-2);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .metric-label {
+    font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-3); margin-bottom: 4px;
+  }
+  .metric-val {
+    font-size: 20px; font-weight: 700; line-height: 1.1;
+  }
+  .metric-val.ok      { color: var(--ok); }
+  .metric-val.warn    { color: var(--warn); }
+  .metric-val.danger  { color: var(--danger); }
+  .metric-val.neutral { color: var(--text-2); }
+
+  /* Sparkline */
+  .sparkline-row {
+    display: flex; align-items: center; gap: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+  .spark-label {
+    font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-3);
+  }
+  .sparkline {
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 14px; color: var(--teal);
+    letter-spacing: 3px; font-weight: 600;
+  }
+  .impressions {
+    font-size: 11px; color: var(--text-3);
+    margin-left: auto;
+  }
+
+  @media (max-width: 768px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .creatives-grid { grid-template-columns: 1fr; }
+    .container { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="live-dot"></div>
+    <div>
+      <h1>Top Criativos — Boost Research C4</h1>
+      <div class="header-sub">Ranking por performance · Março 2026 · 8 melhores anúncios</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span class="ts">27/03/2026</span>
+    <button class="refresh-btn" onclick="location.reload()">↻ Atualizar</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="kpi-row">
+    <div class="kpi accent">
+      <div class="kpi-label">Leads (top 8 ads)</div>
+      <div class="kpi-value teal">357</div>
+      <div class="kpi-sub">este mês</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Gasto total</div>
+      <div class="kpi-value">R$9,312</div>
+      <div class="kpi-sub">nos 8 melhores</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">CPL médio</div>
+      <div class="kpi-value warn">R$26</div>
+      <div class="kpi-sub">meta: R$50</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Melhor CPL</div>
+      <div class="kpi-value ok">R$14</div>
+      <div class="kpi-sub">#1 ad</div>
+    </div>
+  </div>
+
+  <div class="section-title">Ranking de Criativos por Leads Gerados</div>
+  <div class="creatives-grid">
+    
+    <div class="creative-card" style="border-top:2px solid #ffd700;">
+      <div class="card-image">
+        <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t15.5256-10/638387087_4160625274249025_4490085344608860235_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=w2a6_yiAUoIQ7kNvwFO0lvg&_nc_oc=Adrscqw-Sbpe_K8TH44lNZZdW-TF742iFYx3agcJj7C0eWKDHV0tHXS49Ua8eesianloRq9Wl_dS5RRi3od80W9I&_nc_zt=23&_nc_ht=scontent.fcpq4-1.fna&edm=AAT1rw8EAAAA&_nc_gid=Cgp9qJ9g0yhL048uY0nZyA&_nc_tpa=Q5bMBQE7kvpjXELpoojciX0GcHLwTw68W-4z1YOzcCJkMLwNi85tIajVbnE5drDt3UWW4q9FdEY9D163Fg&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=5fad0e&_nc_sid=58080a&oh=00_AfzufX2DMjam78C_EMlAtHawKcZnJJ6fcGkoYpQl0MPMxQ&oe=69CC3BEC" alt="Creative" loading="lazy">
+        <div class="rank-badge" style="background:#ffd700;color:#000;">#1</div>
+        <div class="ad-type-badge">🎬 Vídeo</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Crypto Intelligence Pro — Boost Research</div>
+          <span class="obj-badge obj-form">Lead Form</span>
+        </div>
+        <div class="ad-body">Conheça o Crypto Intelligence Pro: análises semanais (macro + BTC/altcoins), alerts tático...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">104</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val warn">R$30</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val ok">2.35%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$3,129</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▅▇█</span>
+          <span class="impressions">31,280 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="border-top:2px solid #c0c0c0;">
+      <div class="card-image">
+        <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t15.5256-10/638387087_4160625274249025_4490085344608860235_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=w2a6_yiAUoIQ7kNvwFO0lvg&_nc_oc=Adrscqw-Sbpe_K8TH44lNZZdW-TF742iFYx3agcJj7C0eWKDHV0tHXS49Ua8eesianloRq9Wl_dS5RRi3od80W9I&_nc_zt=23&_nc_ht=scontent.fcpq4-1.fna&edm=AAT1rw8EAAAA&_nc_gid=jiHJ1e4rIJduPw5t945dEw&_nc_tpa=Q5bMBQGNPOxG09zNUCNy8u3TeVIQ6bh6oSgHEPE7IKRn9OvnF-92JjglC4pAsIhDvJ-4yc1mo0R9TPDADw&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=5fad0e&_nc_sid=58080a&oh=00_AfxBHGJQh6BV6--qx9rgA5O3O92UkOge_KaoHhIBGlGOUA&oe=69CC3BEC" alt="Creative" loading="lazy">
+        <div class="rank-badge" style="background:#c0c0c0;color:#000;">#2</div>
+        <div class="ad-type-badge">🎬 Vídeo</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Crypto Intelligence Pro — Boost Research</div>
+          <span class="obj-badge obj-form">Lead Form</span>
+        </div>
+        <div class="ad-body">Conheça o Crypto Intelligence Pro: análises semanais (macro + BTC/altcoins), alerts tático...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">94</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val warn">R$37</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val warn">1.73%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$3,496</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▅▇█</span>
+          <span class="impressions">40,446 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="border-top:2px solid #cd7f32;">
+      <div class="card-image">
+        <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t15.5256-10/622981607_33442214232093037_8459034313650693730_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=rFUyoyeFFw4Q7kNvwE2dNr_&_nc_oc=AdoEiifin374VfH1LyFwXRFEC_Y8a0ed78NFJGaP5IL2x23hKH7RZENAW_cF37M6jf-cUHMQvcYV1zHMl70ZdqkH&_nc_zt=23&_nc_ht=scontent.fcpq4-1.fna&edm=AAT1rw8EAAAA&_nc_gid=EcjS0oDXaBvX5xlZdPhKjQ&_nc_tpa=Q5bMBQH5GrdlwncDSjg1kkO0yIVf4if-c0XboGM2N95dgUm-93TORgjdXjePW_ALgi7q_AixzRYgPuMstA&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=5fad0e&_nc_sid=58080a&oh=00_AfyMSNqHbZz_LeEsJgtow4aHYr5EeGMe3ZBiyXKHV5MClw&oe=69CC3EBB" alt="Creative" loading="lazy">
+        <div class="rank-badge" style="background:#cd7f32;color:#fff;">#3</div>
+        <div class="ad-type-badge">🎬 Vídeo</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Bitcoin no portfólio com prudência: tamanho, risco e método</div>
+          <span class="obj-badge obj-aw">Awareness</span>
+        </div>
+        <div class="ad-body">Bitcoin não é tudo ou nada. É instrumento de portfólio: tamanho, risco e método antes de d...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">68</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val ok">R$14</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val danger">1.45%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$941</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▄▆▇</span>
+          <span class="impressions">38,706 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="">
+      <div class="card-image">
+        <img src="https://external.fcpq4-1.fna.fbcdn.net/emg1/v/t13/6236471476053359141?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQKU84zRlRq1T1Oj4oWe0U_N7QSzrDMxU2Tya-kuBQ1H8m_Qez5LoGRnhCQZj9IVtpynsuaoXxDDWdD2-Ell7zQ9EBO66-hoNwT0znpCcJdEHWBKHZF1nww35ib_Zb9EzkpP5EQilyMKUYiIMmGk8cq1&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AAT1rw8EAAAA&_nc_gid=otVYQNShwXyEMEpsQRMPOw&_nc_oc=AdrDYNRosGr5_dTTIGzPXs5XZCZNoGHgNSzZmF3nrzyfrHkx34p9RHBzhqwkAtqUbQkdvOKag0gATlbZsGkz4sYM&ccb=13-1&oh=06_Q3-9AYrgTP-PM86fC5Ija92KtlN1EGH2Pg14HzEenkm9yCWh&oe=69C85582&_nc_sid=58080a" alt="Creative" loading="lazy">
+        <div class="rank-badge rank-other">#4</div>
+        <div class="ad-type-badge">🖼 Estático</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Invista com estratégia</div>
+          <span class="obj-badge obj-lp">LP</span>
+        </div>
+        <div class="ad-body">O mercado cripto amadureceu — e o maior risco hoje é investir sem estratégia.
+Quer entende...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">33</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val warn">R$21</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val warn">1.51%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$690</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▄▅▆</span>
+          <span class="impressions">15,250 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="">
+      <div class="card-image">
+        <img src="https://external.fcpq4-1.fna.fbcdn.net/emg1/v/t13/2245840950685580013?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQKIyJRP_Sh6m1HD6ISEV5QHZduPYtWBOGP01vb42tM8TqYxrX8of2psjJL1bg9IvCgexK9a79gtULrpC7l2XjbtFtdNvQEaNYaE_G14XemDkKtnhyM7DRIAIVZTIlqf7jlpaADALAYeCkwNo-kWTJC4&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AAT1rw8EAAAA&_nc_gid=LtwrNX-bR7WsY5idBfNEXg&_nc_oc=AdrzZFOFS5WFa5MBX61qfBYNf1GnTHkekMzFJAFdQ581zSYGPCHJ3ffOxCmUYCyn2yAxzpsmr567bPppAJpyidE_&ccb=13-1&oh=06_Q3-9AZ--D91qStbOOJAeaVVvXyOmDfzhHjMt-coHdfKwTGXq&oe=69C87412&_nc_sid=58080a" alt="Creative" loading="lazy">
+        <div class="rank-badge rank-other">#5</div>
+        <div class="ad-type-badge">🎠 Carrossel</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">cryptoandrefranco</div>
+          <span class="obj-badge obj-cons">Consideração</span>
+        </div>
+        <div class="ad-body">Muita gente entra por preço e hype — e decide por emoção. No cripto, a lógica dos investid...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">26</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val warn">R$20</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val ok">2.02%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$532</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▄▅▆</span>
+          <span class="impressions">12,796 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="">
+      <div class="card-image">
+        <img src="https://external.fcpq4-1.fna.fbcdn.net/emg1/v/t13/8065793510808063625?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJDqL-CgdqIU8laoqwoV_jHquEfiPIMF-Re3a0OY6AlJMdCQQTB1r6NswQ0WWIQ5GpPEUThlRq3U4jku-I9HNZAEk1hw3MU1VntjIKimtgoPZ_9j05Q9c7i0bvEIQ_JES56o-HdTkw-n8kn3o1gtqEc&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AAT1rw8EAAAA&_nc_gid=oICRpbnTCx8NPYECdpZNgg&_nc_oc=AdonGoA1xetzMjFTfTa-XkGJb5TNhEq02OXSpW9ltFKsyTD0ZBFEZFlAi3UExgjSzKv7CvduS2GPNuoa-j0JZWwX&ccb=13-1&oh=06_Q3-9AW1oYChzUCt-xt4NzxOE8YukAXbeD8oLkvhwutNetRt9&oe=69C84EF6&_nc_sid=58080a" alt="Creative" loading="lazy">
+        <div class="rank-badge rank-other">#6</div>
+        <div class="ad-type-badge">🎠 Carrossel</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Cripto é estratégia, não aposta</div>
+          <span class="obj-badge obj-cons">Consideração</span>
+        </div>
+        <div class="ad-body">Cripto não é aposta. É estratégia: análise, gestão de risco e disciplina antes de qualquer...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">11</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val ok">R$15</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val warn">1.97%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$170</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▃▄▅</span>
+          <span class="impressions">3,094 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="">
+      <div class="card-image">
+        <img src="https://external.fcpq4-1.fna.fbcdn.net/emg1/v/t13/7141681184316152096?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQKKVXM3A1LjAUkVDsfpJN_pgFWUsWOQrsHnwGXHpThh6vjbty333lZMB1Qbu807Vqmc16O4mvg_Mg4Np5miT5IvdnUrAgc3hCv9qjAwPMLd8UEpJ1bG0TbHaq6BO6kdy4J9_JiNsxOiEaVYfJELjbz7&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AAT1rw8EAAAA&_nc_gid=giFd-MdijEeKBvC92V9k-g&_nc_oc=Adql7btFQIIH-SUSaFimcFnmTBZvspnOp6AmHAlp1l41Og_Lbv0_asgOUSIsTTgQDLOacmJgpZhAAUrIhX5y1rli&ccb=13-1&oh=06_Q3-9AdMMJZ0Rhm8nPFToVjCtqyRSDC5K85_yi_PS_6AlU-U5&oe=69C84D83&_nc_sid=58080a" alt="Creative" loading="lazy">
+        <div class="rank-badge rank-other">#7</div>
+        <div class="ad-type-badge">🎠 Carrossel</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Cripto com método, sem improviso</div>
+          <span class="obj-badge obj-cons">Consideração</span>
+        </div>
+        <div class="ad-body">No mercado tradicional, investir é método. Em cripto, muita gente ainda reage ao preço. O ...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">11</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val ok">R$14</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val ok">2.45%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$153</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▃▄▅</span>
+          <span class="impressions">5,587 impressões</span>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" style="">
+      <div class="card-image">
+        <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t15.5256-10/634181685_1426091669201457_7041490022682209209_n.jpg?_nc_cat=107&ccb=1-7&_nc_ohc=cp0ocC3dDhQQ7kNvwHQueZ6&_nc_oc=Adq0vHXQoetXeRbyZVhUHm7ZWOGkqx-F5S_XNGz7V0pi0h3wMs9R1Ledh7ElraoXsrL0eML8s6sDUcvA-XGIOEk3&_nc_zt=23&_nc_ht=scontent.fcpq4-1.fna&edm=AAT1rw8EAAAA&_nc_gid=POhA2gj3r5ts7XUtw-QWKw&_nc_tpa=Q5bMBQFzSnKfASlkPFLd6Kzsv4dTLeZOT3M8tT8AhYraGxE8D0PwGKlZrvfofdJQjNceoEPc-qWa0oweHA&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=5fad0e&_nc_sid=58080a&oh=00_AfyrK62uxvra9wOrqMuL3GpH8bK4PnoMswuRlVXfUqXOOw&oe=69CC3815" alt="Creative" loading="lazy">
+        <div class="rank-badge rank-other">#8</div>
+        <div class="ad-type-badge">🎬 Vídeo</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="ad-name">Estratégia e clareza para quem tem +R$50K</div>
+          <span class="obj-badge obj-form">Lead Form</span>
+        </div>
+        <div class="ad-body">Cripto exige estratégia. Se você investe +R$50K, aplique para ter análises em primeira mão...</div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-label">Leads</div>
+            <div class="metric-val ok">10</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CPL</div>
+            <div class="metric-val warn">R$20</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">CTR</div>
+            <div class="metric-val ok">2.68%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Gasto</div>
+            <div class="metric-val neutral">R$200</div>
+          </div>
+        </div>
+        <div class="sparkline-row">
+          <span class="spark-label">Performance</span>
+          <span class="sparkline">▂▃▃▄▅</span>
+          <span class="impressions">2,577 impressões</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
