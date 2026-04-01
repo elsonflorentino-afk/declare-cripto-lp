@@ -1,0 +1,39 @@
+name: Weekly Dashboard — Boost Research
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'   # toda segunda às 12h UTC = 9h BRT
+  workflow_dispatch:         # permite rodar manualmente no GitHub
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ── 2. Python setup ──────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ── 3. Rodar pipeline ────────────────────────────────────
+      - name: Gerar dashboard
+        env:
+          META_TOKEN:        ${{ secrets.META_TOKEN }}
+          RD_CLIENT_ID:      ${{ secrets.RD_CLIENT_ID }}
+          RD_CLIENT_SECRET:  ${{ secrets.RD_CLIENT_SECRET }}
+          RD_REFRESH_TOKEN:  ${{ secrets.RD_REFRESH_TOKEN }}
+        run: python scripts/run_pipeline.py
+
+      # ── 4. Commit + push ─────────────────────────────────────
+      - name: Commit e publicar dashboard
+        run: |
+          git config user.name  "Dashboard Bot"
+          git config user.email "bot@boostresearch.com.br"
+          git add relatorio_*.html
+          git diff --cached --quiet || git commit -m "auto: dashboard atualizado $(date +'%d/%m/%Y')"
+          git push
