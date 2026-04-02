@@ -261,8 +261,8 @@ tr:hover td{{background:rgba(255,255,255,.02)}}
 .gallery{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}}
 .ccard{{background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s,transform .15s}}
 .ccard:hover{{border-color:var(--accent);transform:translateY(-2px)}}
-.cimg-wrap{{width:100%;height:300px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}}
-.cimg-wrap img{{max-width:100%;max-height:100%;object-fit:contain}}
+.cimg-wrap{{width:100%;background:var(--bg);overflow:hidden}}
+.cimg-wrap img{{width:100%;height:auto;display:block}}
 .cimg-ph{{font-size:30px;color:var(--text2)}}
 .cbody{{padding:11px}}
 .cname{{font-size:10px;color:var(--text2);margin-bottom:9px;font-family:monospace;line-height:1.4;min-height:28px}}
