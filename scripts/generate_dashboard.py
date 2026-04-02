@@ -129,25 +129,21 @@ def build_top_ads(ads, thumbs, limit=10):
     cards = ''
     for ad in ads[:limit]:
         thumb = thumbs.get(ad['id'], '')
-        img_wrap = (
-            f'<div style="width:100%;height:150px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:10px;border-radius:8px">'
-            f'<img src="{thumb}" style="max-width:100%;max-height:100%;object-fit:contain">'
-            f'</div>'
-        ) if thumb else (
-            f'<div style="width:100%;height:150px;background:var(--bg2);border-radius:8px;margin-bottom:10px;'
-            f'display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:11px">sem imagem</div>'
-        )
+        img_html = (f'<img src="{thumb}" alt="">' if thumb else '<div class="cimg-ph">🎬</div>')
         cpl_color = '#1dd1a1' if ad['cpl'] <= 40 else ('#f59e0b' if ad['cpl'] <= 80 else '#ef4444')
-        cards += f'''<div style="background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:12px">
-          {img_wrap}
-          <div style="font-size:11px;color:var(--text2);margin-bottom:6px;line-height:1.3">{ad["name"][:60]}</div>
-          <div style="display:flex;justify-content:space-between;font-size:12px">
-            <span style="color:#1dd1a1;font-weight:700">{ad["leads"]} leads</span>
-            <span style="color:{cpl_color}">{fmt_brl(ad["cpl"])}/lead</span>
-          </div>
-          <div style="font-size:11px;color:var(--text3);margin-top:4px">{fmt_brl(ad["spend"])} · {ad["ctr"]:.1f}% CTR</div>
-        </div>'''
-    return f'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px">{cards}</div>'
+        cards += f'''<div class="ccard">
+  <div class="cimg-wrap">{img_html}</div>
+  <div class="cbody">
+    <div class="cname">{ad["name"][:70]}</div>
+    <div class="cstats">
+      <div class="cst"><div class="cst-l">Leads</div><div class="cst-v" style="color:#1dd1a1">{ad["leads"]}</div></div>
+      <div class="cst"><div class="cst-l">CPL</div><div class="cst-v" style="color:{cpl_color}">{fmt_brl(ad["cpl"])}</div></div>
+      <div class="cst"><div class="cst-l">Gasto</div><div class="cst-v">{fmt_brl(ad["spend"])}</div></div>
+    </div>
+    <div style="font-size:10px;color:var(--text3);margin-top:6px">CTR {ad["ctr"]:.1f}% · {ad.get("campaign","")[:30]}</div>
+  </div>
+</div>'''
+    return f'<div class="gallery">{cards}</div>'
 
 def build_qual_bar(qual):
     """Barra de patrimônio cripto."""
@@ -262,6 +258,18 @@ tr:hover td{{background:rgba(255,255,255,.02)}}
 .mv{{display:flex;gap:12px;padding:12px 0;border-left:3px solid var(--teal);padding-left:14px;margin-bottom:8px}}
 .mv-w{{flex:0 0 60px;font-size:11px;font-weight:700;color:var(--teal)}}
 .updated{{font-size:10px;color:var(--text3);text-align:right;margin-top:8px}}
+.gallery{{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}}
+.ccard{{background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s,transform .15s}}
+.ccard:hover{{border-color:var(--accent);transform:translateY(-2px)}}
+.cimg-wrap{{width:100%;height:200px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}}
+.cimg-wrap img{{max-width:100%;max-height:100%;object-fit:contain}}
+.cimg-ph{{font-size:30px;color:var(--text2)}}
+.cbody{{padding:11px}}
+.cname{{font-size:10px;color:var(--text2);margin-bottom:9px;font-family:monospace;line-height:1.4;min-height:28px}}
+.cstats{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}}
+.cst{{background:var(--bg2);border-radius:5px;padding:6px 4px;text-align:center}}
+.cst-l{{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.3px}}
+.cst-v{{font-size:13px;font-weight:700;margin-top:2px}}
 @media(max-width:640px){{.g2{{grid-template-columns:1fr}}.kpis{{grid-template-columns:1fr 1fr}}}}
 </style>
 </head>
