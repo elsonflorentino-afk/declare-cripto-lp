@@ -211,3 +211,17 @@ if __name__ == '__main__':
     with open('/tmp/meta_data.json', 'w') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print('\nSalvo em /tmp/meta_data.json')
+
+    print('Buscando thumbnails dos criativos...')
+    thumbs = {}
+    top_ads = [a for a in ads if a['leads'] > 0 or a['spend'] > 50][:15]
+    for a in top_ads:
+        t = fetch_creative_thumb(a['id'])
+        if t:
+            thumbs[a['id']] = t
+            print(f"  ✅ {a['name'][:40]}")
+        else:
+            print(f"  — sem thumb: {a['name'][:40]}")
+    with open('/tmp/thumbs.json', 'w') as f:
+        json.dump(thumbs, f)
+    print(f'  {len(thumbs)} thumbnails salvos em /tmp/thumbs.json')
