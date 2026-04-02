@@ -258,10 +258,10 @@ tr:hover td{{background:rgba(255,255,255,.02)}}
 .mv{{display:flex;gap:12px;padding:12px 0;border-left:3px solid var(--teal);padding-left:14px;margin-bottom:8px}}
 .mv-w{{flex:0 0 60px;font-size:11px;font-weight:700;color:var(--teal)}}
 .updated{{font-size:10px;color:var(--text3);text-align:right;margin-top:8px}}
-.gallery{{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}}
+.gallery{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}}
 .ccard{{background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s,transform .15s}}
 .ccard:hover{{border-color:var(--accent);transform:translateY(-2px)}}
-.cimg-wrap{{width:100%;height:200px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}}
+.cimg-wrap{{width:100%;height:300px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}}
 .cimg-wrap img{{max-width:100%;max-height:100%;object-fit:contain}}
 .cimg-ph{{font-size:30px;color:var(--text2)}}
 .cbody{{padding:11px}}
