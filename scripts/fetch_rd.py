@@ -55,7 +55,7 @@ def fetch_contacts_by_event(token, event_identifier, max_pages=10):
     page = 1
     while page <= max_pages:
         r = rd_get('/platform/contacts', token, {
-            'event_type':       'conversion',
+            'event_type':       'CONVERSION',
             'event_identifier': event_identifier,
             'page':             page,
             'page_size':        50
@@ -143,6 +143,6 @@ if __name__ == '__main__':
         'lp_mentoria_boost': {'contacts': len(c4_contacts), 'qualification': c4_qual},
         'lp_ir_cripto':      {'contacts': len(ir_contacts), 'qualification': ir_qual},
     }
-    with open('/tmp/rd_data.json', 'w', ensure_ascii=False) as f:
-        json.dump(data, f, indent=2)
+    with open('/tmp/rd_data.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
     print('\nSalvo em /tmp/rd_data.json')

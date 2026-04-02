@@ -82,10 +82,15 @@ def main():
 
     # ── STEP 2: RD Station ───────────────────────────────────
     step('STEP 2/3 — Buscando leads RD Station')
-    if not run_script('fetch_rd.py'):
-        sys.exit(1)
-    if not check_json('/tmp/rd_data.json', ['lp_mentoria_boost', 'lp_ir_cripto']):
-        sys.exit(1)
+    rd_ok = run_script('fetch_rd.py') and check_json('/tmp/rd_data.json', ['lp_mentoria_boost', 'lp_ir_cripto'])
+    if not rd_ok:
+        print('  ⚠️  RD Station falhou — dashboard será gerado sem dados de leads')
+        # Cria JSON vazio para não travar o generate_dashboard.py
+        empty_qual = {'total':0,'investe_cripto':0,'nao_cripto':0,'investe_trad':0,
+                      'pat_cripto':{},'pat_trad':{},'qualif_cripto':0,'qualif_trad':0,'pct_qualif':0}
+        with open('/tmp/rd_data.json', 'w') as f:
+            json.dump({'lp_mentoria_boost': {'contacts': 0, 'qualification': empty_qual},
+                       'lp_ir_cripto':      {'contacts': 0, 'qualification': empty_qual}}, f)
 
     # ── STEP 3: Gerar Dashboard ──────────────────────────────
     step('STEP 3/3 — Gerando dashboard HTML')
