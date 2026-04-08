@@ -1,0 +1,60 @@
+name: Sync Meta Ads → Supabase
+
+on:
+  # Cron diário 09:00 UTC (06:00 BRT) — 1h depois do sync RD CRM
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Janela de insights em dias'
+        required: true
+        default: '30'
+      only_active:
+        description: 'Só campanhas ativas'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run sync (cron daily 30d all)
+        if: github.event_name == 'schedule'
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 scripts/sync_meta_ads.py --days 30
+
+      - name: Run sync (manual)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          ARGS="--days ${{ inputs.days }}"
+          if [ "${{ inputs.only_active }}" = "true" ]; then
+            ARGS="$ARGS --only-active"
+          fi
+          python3 scripts/sync_meta_ads.py $ARGS
