@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>C7 Peça A — Filtro R$100k</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: #1a1a1a;
+  font-family: 'Sora', sans-serif;
+}
+.ad {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background-image: url('af-236-1080.jpg');
+  background-size: cover;
+  background-position: center 28%;
+  filter: contrast(1.1) brightness(0.95);
+}
+.photo::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%);
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52%;
+  background: #000000;
+  padding: 64px 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.line-100k {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 134px;
+  line-height: 0.92;
+  color: #00B37E;
+  letter-spacing: -4px;
+  margin-bottom: 6px;
+}
+.line-cripto {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1.0;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+  margin-bottom: 44px;
+}
+.line-alguem {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 1.08;
+  color: #FFFFFF;
+  letter-spacing: -1.5px;
+}
+.line-posicao {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 1.08;
+  color: #00B37E;
+  letter-spacing: -1.5px;
+  margin-top: 4px;
+}
+.badge {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 100px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 22px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge .dot {
+  width: 10px;
+  height: 10px;
+  background: #00B37E;
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="photo"></div>
+  <div class="badge"><span class="dot"></span>@boostresearch</div>
+  <div class="overlay">
+    <div class="line-100k">R$100.000</div>
+    <div class="line-cripto">EM CRIPTO.</div>
+    <div class="line-alguem">ALGUÉM OLHA<br>PRA ESSA</div>
+    <div class="line-posicao">POSIÇÃO?</div>
+  </div>
+</div>
+</body>
+</html>
