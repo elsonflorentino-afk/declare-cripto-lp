@@ -37,6 +37,24 @@ Todos os 43 leads >=50k vieram de <strong>Facebook Ads</strong>.
 </div>
 <div class="stats" id="stats"></div>
 <div class="grid2"><div class="panel"><h2>Leads >=50k por Campanha</h2><div id="ch1"></div></div><div class="panel"><h2>Leads >=50k por Anúncio</h2><div id="ch2"></div></div></div>
+
+<div class="panel">
+  <h2>CPL Qualificado por Campanha</h2>
+  <p style="font-size:12px;color:var(--dim);margin-bottom:16px">CPL Qualificado = spend da campanha / leads >=50k que ela trouxe. Spend total abril: R$29.937 | 350 leads | 43 qualificados (12,3%)</p>
+  <table>
+    <thead><tr><th>Campanha</th><th style="text-align:right">Spend</th><th style="text-align:right">Leads Total</th><th style="text-align:right">Leads >=50k</th><th style="text-align:right">% Qualif</th><th style="text-align:right">CPL Total</th><th style="text-align:right">CPL Qualificado</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-gold">IR Cripto Lead Form</span></td><td style="text-align:right">R$1.191</td><td style="text-align:right">73</td><td style="text-align:right;color:#00C853;font-weight:700">24</td><td style="text-align:right;color:#00C853">32,9%</td><td style="text-align:right">R$16</td><td style="text-align:right;color:#00C853;font-weight:700">R$50</td></tr>
+      <tr><td><span class="badge badge-green">C4 CONVERSAO-FORM</span></td><td style="text-align:right">R$545</td><td style="text-align:right">7</td><td style="text-align:right;color:#00C853;font-weight:700">3</td><td style="text-align:right;color:#00C853">42,9%</td><td style="text-align:right">R$78</td><td style="text-align:right;color:#00C853;font-weight:700">R$182</td></tr>
+      <tr><td><span class="badge badge-green">C4 CONVERSAO</span></td><td style="text-align:right">R$9.710</td><td style="text-align:right">29</td><td style="text-align:right;color:#FFD600">8</td><td style="text-align:right">27,6%</td><td style="text-align:right">R$335</td><td style="text-align:right;color:#FFD600">R$1.214</td></tr>
+      <tr><td><span class="badge badge-blue">C4 CONSIDERACAO</span></td><td style="text-align:right">R$6.179</td><td style="text-align:right">23</td><td style="text-align:right;color:#FFD600">4</td><td style="text-align:right">17,4%</td><td style="text-align:right">R$269</td><td style="text-align:right;color:#FF5252">R$1.545</td></tr>
+      <tr><td><span class="badge badge-purple">C5 Andromeda (V1+V2)</span></td><td style="text-align:right">R$6.476</td><td style="text-align:right">174</td><td style="text-align:right;color:#FFD600">3</td><td style="text-align:right;color:#FF5252">1,7%</td><td style="text-align:right">R$37</td><td style="text-align:right;color:#FF5252">R$2.159</td></tr>
+      <tr style="border-top:2px solid #444"><td><strong style="color:#fff">TOTAL (campanhas com qualif.)</strong></td><td style="text-align:right;color:#fff"><strong>R$24.099</strong></td><td style="text-align:right;color:#fff"><strong>306</strong></td><td style="text-align:right;color:#00C853"><strong>43*</strong></td><td style="text-align:right;color:#fff"><strong>14,1%</strong></td><td style="text-align:right;color:#fff"><strong>R$79</strong></td><td style="text-align:right;color:#FFD600"><strong>R$560</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10px;color:var(--dim);margin-top:8px">*1 lead veio direto pela LP sem campanha atribuída (Fabio Yamasaki). Spend total da conta inclui R$5.838 em campanhas sem leads qualificados (Quiz, Posts IG, Awareness).</p>
+</div>
+
 <div class="panel"><h2>Top Criativos — Somente os que trouxeram leads >=50k</h2>
 <p style="font-size:12px;color:var(--dim);margin-bottom:16px">Imagens em alta resolução. CPL Qualificado = spend / leads >=50k.</p>
 <div class="cg">
@@ -198,11 +216,11 @@ const c5=cc['c5-andromeda-abr2026']||0;
 const lp=cc['LP Análise (sem UTM nos campos)']||0;
 document.getElementById('stats').innerHTML=
 '<div class="stat"><div class="sv" style="color:var(--green)">'+total+'</div><div class="sl">Total >=50k</div></div>'+
-'<div class="stat"><div class="sv" style="color:var(--gold)">'+irC+'</div><div class="sl">IR Cripto Lead Form</div></div>'+
-'<div class="stat"><div class="sv" style="color:var(--blue)">'+(c4c+c4f)+'</div><div class="sl">C4 Conv + Form</div></div>'+
-'<div class="stat"><div class="sv" style="color:var(--purple)">'+c4d+'</div><div class="sl">C4 Consideração</div></div>'+
-'<div class="stat"><div class="sv" style="color:var(--orange)">'+c5+'</div><div class="sl">C5 Andromeda</div></div>'+
-'<div class="stat"><div class="sv" style="color:var(--white)">'+(lp)+'</div><div class="sl">LP direto</div></div>';
+'<div class="stat"><div class="sv" style="color:var(--gold)">R$560</div><div class="sl">CPL Qualificado</div></div>'+
+'<div class="stat"><div class="sv" style="color:var(--white)">R$29.937</div><div class="sl">Spend Total Abril</div></div>'+
+'<div class="stat"><div class="sv" style="color:var(--dim)">350</div><div class="sl">Leads Totais</div></div>'+
+'<div class="stat"><div class="sv" style="color:var(--blue)">R$86</div><div class="sl">CPL Total</div></div>'+
+'<div class="stat"><div class="sv" style="color:var(--orange)">12,3%</div><div class="sl">% Qualificados</div></div>';
 function bc(id,data){const mx=Math.max(...data.map(d=>d[1]));const cls=['green','gold','blue','purple','orange','white'];document.getElementById(id).innerHTML=data.map((d,i)=>'<div class="bar-row"><div class="bar-label" title="'+d[0]+'">'+d[0]+'</div><div class="bar-track"><div class="bar-fill" style="width:'+(d[1]/mx*100)+'%;background:var(--'+cls[i%cls.length]+')">'+d[1]+'</div></div></div>').join('')}
 bc('ch1',ce);
 const co={};L.forEach(l=>{const v=l.content||'-';co[v]=(co[v]||0)+1});
