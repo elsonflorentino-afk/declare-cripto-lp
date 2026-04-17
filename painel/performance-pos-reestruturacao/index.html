@@ -127,31 +127,57 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border)}tbody tr:hover{b
       <div id="chartLeadSource"></div>
     </div>
     <div>
-      <div class="sub-title">Patrimonio Tradicional (18 c/ dados)</div>
-      <div id="chartPatrimonio"></div>
+      <div class="sub-title">Patrimonio Cripto</div>
+      <div id="chartPatCripto"></div>
     </div>
   </div>
 
   <div class="dist-grid">
     <div>
+      <div class="sub-title">Patrimonio Tradicional</div>
+      <div id="chartPatTrad"></div>
+    </div>
+    <div>
       <div class="sub-title">Investe em Cripto?</div>
       <div id="chartCripto"></div>
     </div>
+  </div>
+
+  <div class="dist-grid">
     <div>
       <div class="sub-title">Investe em Tradicional?</div>
       <div id="chartTradicional"></div>
     </div>
+    <div></div>
   </div>
+</div>
+
+<!-- ====== Info Note ====== -->
+<div class="info">
+<strong>Nota:</strong> 'Nao informado' = leads do Lead Form IR Cripto que nao pergunta valor de patrimonio — pergunta apenas se investe em cripto e em mercado tradicional (sim/nao). O valor de patrimonio so esta disponivel para leads que passaram pela LP Analise ou pelo Lead Form BOOST-FORM.
 </div>
 
 <!-- ====== NEW: Leads Qualificados >=50k ====== -->
 <div class="panel">
-  <h2>Leads Qualificados >= 50k (8 leads)</h2>
-  <input type="text" class="search-box" id="searchQual" placeholder="Buscar por nome, patrimonio ou fonte...">
+  <h2>Leads Qualificados >= 50k (14 leads — 17,5%)</h2>
+  <input type="text" class="search-box" id="searchQual" placeholder="Buscar por nome, patrimonio, telefone ou fonte...">
   <table>
-    <thead><tr><th>Nome</th><th>Telefone</th><th>Pat. Tradicional</th><th>Fonte</th></tr></thead>
+    <thead><tr><th>Nome</th><th>Telefone</th><th>Pat. Cripto</th><th>Pat. Tradicional</th><th>Fonte</th></tr></thead>
     <tbody id="tbQualificados"></tbody>
   </table>
+</div>
+
+<!-- ====== NEW: Todos os Leads ====== -->
+<div class="panel">
+  <h2>Todos os Leads — 15 a 17/abr (80 leads)</h2>
+  <div style="margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap" id="fonteFilters"></div>
+  <input type="text" class="search-box" id="searchAll" placeholder="Buscar por nome, telefone, patrimonio ou fonte...">
+  <div style="max-height:600px;overflow-y:auto">
+  <table>
+    <thead><tr><th>#</th><th>Nome</th><th>Telefone</th><th>Inv. Cripto</th><th>Pat. Cripto</th><th>Inv. Trad</th><th>Pat. Trad</th><th>Fonte</th></tr></thead>
+    <tbody id="tbAllLeads"></tbody>
+  </table>
+  </div>
 </div>
 
 <!-- ====== NEW: Top Criativos ====== -->
@@ -161,6 +187,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border)}tbody tr:hover{b
 </div>
 
 <script>
+
 // === DATA ===
 const statsData = [
   { label: 'Spend Periodo', value: 'R$1.968', color: 'var(--white)' },
@@ -314,24 +341,31 @@ const investeCripto = [
 
 const investeTradicional = [
   { label: 'Sim', value: 17, color: 'var(--green)' },
-  { label: 'Nao', value: 19, color: 'var(--red)' },
+  { label: 'Nao', value: 20, color: 'var(--red)' },
   { label: 'Nao informado', value: 43, color: 'var(--dim)' }
 ];
 
-const patrimonioData = [
-  { label: 'Ate R$10 mil', value: 8, color: 'var(--dim)' },
+const patCriptoData = [
+  { label: 'Nao informado', value: 56, color: 'var(--dim)' },
+  { label: 'Ate R$10 mil', value: 13, color: 'var(--gold)' },
+  { label: 'R$10-50 mil', value: 6, color: 'var(--gold)' },
+  { label: 'R$50-200 mil', value: 4, color: 'var(--green)' },
+  { label: 'R$200-500 mil', value: 1, color: 'var(--green)' }
+];
+
+const patTradData = [
+  { label: 'Nao informado', value: 62, color: 'var(--dim)' },
+  { label: 'Ate R$10 mil', value: 9, color: 'var(--gold)' },
   { label: 'R$10-50 mil', value: 5, color: 'var(--gold)' },
-  { label: 'R$50-200 mil', value: 2, color: 'var(--green)' },
   { label: 'R$200-500 mil', value: 2, color: 'var(--green)' },
-  { label: 'Acima R$500 mil', value: 0, color: 'var(--blue)' },
-  { label: 'Codigo (Lead Form V1)', value: 2, color: 'var(--orange)' }
+  { label: 'R$50-200 mil', value: 2, color: 'var(--green)' }
 ];
 
 // Lead stats summary
 document.getElementById('leadStats').innerHTML = [
   { label: 'Total Leads (RD)', value: '80', color: 'var(--white)', detail: 'Periodo 15-17/abr' },
-  { label: 'Com dados patrimonio', value: '18', color: 'var(--blue)', detail: '22,5% responderam' },
-  { label: 'Qualificados >=50k', value: '8', color: 'var(--green)', detail: '10% do total' }
+  { label: 'Com dados patrimonio', value: '24', color: 'var(--blue)', detail: '30% responderam' },
+  { label: 'Qualificados >=50k', value: '14', color: 'var(--green)', detail: '17,5% do total' }
 ].map(s => `<div class="lead-stat"><div class="lsv" style="color:${s.color}">${s.value}</div><div class="lsl">${s.label}</div><div class="lsd">${s.detail}</div></div>`).join('');
 
 // Bar chart renderer for lead sections
@@ -349,38 +383,832 @@ function renderMiniBar(containerId, data) {
 renderMiniBar('chartLeadSource', leadSourceData);
 renderMiniBar('chartCripto', investeCripto);
 renderMiniBar('chartTradicional', investeTradicional);
-renderMiniBar('chartPatrimonio', patrimonioData);
+renderMiniBar('chartPatCripto', patCriptoData);
+renderMiniBar('chartPatTrad', patTradData);
+
+// Phone formatter (used by both qualified and all-leads tables)
+function formatPhone(p) {
+  if (!p || p === '-') return '-';
+  let d = p.replace(/[^0-9]/g, '');
+  if (d.length === 13 && d.startsWith('55')) {
+    return '(' + d.substring(2,4) + ') ' + d.substring(4,9) + '-' + d.substring(9);
+  }
+  if (d.length === 12 && d.startsWith('55')) {
+    return '(' + d.substring(2,4) + ') ' + d.substring(4,8) + '-' + d.substring(8);
+  }
+  if (d.length === 11) {
+    return '(' + d.substring(0,2) + ') ' + d.substring(2,7) + '-' + d.substring(7);
+  }
+  return p;
+}
 
 // ============================================================
 // SECTION: Leads Qualificados >=50k
 // ============================================================
 const leadsQualificados = [
-  { nome: 'Allan Costa da Silva', tel: '-', pat: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
-  { nome: 'Fabiano Do Couto Couto', tel: '-', pat: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
-  { nome: 'Newton Curvelo', tel: '-', pat: 'R$50-200k', fonte: 'E-book IR', patClass: 'qual-high' },
-  { nome: 'Macrys Martins', tel: '-', pat: 'R$50-200k', fonte: 'BOOST-LEAD-FORM-V1', patClass: 'qual-high' },
-  { nome: 'Henrique Furtado Toloi', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
-  { nome: 'Emannuel Fernandes', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
-  { nome: 'Saulo Maranhao', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
-  { nome: 'Felipe Vieira', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' }
+  { nome: 'Fabiano Do Couto Couto', tel: '+5562981793308', patCripto: 'R$200-500k', patTrad: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Allan Costa da Silva', tel: '+5521999323947', patCripto: 'R$10-50k', patTrad: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Macrys Martins', tel: '+5588999796326', patCripto: 'R$50-200k', patTrad: 'R$50-200k', fonte: 'FORM V1', patClass: 'qual-high' },
+  { nome: 'Newton Curvelo', tel: '+5571987796000', patCripto: 'R$10-50k', patTrad: 'R$50-200k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Aislan da Rocha Sepulcro', tel: '+27998058180', patCripto: 'R$50-200k', patTrad: '-', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: '\ud835\udd4b\ud835\udd59\ud835\udd5a\ud835\udd52\ud835\udd58\ud835\udd60 \ud835\udd4a\ud835\udd54\ud835\udd59\ud835\udd52\ud835\udd5d\ud835\udd54\ud835\udd59', tel: '+5548999125240', patCripto: 'R$50-200k', patTrad: 'Ate R$10k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Eduardo Valle', tel: '554196830000', patCripto: 'R$50-200k', patTrad: '-', fonte: 'LP Analise', patClass: 'qual-high' },
+  { nome: 'Jose Agustin', tel: '+5511992705864', patCripto: 'R$10-50k', patTrad: '-', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Rita Helena Saviano Range', tel: '-', patCripto: 'R$10-50k', patTrad: '-', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Emannuel Fernandes', tel: '+553788043492', patCripto: 'R$10-50k', patTrad: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Felipe Vieira', tel: '+5561981193767', patCripto: 'R$10-50k', patTrad: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Henrique Furtado Toloi', tel: '+5516997179998', patCripto: 'Ate R$10k', patTrad: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Saulo Maranhao', tel: '+5581995144422', patCripto: 'Ate R$10k', patTrad: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Andre Betts', tel: '+5551996345963', patCripto: 'Ate R$10k', patTrad: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' }
 ];
 
 function renderQualifiedTable(filter) {
   const f = (filter || '').toLowerCase();
   const filtered = f ? leadsQualificados.filter(l =>
-    l.nome.toLowerCase().includes(f) || l.pat.toLowerCase().includes(f) || l.fonte.toLowerCase().includes(f)
+    l.nome.toLowerCase().includes(f) || l.patCripto.toLowerCase().includes(f) || l.patTrad.toLowerCase().includes(f) || l.fonte.toLowerCase().includes(f) || l.tel.includes(f)
   ) : leadsQualificados;
   document.getElementById('tbQualificados').innerHTML = filtered.map((l, i) =>
     `<tr>
       <td style="font-weight:600">${l.nome}</td>
-      <td>${l.tel}</td>
-      <td><span class="qual-badge ${l.patClass}">${l.pat}</span></td>
+      <td style="font-size:11px">${formatPhone(l.tel)}</td>
+      <td><span class="qual-badge ${l.patClass}">${l.patCripto}</span></td>
+      <td><span class="qual-badge ${l.patTrad !== '-' ? l.patClass : ''}" style="${l.patTrad === '-' ? 'color:var(--dim)' : ''}">${l.patTrad}</span></td>
       <td><span class="badge badge-blue">${l.fonte}</span></td>
     </tr>`
-  ).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--dim)">Nenhum lead encontrado</td></tr>';
+  ).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--dim)">Nenhum lead encontrado</td></tr>';
 }
 renderQualifiedTable();
 document.getElementById('searchQual').addEventListener('input', function(){ renderQualifiedTable(this.value); });
+
+// ============================================================
+// SECTION: Todos os Leads (80)
+// ============================================================
+const allLeads = [
+  {
+    "nome": "Danillo Siqueira",
+    "telefone": "+5522999743848",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "María Lúcia de macedo",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Jones",
+    "telefone": "+5549999936685",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Maria Jose",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Allan Costa da Silva",
+    "telefone": "+5521999323947",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 200 mil e R$500 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Rita Helena Saviano Rangel Ozorio",
+    "telefone": "-",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Aislan da Rocha Sepulcro",
+    "telefone": "+27998058180",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 50 mil a R$ 200 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Edjane Gomes",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Luís",
+    "telefone": "+5514988256900",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Rosemary Dos Reis de Menezes",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Rosineide Cruz",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Marinalva Lopes do vale",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "DILSON ALBUQUERQUE",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Webinar"
+  },
+  {
+    "nome": "GILMAR BISPO DA SILVA JUNIOR",
+    "telefone": "5573999485696",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Michael Douglas Silveira da Silva",
+    "telefone": "5541998715408",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "RUI FERREIRA FONTES",
+    "telefone": "5511991912424",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Marcelo Mouta Soares",
+    "telefone": "5511984520680",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Leila Marcia Ferreira",
+    "telefone": "5522999632824",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "RICARDO FREDERICO VEGA",
+    "telefone": "5511986853097",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Marco Valério Flores Andreazza",
+    "telefone": "5555984378358",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Julian Peter Grey",
+    "telefone": "5511989060663",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Eduardo de Paula",
+    "telefone": "5511984156310",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Rosimeiry Santos",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Rodrigo Madeira Leite",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Rodrigo Assis da Silva",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "José Agustín",
+    "telefone": "+5511992705864",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Gustavo Cavalcante Maio de Aguiar",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Alexandre Aparecido",
+    "telefone": "5511996026374",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Amanda Marques",
+    "telefone": "+5521974452315",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Luciano Cerff",
+    "telefone": "+5521976923779",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Kaio",
+    "telefone": "+5587988384876",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Lourdes gatto",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Quiz"
+  },
+  {
+    "nome": "Henrique Furtado Toloi",
+    "telefone": "+5516997179998",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 10 mil e R$ 50 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Joao Carlos Goncalves Krakauer Maia",
+    "telefone": "5531992217266",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Roberto Avila Otte",
+    "telefone": "5547988054697",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Marcio Fonseca Santiago",
+    "telefone": "5527981385445",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Mateus Galvao de Melo",
+    "telefone": "5531617291107",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Eduardo Estevam Fernandes de Oliveira",
+    "telefone": "5562981000005",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "REGINALDO LUIS JORGE",
+    "telefone": "+5514996652996",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Geison Rech",
+    "telefone": "+5554999314778",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Emannuel Fernandes",
+    "telefone": "+553788043492",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 10 mil e R$ 50 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Hever Souza",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Arthur Comazzetto Viana",
+    "telefone": "+47996326167",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Vinicios",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Carine Dávalos",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Gabriela Aguiar",
+    "telefone": "+5554981075129",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Macrys Martins",
+    "telefone": "+5588999796326",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 50 mil a R$ 200 mil",
+    "investe_trad": "nao",
+    "pat_trad": "Entre R$ 50 mil a R$ 200 mil",
+    "fonte": "FORM V1"
+  },
+  {
+    "nome": "Newton Curvelo",
+    "telefone": "+5571987796000",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 50 mil a R$ 200 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Francisco Linhares",
+    "telefone": "+5599993625070",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "FORM V1"
+  },
+  {
+    "nome": "Rafael Dos Santos Siqueira",
+    "telefone": "+5511943496298",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "𝕋𝕙𝕚𝕒𝕘𝕠 𝕊𝕔𝕙𝕒𝕝𝕔𝕙",
+    "telefone": "+5548999125240",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 50 mil a R$ 200 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "CARLOS PEREIRA DE PAULA",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Webinar"
+  },
+  {
+    "nome": "Eliane",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Quiz"
+  },
+  {
+    "nome": "Maria do Socorro De Lima Lopes",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Messa Regina Ribeiro dos anjos",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Dirce Godoi de Oliveira",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Mateus Herculano Rabello Faria",
+    "telefone": "+5577999827600",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Reginaldo cirilo",
+    "telefone": "+5518991518688",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Gustavo Machado Galvão",
+    "telefone": "+5521974749889",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Elson Florentino",
+    "telefone": "+5511954340000",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Elson Florentino",
+    "telefone": "(55) 11954-3424",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Jesaías Silva",
+    "telefone": "+5586999431515",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Mirele Mi",
+    "telefone": "+5532991491887",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Soraia Manasfi da Silva",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  },
+  {
+    "nome": "Viviane Swyanne",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "June Marques",
+    "telefone": "+5531991333813",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Fabiano Do Couto Couto",
+    "telefone": "+5562981793308",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 200 mil e R$500 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 200 mil e R$500 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Nick Oliveira",
+    "telefone": "+5513997344588",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Marcia Quesinski",
+    "telefone": "+5547988277272",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Gomes",
+    "telefone": "+5594992980091",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Saulo Maranhão",
+    "telefone": "+5581995144422",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 10 mil e R$ 50 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Felipe Vieira",
+    "telefone": "+5561981193767",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 10 mil e R$ 50 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 10 mil e R$ 50 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Márcia Christiane Penante Cordeiro",
+    "telefone": "+5581999670977",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Thays Ferreira",
+    "telefone": "+81971070359",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Josiane Andrade",
+    "telefone": "+5511949826482",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Até R$ 10 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "-",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "FORM V1"
+  },
+  {
+    "nome": "André Betts",
+    "telefone": "+5551996345963",
+    "investe_cripto": "sim",
+    "pat_cripto": "Até R$ 10 mil",
+    "investe_trad": "sim",
+    "pat_trad": "Entre R$ 10 mil e R$ 50 mil",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Eduardo Valle",
+    "telefone": "554196830000",
+    "investe_cripto": "sim",
+    "pat_cripto": "Entre R$ 50 mil a R$ 200 mil",
+    "investe_trad": "não",
+    "pat_trad": "-",
+    "fonte": "E-book IR"
+  },
+  {
+    "nome": "Alh Projetos Inovadores",
+    "telefone": "-",
+    "investe_cripto": "-",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "Sem atribuicao"
+  },
+  {
+    "nome": "Nevinha Moura",
+    "telefone": "-",
+    "investe_cripto": "não",
+    "pat_cripto": "-",
+    "investe_trad": "-",
+    "pat_trad": "-",
+    "fonte": "LP Analise"
+  }
+];
+
+const fontes = ['Todos', 'E-book IR', 'FORM V1', 'LP Analise', 'Quiz', 'Webinar', 'Sem atribuicao'];
+const fonteBadgeColors = { 'E-book IR': 'badge-green', 'FORM V1': 'badge-purple', 'LP Analise': 'badge-blue', 'Quiz': 'badge-orange', 'Webinar': 'badge-gold', 'Sem atribuicao': 'badge-gray' };
+let activeFonte = 'Todos';
+
+document.getElementById('fonteFilters').innerHTML = fontes.map(f => {
+  const cls = f === 'Todos' ? 'badge-green' : (fonteBadgeColors[f] || 'badge-gray');
+  return `<button class="badge ${cls}" style="cursor:pointer;padding:5px 12px;font-size:11px;border:none;opacity:${f === 'Todos' ? '1' : '0.5'}" data-fonte="${f}" onclick="setFonte(this)">${f}</button>`;
+}).join('');
+
+function setFonte(btn) {
+  activeFonte = btn.dataset.fonte;
+  document.querySelectorAll('#fonteFilters button').forEach(b => b.style.opacity = b.dataset.fonte === activeFonte ? '1' : '0.5');
+  renderAllLeads();
+}
+
+function renderAllLeads() {
+  const search = (document.getElementById('searchAll').value || '').toLowerCase();
+  let filtered = allLeads;
+  if (activeFonte !== 'Todos') {
+    filtered = filtered.filter(l => l.fonte === activeFonte);
+  }
+  if (search) {
+    filtered = filtered.filter(l =>
+      l.nome.toLowerCase().includes(search) || l.telefone.includes(search) || l.pat_cripto.toLowerCase().includes(search) || l.pat_trad.toLowerCase().includes(search) || l.fonte.toLowerCase().includes(search)
+    );
+  }
+  document.getElementById('tbAllLeads').innerHTML = filtered.map((l, i) => {
+    const fonteBadge = fonteBadgeColors[l.fonte] || 'badge-gray';
+    const dimStyle = 'color:var(--dim)';
+    return `<tr>
+      <td style="color:var(--dim)">${i+1}</td>
+      <td style="font-weight:600">${l.nome}</td>
+      <td style="font-size:11px">${formatPhone(l.telefone)}</td>
+      <td style="${l.investe_cripto === '-' ? dimStyle : l.investe_cripto === 'sim' ? 'color:var(--green)' : 'color:var(--red)'}">${l.investe_cripto}</td>
+      <td style="${l.pat_cripto === '-' ? dimStyle : ''}">${l.pat_cripto}</td>
+      <td style="${l.investe_trad === '-' ? dimStyle : l.investe_trad === 'sim' ? 'color:var(--green)' : 'color:var(--red)'}">${l.investe_trad}</td>
+      <td style="${l.pat_trad === '-' ? dimStyle : ''}">${l.pat_trad}</td>
+      <td><span class="badge ${fonteBadge}">${l.fonte}</span></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="8" style="text-align:center;color:var(--dim)">Nenhum lead encontrado</td></tr>';
+}
+renderAllLeads();
+document.getElementById('searchAll').addEventListener('input', renderAllLeads);
 
 // ============================================================
 // SECTION: Top Criativos (cards)
@@ -424,5 +1252,6 @@ document.getElementById('creativeGrid').innerHTML = topCreatives.map(c => {
     </div>
   </div>`;
 }).join('');
+
 </script>
 </body></html>
