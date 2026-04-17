@@ -41,7 +41,33 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border)}tbody tr:hover{b
 .proj-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
 .proj-item .pv{font-size:20px;font-weight:800;color:var(--white)}
 .proj-item .pl{font-size:9px;color:var(--dim);text-transform:uppercase;margin-top:4px}
-@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}.comp-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:repeat(3,1fr)}}
+/* Lead Profile Section */
+.lead-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.lead-stat{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+.lead-stat .lsv{font-size:28px;font-weight:800}.lead-stat .lsl{font-size:10px;color:var(--dim);text-transform:uppercase;margin-top:4px}
+.lead-stat .lsd{font-size:11px;color:var(--dim);margin-top:2px}
+.dist-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.mini-chart{margin-bottom:8px}
+.mini-chart .mc-label{font-size:11px;color:var(--text);margin-bottom:4px;display:flex;justify-content:space-between}
+.mini-chart .mc-track{height:18px;background:#1a1a1a;border-radius:3px;overflow:hidden}
+.mini-chart .mc-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:9px;font-weight:700;color:#000;min-width:20px}
+.sub-title{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;margin-top:16px}
+/* Qualified leads table */
+.search-box{width:100%;padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;margin-bottom:12px;outline:none}
+.search-box:focus{border-color:var(--blue)}
+.qual-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:600}
+.qual-high{background:rgba(0,200,83,.15);color:var(--green)}
+.qual-mid{background:rgba(255,214,0,.15);color:var(--gold)}
+/* Creative cards */
+.creative-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.creative-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;position:relative}
+.creative-card .cc-rank{font-size:28px;font-weight:900;color:var(--green);opacity:.25;position:absolute;top:10px;right:14px}
+.creative-card h3{font-size:13px;color:var(--white);margin-bottom:4px;max-width:80%}
+.creative-card .cc-camp{font-size:10px;color:var(--dim);margin-bottom:12px}
+.cc-metrics{display:flex;gap:16px;flex-wrap:wrap}
+.cc-metric{text-align:center}
+.cc-metric .ccv{font-size:16px;font-weight:800}.cc-metric .ccl{font-size:9px;color:var(--dim);text-transform:uppercase}
+@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}.comp-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:repeat(3,1fr)}.lead-stats{grid-template-columns:1fr}.dist-grid{grid-template-columns:1fr}.creative-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.proj-grid{grid-template-columns:repeat(2,1fr)}}
 </style></head><body>
 
@@ -88,6 +114,50 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border)}tbody tr:hover{b
 <div class="panel">
   <h2>Projecao Abril 2026</h2>
   <div class="proj-grid" id="projecao"></div>
+</div>
+
+<!-- ====== NEW: Perfil dos Leads ====== -->
+<div class="panel">
+  <h2>Perfil dos Leads — 15 a 17/abr/2026</h2>
+  <div class="lead-stats" id="leadStats"></div>
+
+  <div class="dist-grid">
+    <div>
+      <div class="sub-title">Origem dos Leads</div>
+      <div id="chartLeadSource"></div>
+    </div>
+    <div>
+      <div class="sub-title">Patrimonio Tradicional (18 c/ dados)</div>
+      <div id="chartPatrimonio"></div>
+    </div>
+  </div>
+
+  <div class="dist-grid">
+    <div>
+      <div class="sub-title">Investe em Cripto?</div>
+      <div id="chartCripto"></div>
+    </div>
+    <div>
+      <div class="sub-title">Investe em Tradicional?</div>
+      <div id="chartTradicional"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== NEW: Leads Qualificados >=50k ====== -->
+<div class="panel">
+  <h2>Leads Qualificados >= 50k (8 leads)</h2>
+  <input type="text" class="search-box" id="searchQual" placeholder="Buscar por nome, patrimonio ou fonte...">
+  <table>
+    <thead><tr><th>Nome</th><th>Telefone</th><th>Pat. Tradicional</th><th>Fonte</th></tr></thead>
+    <tbody id="tbQualificados"></tbody>
+  </table>
+</div>
+
+<!-- ====== NEW: Top Criativos ====== -->
+<div class="panel">
+  <h2>Top 8 Criativos — 15-17/abr/2026</h2>
+  <div class="creative-grid" id="creativeGrid"></div>
 </div>
 
 <script>
@@ -223,5 +293,122 @@ C4 CONVERSAO pausada (CPL qualificado R$1.214). C5 e C4 CONSIDERACAO reativadas 
 document.getElementById('projecao').innerHTML = projecaoData.map(p =>
   `<div class="proj-item"><div class="pv" style="color:${p.color}">${p.value}</div><div class="pl">${p.label}</div></div>`
 ).join('');
+
+// ============================================================
+// SECTION: Perfil dos Leads 15-17/abr
+// ============================================================
+const leadSourceData = [
+  { label: 'E-book IR 03/2026', value: 35, color: 'var(--green)' },
+  { label: 'Sem atribuicao', value: 26, color: 'var(--dim)' },
+  { label: 'LP Analise (lp_mentoria_boost)', value: 12, color: 'var(--blue)' },
+  { label: 'BOOST-LEAD-FORM-V1', value: 3, color: 'var(--purple)' },
+  { label: 'Pos Webinar 1 Milhao', value: 2, color: 'var(--gold)' },
+  { label: 'Quiz Patrimonio', value: 2, color: 'var(--orange)' }
+];
+
+const investeCripto = [
+  { label: 'Sim', value: 24, color: 'var(--green)' },
+  { label: 'Nao', value: 25, color: 'var(--red)' },
+  { label: 'Nao informado', value: 31, color: 'var(--dim)' }
+];
+
+const investeTradicional = [
+  { label: 'Sim', value: 17, color: 'var(--green)' },
+  { label: 'Nao', value: 19, color: 'var(--red)' },
+  { label: 'Nao informado', value: 43, color: 'var(--dim)' }
+];
+
+const patrimonioData = [
+  { label: 'Ate R$10 mil', value: 8, color: 'var(--dim)' },
+  { label: 'R$10-50 mil', value: 5, color: 'var(--gold)' },
+  { label: 'R$50-200 mil', value: 2, color: 'var(--green)' },
+  { label: 'R$200-500 mil', value: 2, color: 'var(--green)' },
+  { label: 'Acima R$500 mil', value: 0, color: 'var(--blue)' },
+  { label: 'Codigo (Lead Form V1)', value: 2, color: 'var(--orange)' }
+];
+
+// Lead stats summary
+document.getElementById('leadStats').innerHTML = [
+  { label: 'Total Leads (RD)', value: '80', color: 'var(--white)', detail: 'Periodo 15-17/abr' },
+  { label: 'Com dados patrimonio', value: '18', color: 'var(--blue)', detail: '22,5% responderam' },
+  { label: 'Qualificados >=50k', value: '8', color: 'var(--green)', detail: '10% do total' }
+].map(s => `<div class="lead-stat"><div class="lsv" style="color:${s.color}">${s.value}</div><div class="lsl">${s.label}</div><div class="lsd">${s.detail}</div></div>`).join('');
+
+// Bar chart renderer for lead sections
+function renderMiniBar(containerId, data) {
+  const max = Math.max(...data.map(d => d.value));
+  document.getElementById(containerId).innerHTML = data.map(d => {
+    const pct = max > 0 ? (d.value / max * 100) : 0;
+    return `<div class="mini-chart">
+      <div class="mc-label"><span>${d.label}</span><span style="font-weight:700;color:${d.color}">${d.value}</span></div>
+      <div class="mc-track"><div class="mc-fill" style="width:${Math.max(pct, 5)}%;background:${d.color}">${d.value > 0 ? d.value : ''}</div></div>
+    </div>`;
+  }).join('');
+}
+
+renderMiniBar('chartLeadSource', leadSourceData);
+renderMiniBar('chartCripto', investeCripto);
+renderMiniBar('chartTradicional', investeTradicional);
+renderMiniBar('chartPatrimonio', patrimonioData);
+
+// ============================================================
+// SECTION: Leads Qualificados >=50k
+// ============================================================
+const leadsQualificados = [
+  { nome: 'Allan Costa da Silva', tel: '-', pat: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Fabiano Do Couto Couto', tel: '-', pat: 'R$200-500k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Newton Curvelo', tel: '-', pat: 'R$50-200k', fonte: 'E-book IR', patClass: 'qual-high' },
+  { nome: 'Macrys Martins', tel: '-', pat: 'R$50-200k', fonte: 'BOOST-LEAD-FORM-V1', patClass: 'qual-high' },
+  { nome: 'Henrique Furtado Toloi', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Emannuel Fernandes', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Saulo Maranhao', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' },
+  { nome: 'Felipe Vieira', tel: '-', pat: 'R$10-50k', fonte: 'E-book IR', patClass: 'qual-mid' }
+];
+
+function renderQualifiedTable(filter) {
+  const f = (filter || '').toLowerCase();
+  const filtered = f ? leadsQualificados.filter(l =>
+    l.nome.toLowerCase().includes(f) || l.pat.toLowerCase().includes(f) || l.fonte.toLowerCase().includes(f)
+  ) : leadsQualificados;
+  document.getElementById('tbQualificados').innerHTML = filtered.map((l, i) =>
+    `<tr>
+      <td style="font-weight:600">${l.nome}</td>
+      <td>${l.tel}</td>
+      <td><span class="qual-badge ${l.patClass}">${l.pat}</span></td>
+      <td><span class="badge badge-blue">${l.fonte}</span></td>
+    </tr>`
+  ).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--dim)">Nenhum lead encontrado</td></tr>';
+}
+renderQualifiedTable();
+document.getElementById('searchQual').addEventListener('input', function(){ renderQualifiedTable(this.value); });
+
+// ============================================================
+// SECTION: Top Criativos (cards)
+// ============================================================
+const topCreatives = [
+  { rank: 1, nome: 'E05-10ANOS', campanha: 'IR Cripto', spend: 395, leads: 35, cpl: 11 },
+  { rank: 2, nome: 'V2-OCULUS-3SIMS', campanha: 'Quiz', spend: 210, leads: 4, cpl: 53 },
+  { rank: 3, nome: 'BOOST-CRIPTO-FORM V1', campanha: 'C4 FORM', spend: 155, leads: 5, cpl: 31 },
+  { rank: 4, nome: 'AF-CRIPTO STORY V2', campanha: 'C4 Consideracao', spend: 107, leads: 1, cpl: 107 },
+  { rank: 5, nome: 'C4-V2 (FORM)', campanha: 'C4 FORM', spend: 104, leads: 2, cpl: 52 },
+  { rank: 6, nome: 'E03-MULTA-75', campanha: 'IR Cripto', spend: 77, leads: 7, cpl: 11 },
+  { rank: 7, nome: 'VID-100K-ESTRATEGIAS', campanha: 'C5 V1', spend: 63, leads: 1, cpl: 63 },
+  { rank: 8, nome: 'EST-REUNIAO-ANDRE-VAGAS', campanha: 'C5 V2', spend: 58, leads: 4, cpl: 15 }
+];
+
+document.getElementById('creativeGrid').innerHTML = topCreatives.map(c => {
+  const cplColor = c.cpl <= 15 ? 'var(--green)' : c.cpl <= 35 ? 'var(--gold)' : c.cpl <= 60 ? 'var(--orange)' : 'var(--red)';
+  const campBadge = c.campanha.includes('IR') ? 'badge-green' : c.campanha.includes('Quiz') ? 'badge-purple' : c.campanha.includes('C4') ? 'badge-blue' : 'badge-orange';
+  return `<div class="creative-card">
+    <div class="cc-rank">#${c.rank}</div>
+    <h3>${c.nome}</h3>
+    <div class="cc-camp"><span class="badge ${campBadge}">${c.campanha}</span></div>
+    <div class="cc-metrics">
+      <div class="cc-metric"><div class="ccv" style="color:var(--white)">R$${c.spend}</div><div class="ccl">Spend</div></div>
+      <div class="cc-metric"><div class="ccv" style="color:var(--green)">${c.leads}</div><div class="ccl">Leads</div></div>
+      <div class="cc-metric"><div class="ccv" style="color:${cplColor}">R$${c.cpl}</div><div class="ccl">CPL</div></div>
+    </div>
+  </div>`;
+}).join('');
 </script>
 </body></html>
