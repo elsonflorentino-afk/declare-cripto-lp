@@ -1,0 +1,41 @@
+name: Update Metas e KPIs Dashboard
+
+on:
+  # Toda segunda às 02:59 UTC (23:59 BRT)
+  schedule:
+    - cron: '59 2 * * 1'
+  # Permite rodar manualmente
+  workflow_dispatch:
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate dashboard
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          RD_CRM_TOKEN: ${{ secrets.RD_CRM_TOKEN }}
+          RD_CLIENT_ID: ${{ secrets.RD_CLIENT_ID }}
+          RD_CLIENT_SECRET: ${{ secrets.RD_CLIENT_SECRET }}
+          RD_REFRESH_TOKEN: ${{ secrets.RD_REFRESH_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 scripts/generate_kpis_dashboard.py
+
+      - name: Commit and push updated dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add painel/metas-kpis/data.json painel/metas-kpis/index.html
+          git diff --cached --quiet || git commit -m "chore: atualizar dashboard Metas e KPIs [auto]"
+          git push

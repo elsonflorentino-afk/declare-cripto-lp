@@ -1,0 +1,181 @@
+{
+  "updated_at": "2026-04-22 21:49 UTC",
+  "meta_weekly": {
+    "Fev W1": {
+      "spend": 7103.11,
+      "impressions": 189967,
+      "clicks": 5106,
+      "leads": 248,
+      "ctr": 2.69
+    },
+    "Fev W2": {
+      "spend": 12417.15,
+      "impressions": 359915,
+      "clicks": 4698,
+      "leads": 487,
+      "ctr": 1.31
+    },
+    "Fev W3": {
+      "spend": 15458.54,
+      "impressions": 620437,
+      "clicks": 6690,
+      "leads": 590,
+      "ctr": 1.08
+    },
+    "Fev W4": {
+      "spend": 9234.56,
+      "impressions": 273624,
+      "clicks": 3983,
+      "leads": 374,
+      "ctr": 1.46
+    },
+    "Mar W1": {
+      "spend": 12600.93,
+      "impressions": 574606,
+      "clicks": 13766,
+      "leads": 339,
+      "ctr": 2.4
+    },
+    "Mar W2": {
+      "spend": 13215.93,
+      "impressions": 677519,
+      "clicks": 17455,
+      "leads": 290,
+      "ctr": 2.58
+    },
+    "Mar W3": {
+      "spend": 8524.83,
+      "impressions": 314119,
+      "clicks": 7283,
+      "leads": 133,
+      "ctr": 2.32
+    },
+    "Mar W4": {
+      "spend": 14011.16,
+      "impressions": 618713,
+      "clicks": 3208,
+      "leads": 61,
+      "ctr": 0.52
+    },
+    "Abr W1": {
+      "spend": 11276.68,
+      "impressions": 248393,
+      "clicks": 3762,
+      "leads": 30,
+      "ctr": 1.51
+    },
+    "Abr W2": {
+      "spend": 19449.0,
+      "impressions": 392278,
+      "clicks": 12548,
+      "leads": 63,
+      "ctr": 3.2
+    },
+    "Abr W3": {
+      "spend": 5585.93,
+      "impressions": 227216,
+      "clicks": 5574,
+      "leads": 132,
+      "ctr": 2.45
+    },
+    "Abr W4": {
+      "spend": 524.08,
+      "impressions": 20096,
+      "clicks": 232,
+      "leads": 12,
+      "ctr": 1.15
+    }
+  },
+  "crm_weekly": {
+    "Fev W1": {
+      "contatos": 32,
+      "reunioes": 0,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Fev W2": {
+      "contatos": 64,
+      "reunioes": 1,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Fev W3": {
+      "contatos": 79,
+      "reunioes": 3,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Fev W4": {
+      "contatos": 49,
+      "reunioes": 0,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Mar W1": {
+      "contatos": 90,
+      "reunioes": 7,
+      "pedidos": 2,
+      "vendas": 2
+    },
+    "Mar W2": {
+      "contatos": 75,
+      "reunioes": 3,
+      "pedidos": 1,
+      "vendas": 1
+    },
+    "Mar W3": {
+      "contatos": 34,
+      "reunioes": 1,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Mar W4": {
+      "contatos": 15,
+      "reunioes": 0,
+      "pedidos": 0,
+      "vendas": 0
+    },
+    "Abr W1": {
+      "contatos": 57,
+      "reunioes": 3,
+      "pedidos": 0,
+      "vendas": 3
+    },
+    "Abr W2": {
+      "contatos": 54,
+      "reunioes": 0,
+      "pedidos": 0,
+      "vendas": 2
+    },
+    "Abr W3": {
+      "contatos": 74,
+      "reunioes": 1,
+      "pedidos": 0,
+      "vendas": 1
+    },
+    "Abr W4": {
+      "contatos": 0,
+      "reunioes": 0,
+      "pedidos": 0,
+      "vendas": 0
+    }
+  },
+  "qualified_weekly": {
+    "Fev W1": 18,
+    "Fev W2": 35,
+    "Fev W3": 44,
+    "Fev W4": 27,
+    "Mar W1": 33,
+    "Mar W2": 26,
+    "Mar W3": 12,
+    "Mar W4": 5,
+    "Abr W1": 16,
+    "Abr W2": 5,
+    "Abr W3": 0,
+    "Abr W4": 0
+  },
+  "btc": {
+    "brl": 392957,
+    "usd": 78803
+  }
+}
