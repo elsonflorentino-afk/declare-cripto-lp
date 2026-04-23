@@ -223,6 +223,20 @@ def rd_fetch_contact_full(token, uuid):
         return {}
 
 
+def rd_fetch_contact_conversions(token, uuid):
+    """Busca eventos de conversão do contato (para saber onde converteu)."""
+    url = f"{RD_MKT_BASE}/platform/contacts/{uuid}/events?event_type=CONVERSION&page=1&page_size=5"
+    req = urllib.request.Request(url, headers={
+        'Authorization': f'Bearer {token}',
+        'Content-Type': 'application/json',
+    })
+    try:
+        with urllib.request.urlopen(req, context=ctx, timeout=15) as r:
+            return json.loads(r.read())
+    except Exception:
+        return []
+
+
 def fetch_qualified_leads():
     """Busca leads qualificados (>=R$50k) via RD Station segmentações + dados completos."""
     if not RD_AVAILABLE:
@@ -246,7 +260,7 @@ def fetch_qualified_leads():
             seen.add(email)
             unique.append(c)
 
-    # Buscar dados completos (cf_*, telefone) de cada contato
+    # Buscar dados completos (cf_*, telefone, conversão) de cada contato
     print(f"    Buscando dados completos de {len(unique)} contatos...")
     enriched = []
     for i, c in enumerate(unique):
@@ -255,12 +269,18 @@ def fetch_qualified_leads():
             continue
         full = rd_fetch_contact_full(token, uuid)
         if full:
-            # Mesclar dados resumidos com completos
             full['created_at'] = c.get('created_at', full.get('created_at', ''))
+            # Buscar evento de conversão (onde o lead converteu)
+            events = rd_fetch_contact_conversions(token, uuid)
+            if events:
+                # Primeira conversão = origem do lead
+                full['_conversion_event'] = events[0].get('event_identifier', '')
+            else:
+                full['_conversion_event'] = ''
             enriched.append(full)
         if (i + 1) % 10 == 0:
             print(f"    ... {i + 1}/{len(unique)} contatos enriquecidos")
-        time.sleep(0.2)  # rate limit RD
+        time.sleep(0.15)  # rate limit RD
 
     return enriched
 
@@ -404,9 +424,8 @@ def main():
             pat_trad = c.get('cf_qual_seu_patrimonio_investido_no_mercado_tradicional') or '-'
             nome = c.get('name', '?')
             tel = c.get('personal_phone') or c.get('mobile_phone') or '-'
-            # Fonte: tentar cf_utm_campaign primeiro, depois tags
-            tags = c.get('tags', [])
-            fonte = c.get('cf_utm_campaign') or (tags[0] if tags else 'Desconhecido')
+            # Fonte: evento de conversão (onde o lead converteu)
+            fonte = c.get('_conversion_event') or c.get('cf_utm_campaign') or 'Desconhecido'
             # Classificação de qualificação
             faixas_altas = ['Entre R$ 50 mil a R$ 200 mil', 'Entre R$ 200 mil e R$500 mil', 'Acima de R$500 mil']
             pat_class = 'qual-high' if (pat_cripto in faixas_altas or pat_trad in faixas_altas) else 'qual-mid'
