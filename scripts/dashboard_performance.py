@@ -182,7 +182,7 @@ def rd_get_access_token():
 
 
 def rd_fetch_segmentation(token, seg_id):
-    """Busca contatos de uma segmentação do RD."""
+    """Busca contatos de uma segmentação do RD (retorna dados resumidos)."""
     contacts = []
     page = 1
     while True:
@@ -208,8 +208,23 @@ def rd_fetch_segmentation(token, seg_id):
     return contacts
 
 
+def rd_fetch_contact_full(token, uuid):
+    """Busca dados completos de um contato (cf_*, telefone)."""
+    url = f"{RD_MKT_BASE}/platform/contacts/{uuid}"
+    req = urllib.request.Request(url, headers={
+        'Authorization': f'Bearer {token}',
+        'Content-Type': 'application/json',
+    })
+    try:
+        with urllib.request.urlopen(req, context=ctx, timeout=15) as r:
+            return json.loads(r.read())
+    except Exception as e:
+        print(f"    RD contact {uuid[:12]}... erro: {e}", file=sys.stderr)
+        return {}
+
+
 def fetch_qualified_leads():
-    """Busca leads qualificados (>=R$50k) via RD Station segmentações."""
+    """Busca leads qualificados (>=R$50k) via RD Station segmentações + dados completos."""
     if not RD_AVAILABLE:
         return []
     token = rd_get_access_token()
@@ -230,7 +245,24 @@ def fetch_qualified_leads():
         if email and email not in seen:
             seen.add(email)
             unique.append(c)
-    return unique
+
+    # Buscar dados completos (cf_*, telefone) de cada contato
+    print(f"    Buscando dados completos de {len(unique)} contatos...")
+    enriched = []
+    for i, c in enumerate(unique):
+        uuid = c.get('uuid')
+        if not uuid:
+            continue
+        full = rd_fetch_contact_full(token, uuid)
+        if full:
+            # Mesclar dados resumidos com completos
+            full['created_at'] = c.get('created_at', full.get('created_at', ''))
+            enriched.append(full)
+        if (i + 1) % 10 == 0:
+            print(f"    ... {i + 1}/{len(unique)} contatos enriquecidos")
+        time.sleep(0.2)  # rate limit RD
+
+    return enriched
 
 
 # ──────────────────────────────────────────────────────────────
@@ -367,17 +399,24 @@ def main():
     for c in qualified:
         created = c.get('created_at', '')
         if created >= since_pos:
-            pat_cripto = c.get('cf_que_otimo_agora_preciso_entender_qual_seu_patrimonio_ho', '-')
-            pat_trad = c.get('cf_qual_seu_patrimonio_investido_no_mercado_tradicional', '-')
+            # Nomes canônicos dos cf_* no RD (confirmados via API)
+            pat_cripto = c.get('cf_que_otimo_agora_preciso_entender_qual_seu_patrimonio_ho') or '-'
+            pat_trad = c.get('cf_qual_seu_patrimonio_investido_no_mercado_tradicional') or '-'
             nome = c.get('name', '?')
             tel = c.get('personal_phone') or c.get('mobile_phone') or '-'
-            fonte = c.get('cf_utm_campaign') or c.get('tags', [''])[0] if c.get('tags') else 'Desconhecido'
+            # Fonte: tentar cf_utm_campaign primeiro, depois tags
+            tags = c.get('tags', [])
+            fonte = c.get('cf_utm_campaign') or (tags[0] if tags else 'Desconhecido')
+            # Classificação de qualificação
+            faixas_altas = ['Entre R$ 50 mil a R$ 200 mil', 'Entre R$ 200 mil e R$500 mil', 'Acima de R$500 mil']
+            pat_class = 'qual-high' if (pat_cripto in faixas_altas or pat_trad in faixas_altas) else 'qual-mid'
             qualified_pos.append({
                 'nome': nome,
                 'tel': tel,
-                'patCripto': pat_cripto or '-',
-                'patTrad': pat_trad or '-',
+                'patCripto': pat_cripto,
+                'patTrad': pat_trad,
                 'fonte': str(fonte)[:30],
+                'patClass': pat_class,
             })
     print(f"  {len(qualified_pos)} leads qualificados no período pós")
 
@@ -476,11 +515,25 @@ def generate_html(**d):
     # Leads qualificados rows
     qual_rows = ''
     for q in d['qualified']:
+        # Formatar telefone
+        tel = q['tel']
+        digits = ''.join(c for c in tel if c.isdigit())
+        if len(digits) == 13 and digits.startswith('55'):
+            tel_fmt = f"({digits[2:4]}) {digits[4:9]}-{digits[9:]}"
+        elif len(digits) == 12 and digits.startswith('55'):
+            tel_fmt = f"({digits[2:4]}) {digits[4:8]}-{digits[8:]}"
+        elif len(digits) == 11:
+            tel_fmt = f"({digits[0:2]}) {digits[2:7]}-{digits[7:]}"
+        else:
+            tel_fmt = tel
+
+        pat_class = q.get('patClass', 'qual-mid')
+        pat_trad_style = f'class="qual-badge {pat_class}"' if q['patTrad'] != '-' else 'style="color:var(--dim)"'
         qual_rows += f"""<tr>
 <td style="font-weight:600">{q['nome']}</td>
-<td style="font-size:11px">{q['tel']}</td>
-<td><span class="qual-badge qual-high">{q['patCripto']}</span></td>
-<td><span class="qual-badge qual-high">{q['patTrad']}</span></td>
+<td style="font-size:11px">{tel_fmt}</td>
+<td><span class="qual-badge {pat_class}">{q['patCripto']}</span></td>
+<td><span {pat_trad_style}>{q['patTrad']}</span></td>
 <td><span class="badge badge-blue">{q['fonte']}</span></td>
 </tr>"""
 
