@@ -202,6 +202,28 @@
         .option-btn.selected { border-color: var(--accent); background: rgba(0, 179, 126, 0.06); }
         .option-btn.selected::before { content: '\2713\0020'; color: var(--accent); font-weight: 800; }
 
+        /* Botão Voltar */
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: none; color: var(--text-secondary);
+            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+            cursor: pointer; margin-top: 24px; padding: 8px 0;
+            transition: color 0.2s;
+        }
+        .btn-back:hover { color: var(--text-primary); }
+
+        /* Disclosure e tempo */
+        .landing-disclosure {
+            font-size: 13px; color: var(--text-secondary); text-align: center;
+            line-height: 1.6; margin-bottom: 20px; max-width: 44ch;
+            padding: 12px 16px; border-radius: 8px;
+            background: var(--bg-surface); border: 1px solid var(--border);
+        }
+        .landing-time {
+            font-size: 13px; color: var(--text-muted); text-align: center;
+            margin-top: 14px;
+        }
+
         /* ── LEAD FORM ── */
         .lead-icon {
             width: 56px; height: 56px; background: rgba(0, 179, 126, 0.06);
@@ -424,7 +446,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="author-info">
             <strong>André Franco</strong>
             <span class="author-role">Fundador da Boost Research</span>
-            <p class="author-bio">Analista de criptoativos desde 2016. Atravessou dois ciclos completos de alta e baixa com o mesmo método. A Boost Research nasceu para levar análise institucional — sem comissão, sem conflito de interesse — ao investidor que leva patrimônio a sério.</p>
+            <p class="author-bio">André acompanha criptoativos desde 2016 e criou a Boost Research com um princípio: o analista não pode ter conflito com o investidor. Sem fundo próprio, sem comissão de exchange, sem token. A única receita é o honorário fixo pago pelo cliente.</p>
             <div class="author-credentials">
                 <span class="author-credential cred-green">Desde 2016</span>
                 <span class="author-credential cred-gold">Honorário fixo</span>
@@ -433,10 +455,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
+    <p class="landing-disclosure">Ao final, você recebe um diagnóstico personalizado com recomendações de proteção patrimonial. Nenhum dado é compartilhado com terceiros.</p>
+
     <button class="btn-primary" onclick="startQuiz()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Começar o Quiz — 2 minutos
+        Começar o Quiz
     </button>
+
+    <p class="landing-time">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Leva menos de 2 minutos
+    </p>
 
 </div>
 
@@ -454,6 +482,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="question-number" id="question-number">Pergunta 1</div>
     <h2 class="question-text" id="question-text"></h2>
     <div class="options-container" id="options-container"></div>
+    <button class="btn-back" id="btn-back" onclick="goBack()" style="display:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Voltar
+    </button>
 </div>
 
 <!-- ===== TELA 3: CAPTURA DE LEAD ===== -->
@@ -729,12 +761,23 @@ function renderQuestion() {
         container.appendChild(btn);
     });
 
+    // Mostrar/esconder botão Voltar
+    document.getElementById('btn-back').style.display = currentQuestion > 0 ? 'inline-flex' : 'none';
+
     // Fade in effect
     const screen = document.getElementById('screen-questions');
     screen.classList.remove('fade-in');
     requestAnimationFrame(() => {
         screen.classList.add('fade-in');
     });
+}
+
+function goBack() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        totalScore = answers.reduce((sum, a) => sum + (a ? a.points : 0), 0);
+        renderQuestion();
+    }
 }
 
 function selectOption(idx, points, btn) {
