@@ -110,9 +110,10 @@
         }
 
         .landing-title {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1.2;
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
             text-align: center;
             margin-bottom: 16px;
             letter-spacing: -0.03em;
@@ -298,10 +299,10 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             color: var(--text-primary);
-            padding: 16px 18px;
-            border-radius: 6px;
+            padding: 18px 20px;
+            border-radius: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             cursor: pointer;
             text-align: left;
@@ -317,6 +318,11 @@
         .option-btn.selected {
             border-color: var(--accent);
             background: rgba(0, 179, 126, 0.1);
+        }
+        .option-btn.selected::before {
+            content: '✓ ';
+            color: var(--accent);
+            font-weight: 800;
         }
 
         /* ===== LEAD CAPTURE ===== */
@@ -365,7 +371,7 @@
         }
 
         .form-input::placeholder {
-            color: var(--text-muted);
+            color: #5E5E7A;
         }
 
         .form-input:focus {
@@ -451,6 +457,7 @@
             width: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 24px;
@@ -956,8 +963,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="loading-spinner" id="lead-spinner"></div>
-    <button class="btn-primary" id="btn-submit" onclick="submitLead()">Ver Meu Diagnóstico</button>
-    <p class="lead-privacy">Seus dados estão seguros. Não enviamos spam. Art. 7º, II da LGPD.</p>
+    <button class="btn-primary" id="btn-submit" onclick="submitLead()">Descobrir meu diagnóstico personalizado</button>
+    <p class="lead-privacy">&#128274; Seus dados estão protegidos. Não enviamos spam. Art. 7º, II da LGPD.</p>
 </div>
 
 <!-- ===== TELA 4: RESULTADO ===== -->
@@ -983,7 +990,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="authority-bar">
         <div class="authority-stat"><div class="val">+10 anos</div><div class="lbl">de mercado</div></div>
         <div class="authority-stat"><div class="val">+19k</div><div class="lbl">investidores</div></div>
-        <div class="authority-stat"><div class="val">2 ciclos</div><div class="lbl">completos</div></div>
+        <div class="authority-stat"><div class="val">2 ciclos</div><div class="lbl">de alta e baixa</div></div>
         <div class="authority-stat"><div class="val">fixo</div><div class="lbl">honorário</div></div>
     </div>
     <div class="green-box" id="green-box">
@@ -1406,7 +1413,8 @@ function showResult(profile) {
     document.getElementById('result-badge').textContent = profile.name;
     document.getElementById('result-badge').className = 'result-badge ' + profile.class;
     document.getElementById('result-title').textContent = profile.name;
-    document.getElementById('result-score').textContent = `${totalScore} de 18 pontos`;
+    var scorePct = Math.round((totalScore / 18) * 100);
+    document.getElementById('result-score').textContent = `${scorePct}% de proteção (${totalScore}/18 pontos)`;
 
     const meterFill = document.getElementById('result-meter-fill');
     meterFill.className = 'result-meter-fill ' + profile.class;
