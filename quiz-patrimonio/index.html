@@ -1050,15 +1050,16 @@ const questions = [
         ]
     },
 ];
-// Q6 removida — patrimônio agora é coletado no form (igual LP Análise)
-// Score máximo: 15 pontos (5 perguntas × 3 pts)
+// Q6 removida do quiz — patrimônio é coletado no form
+// Mas os PONTOS do patrimônio continuam somando no score
+// Score máximo: 18 pontos (5 perguntas × 3 pts + 3 pts patrimônio do form)
 
 // ===== PERFIS DE RESULTADO =====
 const profiles = {
     exposto: {
         name: "Patrimônio Exposto",
         class: "exposto",
-        range: "0 a 5 pontos",
+        range: "0 a 6 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Seu patrimônio está significativamente exposto à desvalorização do real. Com mais de 90% em ativos brasileiros e sem proteção cambial, cada ponto percentual de desvalorização do real reduz diretamente o poder de compra do seu patrimônio em dólar. Nos últimos 3 anos, isso significou uma perda real de mais de 30% para quem não se protegeu.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1076,7 +1077,7 @@ const profiles = {
     parcial: {
         name: "Parcialmente Protegido",
         class: "parcial",
-        range: "6 a 10 pontos",
+        range: "7 a 12 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Você já tem alguma consciência do risco cambial, mas sua proteção ainda é parcial. Parte do seu patrimônio está exposta e, em um cenário de crise fiscal ou eleitoral, essa parcela pode sofrer desvalorização significativa. O bom é que você já começou a diversificar — falta completar o trabalho.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1094,7 +1095,7 @@ const profiles = {
     equilibrada: {
         name: "Carteira Equilibrada",
         class: "equilibrada",
-        range: "11 a 15 pontos",
+        range: "13 a 18 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Seu patrimônio está bem protegido. Você já tem diversificação cambial significativa, entende os riscos macro e tem alocação estratégica em ativos que protegem contra a desvalorização do real. Poucos investidores brasileiros chegam nesse nível de preparo.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1288,12 +1289,30 @@ function submitLead() {
     document.getElementById('lead-spinner').style.display = 'block';
     document.getElementById('btn-submit').style.display = 'none';
 
-    // Determine profile
-    const profile = getProfile(totalScore);
-
-    // Patrimônio para qualificação
+    // Patrimônio do form
     var patrimonioCripto = document.getElementById('lead-patrimonio-cripto').value;
     var patrimonioTrad = document.getElementById('lead-patrimonio-trad').value;
+
+    // Somar pontos do patrimônio ao score (mesma lógica da antiga Q6)
+    // Usa o MAIOR patrimônio entre cripto e tradicional
+    var patrimonioPointsMap = {
+        '': 0,
+        'Até R$ 10 mil': 0,
+        'Entre R$ 10 mil e R$ 50 mil': 1,
+        'Entre R$ 50 mil a R$ 200 mil': 2,
+        'Entre R$ 200 mil e R$500 mil': 2,
+        'Acima de R$500 mil': 3
+    };
+    var ptsCripto = patrimonioPointsMap[patrimonioCripto] || 0;
+    var ptsTrad = patrimonioPointsMap[patrimonioTrad] || 0;
+    var patrimonioPoints = Math.max(ptsCripto, ptsTrad);
+    // Se não investe em nada, 1 ponto (equivalente a "Até R$50k" da Q6 original)
+    if (formData.temCripto === 'não' && formData.temTrad === 'não') patrimonioPoints = 0;
+
+    totalScore += patrimonioPoints;
+
+    // Determine profile (agora com score completo: quiz + patrimônio)
+    const profile = getProfile(totalScore);
 
     // mobile_phone: +55 + apenas dígitos (padrão RD Station)
     var mobilePhone = '+55' + whatsappDigits;
@@ -1378,8 +1397,8 @@ function submitLead() {
 }
 
 function getProfile(score) {
-    if (score <= 5) return profiles.exposto;
-    if (score <= 10) return profiles.parcial;
+    if (score <= 6) return profiles.exposto;
+    if (score <= 12) return profiles.parcial;
     return profiles.equilibrada;
 }
 
@@ -1387,7 +1406,7 @@ function showResult(profile) {
     document.getElementById('result-badge').textContent = profile.name;
     document.getElementById('result-badge').className = 'result-badge ' + profile.class;
     document.getElementById('result-title').textContent = profile.name;
-    document.getElementById('result-score').textContent = `${totalScore} de 15 pontos`;
+    document.getElementById('result-score').textContent = `${totalScore} de 18 pontos`;
 
     const meterFill = document.getElementById('result-meter-fill');
     meterFill.className = 'result-meter-fill ' + profile.class;
@@ -1441,7 +1460,7 @@ function showResult(profile) {
 
     // Animate meter
     setTimeout(() => {
-        meterFill.style.width = Math.round((totalScore / 15) * 100) + '%';
+        meterFill.style.width = Math.round((totalScore / 18) * 100) + '%';
     }, 200);
 }
 
