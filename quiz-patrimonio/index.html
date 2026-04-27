@@ -664,6 +664,47 @@
                 padding: 18px 20px;
             }
         }
+        /* ===== TOGGLE BUTTONS (patrimônio) ===== */
+        .toggle-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .toggle-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .toggle-btn.active {
+            background: rgba(0,179,126,0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .cond-field {
+            animation: fadeIn 0.3s ease;
+        }
+        select.form-input {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237878A0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+            cursor: pointer;
+        }
+
         /* ===== LOGO NAVBAR ===== */
         .nav-bar {
             position: fixed;
@@ -839,7 +880,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="screen-questions" class="screen">
     <div class="progress-container">
         <div class="progress-info">
-            <span id="progress-label">Pergunta 1 de 6</span>
+            <span id="progress-label">Pergunta 1 de 5</span>
             <span id="progress-percent">17%</span>
         </div>
         <div class="progress-bar">
@@ -871,9 +912,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="tel" id="lead-whatsapp" class="form-input" placeholder="(11) 99999-9999" autocomplete="tel">
         <div class="form-error" id="error-whatsapp">Informe seu WhatsApp para receber o diagnóstico</div>
     </div>
+
+    <!-- Qualificação patrimônio (igual LP Análise) -->
+    <div class="form-group">
+        <label class="form-label">Você já possui investimentos em Bitcoin/Cripto?</label>
+        <div class="toggle-row">
+            <button type="button" class="toggle-btn" data-field="tem-cripto" data-value="sim" onclick="toggleSelect(this)">Sim</button>
+            <button type="button" class="toggle-btn" data-field="tem-cripto" data-value="não" onclick="toggleSelect(this)">Não</button>
+        </div>
+        <div class="form-error" id="error-tem-cripto">Selecione uma opção</div>
+    </div>
+    <div class="form-group cond-field" id="cond-cripto" style="display:none">
+        <label class="form-label">Qual seu patrimônio hoje em Bitcoin/Cripto?</label>
+        <select id="lead-patrimonio-cripto" class="form-input">
+            <option value="">Selecione uma faixa</option>
+            <option value="Até R$ 10 mil">Até R$ 10 mil</option>
+            <option value="Entre R$ 10 mil e R$ 50 mil">Entre R$ 10 mil e R$ 50 mil</option>
+            <option value="Entre R$ 50 mil a R$ 200 mil">Entre R$ 50 mil a R$ 200 mil</option>
+            <option value="Entre R$ 200 mil e R$500 mil">Entre R$ 200 mil e R$500 mil</option>
+            <option value="Acima de R$500 mil">Acima de R$500 mil</option>
+        </select>
+        <div class="form-error" id="error-patrimonio-cripto">Selecione a faixa</div>
+    </div>
+    <div class="form-group">
+        <label class="form-label">E você possui investimentos no mercado tradicional? (Tesouro, CDI, ações, fundos)</label>
+        <div class="toggle-row">
+            <button type="button" class="toggle-btn" data-field="tem-trad" data-value="sim" onclick="toggleSelect(this)">Sim</button>
+            <button type="button" class="toggle-btn" data-field="tem-trad" data-value="não" onclick="toggleSelect(this)">Não</button>
+        </div>
+        <div class="form-error" id="error-tem-trad">Selecione uma opção</div>
+    </div>
+    <div class="form-group cond-field" id="cond-trad" style="display:none">
+        <label class="form-label">Qual seu patrimônio investido no mercado tradicional?</label>
+        <select id="lead-patrimonio-trad" class="form-input">
+            <option value="">Selecione uma faixa</option>
+            <option value="Até R$ 10 mil">Até R$ 10 mil</option>
+            <option value="Entre R$ 10 mil e R$ 50 mil">Entre R$ 10 mil e R$ 50 mil</option>
+            <option value="Entre R$ 50 mil a R$ 200 mil">Entre R$ 50 mil a R$ 200 mil</option>
+            <option value="Entre R$ 200 mil e R$500 mil">Entre R$ 200 mil e R$500 mil</option>
+            <option value="Acima de R$500 mil">Acima de R$500 mil</option>
+        </select>
+        <div class="form-error" id="error-patrimonio-trad">Selecione a faixa</div>
+    </div>
+
     <div class="loading-spinner" id="lead-spinner"></div>
     <button class="btn-primary" id="btn-submit" onclick="submitLead()">Ver Meu Diagnóstico</button>
-    <p class="lead-privacy">Seus dados estão seguros. Não enviamos spam.</p>
+    <p class="lead-privacy">Seus dados estão seguros. Não enviamos spam. Art. 7º, II da LGPD.</p>
 </div>
 
 <!-- ===== TELA 4: RESULTADO ===== -->
@@ -965,24 +1049,16 @@ const questions = [
             { text: "Monitoro ativamente: dívida pública, política monetária e risco cambial, e ajusto meu portfólio", points: 3 }
         ]
     },
-    {
-        id: 6,
-        text: "Pensando no valor total do seu patrimônio investido, em qual faixa se encaixa?",
-        options: [
-            { text: "Até R$ 50 mil", points: 1 },
-            { text: "R$ 50 mil a R$ 200 mil", points: 2 },
-            { text: "R$ 200 mil a R$ 1 milhão", points: 2 },
-            { text: "Acima de R$ 1 milhão", points: 3 }
-        ]
-    }
 ];
+// Q6 removida — patrimônio agora é coletado no form (igual LP Análise)
+// Score máximo: 15 pontos (5 perguntas × 3 pts)
 
 // ===== PERFIS DE RESULTADO =====
 const profiles = {
     exposto: {
         name: "Patrimônio Exposto",
         class: "exposto",
-        range: "0 a 6 pontos",
+        range: "0 a 5 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Seu patrimônio está significativamente exposto à desvalorização do real. Com mais de 90% em ativos brasileiros e sem proteção cambial, cada ponto percentual de desvalorização do real reduz diretamente o poder de compra do seu patrimônio em dólar. Nos últimos 3 anos, isso significou uma perda real de mais de 30% para quem não se protegeu.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1000,7 +1076,7 @@ const profiles = {
     parcial: {
         name: "Parcialmente Protegido",
         class: "parcial",
-        range: "7 a 12 pontos",
+        range: "6 a 10 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Você já tem alguma consciência do risco cambial, mas sua proteção ainda é parcial. Parte do seu patrimônio está exposta e, em um cenário de crise fiscal ou eleitoral, essa parcela pode sofrer desvalorização significativa. O bom é que você já começou a diversificar — falta completar o trabalho.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1018,7 +1094,7 @@ const profiles = {
     equilibrada: {
         name: "Carteira Equilibrada",
         class: "equilibrada",
-        range: "13 a 18 pontos",
+        range: "11 a 15 pontos",
         diagnosis: `<h3>Seu diagnóstico</h3>
 <p>Seu patrimônio está bem protegido. Você já tem diversificação cambial significativa, entende os riscos macro e tem alocação estratégica em ativos que protegem contra a desvalorização do real. Poucos investidores brasileiros chegam nesse nível de preparo.</p>`,
         mentorship: `<h3>Boost Research</h3>
@@ -1115,6 +1191,28 @@ function selectOption(idx, points, btn) {
     }, 350);
 }
 
+// ===== TOGGLE & CONDITIONAL FIELDS =====
+var formData = { temCripto: '', temTrad: '' };
+
+function toggleSelect(btn) {
+    var field = btn.dataset.field;
+    var value = btn.dataset.value;
+
+    // Deselect siblings
+    btn.parentElement.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    if (field === 'tem-cripto') {
+        formData.temCripto = value;
+        document.getElementById('cond-cripto').style.display = value === 'sim' ? 'block' : 'none';
+        if (value !== 'sim') document.getElementById('lead-patrimonio-cripto').value = '';
+    } else if (field === 'tem-trad') {
+        formData.temTrad = value;
+        document.getElementById('cond-trad').style.display = value === 'sim' ? 'block' : 'none';
+        if (value !== 'sim') document.getElementById('lead-patrimonio-trad').value = '';
+    }
+}
+
 function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -1164,6 +1262,26 @@ function submitLead() {
         valid = false;
     }
 
+    // Validar campos de patrimônio
+    if (!formData.temCripto) {
+        document.getElementById('error-tem-cripto').style.display = 'block';
+        valid = false;
+    }
+    if (formData.temCripto === 'sim' && !document.getElementById('lead-patrimonio-cripto').value) {
+        document.getElementById('error-patrimonio-cripto').style.display = 'block';
+        document.getElementById('lead-patrimonio-cripto').classList.add('error');
+        valid = false;
+    }
+    if (!formData.temTrad) {
+        document.getElementById('error-tem-trad').style.display = 'block';
+        valid = false;
+    }
+    if (formData.temTrad === 'sim' && !document.getElementById('lead-patrimonio-trad').value) {
+        document.getElementById('error-patrimonio-trad').style.display = 'block';
+        document.getElementById('lead-patrimonio-trad').classList.add('error');
+        valid = false;
+    }
+
     if (!valid) return;
 
     // Show loading
@@ -1172,6 +1290,10 @@ function submitLead() {
 
     // Determine profile
     const profile = getProfile(totalScore);
+
+    // Patrimônio para qualificação
+    var patrimonioCripto = document.getElementById('lead-patrimonio-cripto').value;
+    var patrimonioTrad = document.getElementById('lead-patrimonio-trad').value;
 
     // mobile_phone: +55 + apenas dígitos (padrão RD Station)
     var mobilePhone = '+55' + whatsappDigits;
@@ -1202,7 +1324,15 @@ function submitLead() {
         'equilibrada': 'quiz-equilibrado'
     };
 
+    // Qualificação: >=R$50k em cripto OU tradicional
+    var isQualified = false;
+    var qualFaixas = ['Entre R$ 50 mil a R$ 200 mil', 'Entre R$ 200 mil e R$500 mil', 'Acima de R$500 mil'];
+    if (qualFaixas.indexOf(patrimonioCripto) >= 0 || qualFaixas.indexOf(patrimonioTrad) >= 0) {
+        isQualified = true;
+    }
+
     // RD Station Conversions API
+    // Campos cf_* idênticos à LP Análise (validado)
     var rdPayload = {
         event_type: 'CONVERSION',
         event_family: 'CDP',
@@ -1211,7 +1341,12 @@ function submitLead() {
             name: name,
             email: email,
             mobile_phone: mobilePhone,
-            tags: ['quiz-patrimonio', profileTagMap[profile.class]],
+            cf_voce_ja_possui_investimentos_em_bitcoin_cripto: formData.temCripto,
+            cf_que_otimo_agora_preciso_entender_qual_seu_patrimonio_ho: patrimonioCripto || undefined,
+            cf_e_voce_possui_investimentos_no_mercado_tradicional_teso: formData.temTrad,
+            cf_qual_seu_patrimonio_investido_no_mercado_tradicional: patrimonioTrad || undefined,
+            cf_qualificado: isQualified ? 'sim' : 'não',
+            tags: ['quiz-patrimonio', profileTagMap[profile.class], isQualified ? 'qualificado' : 'nao-qualificado'],
             traffic_source:   getUTM('source')   || 'direct',
             traffic_medium:   getUTM('medium')   || 'none',
             traffic_campaign: getUTM('campaign') || undefined,
@@ -1243,8 +1378,8 @@ function submitLead() {
 }
 
 function getProfile(score) {
-    if (score <= 6) return profiles.exposto;
-    if (score <= 12) return profiles.parcial;
+    if (score <= 5) return profiles.exposto;
+    if (score <= 10) return profiles.parcial;
     return profiles.equilibrada;
 }
 
@@ -1252,7 +1387,7 @@ function showResult(profile) {
     document.getElementById('result-badge').textContent = profile.name;
     document.getElementById('result-badge').className = 'result-badge ' + profile.class;
     document.getElementById('result-title').textContent = profile.name;
-    document.getElementById('result-score').textContent = `${totalScore} de 18 pontos`;
+    document.getElementById('result-score').textContent = `${totalScore} de 15 pontos`;
 
     const meterFill = document.getElementById('result-meter-fill');
     meterFill.className = 'result-meter-fill ' + profile.class;
@@ -1270,9 +1405,11 @@ function showResult(profile) {
             </div>`;
     });
 
-    // Roteamento por patrimônio (Q6, índice 5)
-    var q6Answer = answers[5] ? answers[5].selectedText : '';
-    var isQualified = (q6Answer.indexOf('R$ 50 mil') >= 0 || q6Answer.indexOf('R$ 200 mil') >= 0 || q6Answer.indexOf('R$ 1 milhão') >= 0 || q6Answer.indexOf('Acima') >= 0) && q6Answer.indexOf('Até') === -1;
+    // Roteamento por patrimônio (dados do form, não mais Q6)
+    var pCripto = document.getElementById('lead-patrimonio-cripto').value;
+    var pTrad = document.getElementById('lead-patrimonio-trad').value;
+    var qualFaixasCheck = ['Entre R$ 50 mil a R$ 200 mil', 'Entre R$ 200 mil e R$500 mil', 'Acima de R$500 mil'];
+    var isQualified = qualFaixasCheck.indexOf(pCripto) >= 0 || qualFaixasCheck.indexOf(pTrad) >= 0;
 
     var ctaHtml = '';
     if (isQualified) {
@@ -1304,13 +1441,13 @@ function showResult(profile) {
 
     // Animate meter
     setTimeout(() => {
-        meterFill.style.width = Math.round((totalScore / 18) * 100) + '%';
+        meterFill.style.width = Math.round((totalScore / 15) * 100) + '%';
     }, 200);
 }
 
 function shareWhatsApp() {
     const profile = getProfile(totalScore);
-    const text = encodeURIComponent(`Fiz o diagnóstico de proteção patrimonial do André Franco (Boost Research) e fiquei no perfil ${profile.name}. Descubra o seu em 2 minutos: ${window.location.href}`);
+    const text = encodeURIComponent(`Fiz o diagnóstico de proteção patrimonial do André Franco (Boost Research) e fiquei no perfil "${profile.name}". Descubra o seu: ${window.location.href}`);
     window.open(`https://wa.me/?text=${text}`, '_blank');
 }
 
