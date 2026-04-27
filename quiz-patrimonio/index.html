@@ -126,7 +126,7 @@
             border-bottom: 1px solid var(--border-subtle);
         }
         .nav-logo img {
-            height: 72px; width: auto;
+            height: 96px; width: auto;
             mix-blend-mode: screen;
             filter: contrast(1.1);
         }
@@ -157,8 +157,8 @@
         .nav-cta:hover::after { left: 120%; }
 
         @media (max-width: 480px) {
-            .nav-logo img { height: 48px; }
-            .nav-cta { font-size: 10px; padding: 8px 14px; max-width: 180px; }
+            .nav-logo img { height: 64px; }
+            .nav-cta { font-size: 10px; padding: 8px 12px; max-width: 160px; }
             .nav-cta small { font-size: 8px; }
         }
 
@@ -207,16 +207,27 @@
             flex-shrink: 0; font-size: 18px;
         }
         .landing-author {
-            display: flex; align-items: center; gap: 14px;
-            background: var(--bg-card);
+            display: flex; align-items: flex-start; gap: 16px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 16px 18px;
+            border-radius: var(--radius-lg);
+            padding: 20px;
             margin-bottom: 32px;
             width: 100%;
             transition: border-color 0.3s var(--ease-out);
         }
         .landing-author:hover { border-color: var(--border-hover); }
+        .author-credentials {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+        }
+        .author-credential {
+            font-size: 10px; font-weight: 600;
+            padding: 3px 8px; border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .cred-green { background: var(--accent-surface); color: var(--accent); }
+        .cred-gold { background: var(--gold-glow); color: var(--gold); }
         .author-avatar {
             width: 48px; height: 48px;
             border-radius: 50%;
@@ -227,10 +238,11 @@
             flex-shrink: 0;
         }
         .author-photo {
-            width: 52px; height: 52px;
+            width: 72px; height: 72px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
             flex-shrink: 0;
         }
         .author-info {
@@ -687,30 +699,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Quanto do seu patrimônio está <span style="color:#E8B731">protegido</span> da desvalorização do real?
     </h1>
     <p class="landing-subtitle">
-        O real perdeu mais de 30% em 3 anos. Ano eleitoral 2026 adiciona risco fiscal. Em 5 perguntas, descubra seu grau de exposição e o que os investidores mais preparados estão fazendo.
+        O real perdeu mais de 30% de poder de compra em 3 anos. O cenário fiscal de 2026 acelera esse risco. Responda 5 perguntas e descubra se o seu patrimônio está protegido — ou exposto.
     </p>
     <div class="landing-features">
         <div class="feature-item">
-            <div class="feature-icon">&#9998;</div>
-            <span>5 perguntas</span>
+            <div class="feature-icon" style="border-color:rgba(0,179,126,0.3)">&#9998;</div>
+            <span>5 perguntas objetivas</span>
         </div>
         <div class="feature-item">
-            <div class="feature-icon">&#128202;</div>
-            <span>Diagnóstico de exposição cambial</span>
+            <div class="feature-icon" style="border-color:rgba(232,183,49,0.3)">&#128202;</div>
+            <span>Diagnóstico personalizado com 3 recomendações</span>
         </div>
         <div class="feature-item">
-            <div class="feature-icon">&#128274;</div>
-            <span>100% gratuito</span>
+            <div class="feature-icon" style="border-color:rgba(0,179,126,0.3)">&#128274;</div>
+            <span>100% gratuito — resultado imediato</span>
         </div>
     </div>
     <div class="landing-author">
         <img class="author-photo" src="data:image/jpeg;base64,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" alt="André Franco">
         <div class="author-info">
             <strong>André Franco</strong>
-            Analista de criptoativos desde 2016. Fundador da Boost Research. Sem fundo próprio, sem comissão.
+            Analista de criptoativos desde 2016. Viveu dois ciclos completos de alta e baixa. Multiplicou patrimônio 144× com método. Fundou a Boost Research para trazer análise institucional ao investidor brasileiro.
+            <div class="author-credentials">
+                <span class="author-credential cred-green">Desde 2016</span>
+                <span class="author-credential cred-gold">144× retorno</span>
+                <span class="author-credential cred-green">Sem comissão</span>
+                <span class="author-credential cred-gold">Honorário fixo</span>
+            </div>
         </div>
     </div>
-    <button class="btn-primary" onclick="startQuiz()">Começar o Quiz</button>
+    <button class="btn-primary" onclick="startQuiz()">Começar o Quiz — 2 minutos</button>
 </div>
 
 <!-- ===== TELA 2: PERGUNTAS ===== -->
