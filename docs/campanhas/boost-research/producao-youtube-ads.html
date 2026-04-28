@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produção YouTube Ads — Boost Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e13;--bg2:#111820;--bg3:#1a2230;--green:#03E4D0;--green2:#00B37E;--white:#f0f2f5;--gray:#8899aa;--gray2:#556677;--red:#ff4d6a;--yellow:#ffc940;--blue:#4da6ff}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);padding:0}
+.header{padding:40px 60px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:24px}
+.header img{width:120px;filter:brightness(0) invert(1)}
+.header h1{font-size:28px;font-weight:700;letter-spacing:-.5px}
+.header p{font-size:14px;color:var(--gray);margin-top:4px}
+.container{max-width:1200px;margin:0 auto;padding:32px 60px 80px}
+h2{font-size:22px;font-weight:700;margin:48px 0 16px;color:var(--green);border-bottom:2px solid rgba(3,228,208,.15);padding-bottom:8px}
+h2:first-child{margin-top:0}
+h3{font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--white)}
+p{font-size:14px;color:var(--gray);line-height:1.6}
+.tbl{width:100%;border-collapse:collapse;margin:12px 0 24px;font-size:13px}
+.tbl th{text-align:left;padding:10px 12px;color:var(--green);font-weight:600;border-bottom:2px solid rgba(3,228,208,.2);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.tbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--gray);vertical-align:top}
+.tbl tr:hover td{color:var(--white)}
+.tbl td:first-child{color:var(--white);font-weight:500}
+.card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;margin-bottom:16px}
+.card-green{border-left:3px solid var(--green)}
+.card-yellow{border-left:3px solid var(--yellow)}
+.card-red{border-left:3px solid var(--red)}
+.card-blue{border-left:3px solid var(--blue)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;margin-bottom:8px}
+.tag-green{background:rgba(3,228,208,.12);color:var(--green)}
+.tag-yellow{background:rgba(255,201,64,.12);color:var(--yellow)}
+.tag-blue{background:rgba(77,166,255,.12);color:var(--blue)}
+.tag-red{background:rgba(255,77,106,.12);color:var(--red)}
+.hook{font-size:15px;color:var(--white);font-style:italic;line-height:1.5;margin:8px 0;padding:12px 16px;background:rgba(3,228,208,.04);border-left:3px solid var(--green);border-radius:0 8px 8px 0}
+.spec{font-size:12px;color:var(--gray);margin-top:6px}
+.spec strong{color:var(--green)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.summary-box{background:var(--bg2);border:1px solid rgba(3,228,208,.15);border-radius:12px;padding:20px;text-align:center}
+.summary-box .num{font-size:36px;font-weight:800;color:var(--green);letter-spacing:-1px}
+.summary-box .label{font-size:12px;color:var(--gray);margin-top:4px}
+.back{display:inline-block;color:var(--green);text-decoration:none;font-weight:600;font-size:14px;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.note{font-size:12px;color:var(--gray2);margin-top:8px}
+a{color:var(--green)}
+@media(max-width:768px){.container{padding:20px}.grid2,.grid3{grid-template-columns:1fr}.header{padding:20px;flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="boost-logo-horizontal.svg" alt="Boost Research">
+  <div>
+    <h1>Guia de Produção — YouTube Ads</h1>
+    <p>Specs técnicas oficiais do Google + copy por tema + checklist de entrega</p>
+  </div>
+</div>
+
+<div class="container">
+
+<a class="back" href="APRESENTACAO_YOUTUBE_ADS_BOOST_v1.html">&larr; Voltar para a apresentação</a>
+
+<!-- RESUMO -->
+<div class="grid3" style="margin-bottom:40px">
+  <div class="summary-box"><div class="num">12</div><div class="label">Temas de vídeo</div></div>
+  <div class="summary-box"><div class="num">25</div><div class="label">Variações de hook (A/B test)</div></div>
+  <div class="summary-box"><div class="num">3</div><div class="label">Formatos (in-stream, curto, Shorts)</div></div>
+</div>
+
+<!-- ==================== SPECS TÉCNICAS ==================== -->
+
+<h2>1. Especificações técnicas por formato</h2>
+<p>Fonte oficial: <a href="https://support.google.com/google-ads/answer/13547298" target="_blank">Google Ads Help — Video ad specs</a></p>
+
+<h3>Configuração geral (vale para todos os formatos)</h3>
+<table class="tbl">
+  <tr><td>Codec de vídeo</td><td>H.264 (MP4)</td></tr>
+  <tr><td>Codec de áudio</td><td>AAC-LC, estéreo, 128 kbps mínimo</td></tr>
+  <tr><td>Frame rate</td><td>Manter o nativo da gravação (24, 30 ou 60 fps)</td></tr>
+  <tr><td>Tamanho máximo</td><td>256 GB</td></tr>
+</table>
+
+<h3>Formatos de anúncio</h3>
+<table class="tbl">
+  <thead><tr><th>Formato</th><th>Orientação</th><th>Resolução</th><th>Duração</th><th>Pular?</th><th>Cobrança</th></tr></thead>
+  <tbody>
+    <tr><td>In-stream (pulável)</td><td>16:9 horizontal</td><td>1920x1080</td><td>Sem limite (rec. 2-3min)</td><td>Após 5s</td><td>CPV (30s ou completo)</td></tr>
+    <tr><td>In-stream (não pulável)</td><td>16:9 horizontal</td><td>1920x1080</td><td>Máx 15s</td><td>Não</td><td>CPM</td></tr>
+    <tr><td>Bumper</td><td>16:9 horizontal</td><td>1920x1080</td><td>Máx 6s</td><td>Não</td><td>CPM</td></tr>
+    <tr><td>Shorts Ads</td><td>9:16 vertical</td><td>1080x1920</td><td>10-60s (rec. 15-30s)</td><td>Swipe</td><td>CPV/CPM</td></tr>
+    <tr><td>Discovery/In-Feed</td><td>16:9 horizontal</td><td>1280x720</td><td>Qualquer</td><td>Clique para ver</td><td>CPV</td></tr>
+  </tbody>
+</table>
+<p class="note">Fontes: <a href="https://support.google.com/google-ads/answer/6055025" target="_blank">In-stream skippable</a> · <a href="https://support.google.com/google-ads/answer/16041697" target="_blank">Shorts specs</a> · <a href="https://support.google.com/google-ads/answer/6227733" target="_blank">In-Feed</a></p>
+
+<h3>Demand Gen — Assets necessários</h3>
+<table class="tbl">
+  <thead><tr><th>Tipo</th><th>Spec</th><th>Quantidade</th></tr></thead>
+  <tbody>
+    <tr><td>Vídeos</td><td>16:9, 9:16 ou 1:1 — máx 3min</td><td>Até 5 por asset group</td></tr>
+    <tr><td>Imagem landscape</td><td>1200x628 (1.91:1)</td><td>Até 20</td></tr>
+    <tr><td>Imagem portrait</td><td>960x1200 (4:5)</td><td>Até 20</td></tr>
+    <tr><td>Logo</td><td>1200x1200 (1:1), mín 128x128</td><td>Até 5</td></tr>
+    <tr><td>Headline</td><td>Máx 40 caracteres</td><td>Até 5</td></tr>
+    <tr><td>Long headline</td><td>Máx 90 caracteres</td><td>Até 5</td></tr>
+    <tr><td>Description</td><td>Máx 90 caracteres</td><td>Até 5</td></tr>
+  </tbody>
+</table>
+<p class="note">Fonte: <a href="https://support.google.com/google-ads/answer/13704860" target="_blank">Demand Gen asset specifications</a>. Dado: vídeo + imagem juntos = +20% conversões vs só vídeo.</p>
+
+<h3>Thumbnail (Discovery/In-Feed)</h3>
+<table class="tbl">
+  <tr><td>Resolução</td><td>1280x720 (16:9). Se qualquer thumb &lt; 720p, TODAS são rebaixadas para 480p</td></tr>
+  <tr><td>Formato</td><td>JPG, PNG ou GIF — máx 2MB</td></tr>
+  <tr><td>Regras</td><td>Rosto visível, máx 3-5 palavras, fonte grande, sem clickbait</td></tr>
+</table>
+
+<h3>Legendas</h3>
+<table class="tbl">
+  <tr><td>Formato recomendado</td><td>.SRT (SubRip) — universal e simples</td></tr>
+  <tr><td>In-stream</td><td>Upload como arquivo .SRT (closed caption)</td></tr>
+  <tr><td>Shorts</td><td>Burn-in obrigatório (texto gravado no vídeo). CC pode não aparecer no feed de Shorts</td></tr>
+  <tr><td>Performance</td><td>Som ligado + legendas = +20% conversões em Shorts (dado Google)</td></tr>
+</table>
+<p class="note">Fonte: <a href="https://support.google.com/youtube/answer/2734698" target="_blank">Supported subtitle files</a></p>
+
+<!-- ==================== SAFE ZONES ==================== -->
+
+<h3>Safe zones — Onde NÃO colocar texto</h3>
+<div class="grid2">
+  <div class="card card-green">
+    <span class="tag tag-green">SHORTS (9:16)</span>
+    <p><strong style="color:var(--white)">Lateral direita (15-20%):</strong> Botões like, share, subscribe — não colocar texto</p>
+    <p><strong style="color:var(--white)">Base (20-25%):</strong> CTA overlay + barra de navegação — não colocar texto</p>
+    <p><strong style="color:var(--white)">Topo (10-15%):</strong> Barra de status — evitar texto</p>
+    <p style="margin-top:8px"><strong style="color:var(--green)">Área segura:</strong> Centro e centro-esquerda do vídeo</p>
+  </div>
+  <div class="card card-green">
+    <span class="tag tag-green">IN-STREAM (16:9)</span>
+    <p><strong style="color:var(--white)">Base (20% inferior):</strong> Barra de progresso + botão skip + CTA — não colocar texto</p>
+    <p><strong style="color:var(--white)">Canto inferior direito:</strong> Logo do canal — evitar</p>
+    <p style="margin-top:8px"><strong style="color:var(--green)">Área segura:</strong> Centro e terço superior da tela. Legendas burn-in no centro-inferior com margem</p>
+  </div>
+</div>
+
+<!-- ==================== ABCD FRAMEWORK ==================== -->
+
+<h2>2. ABCD — Melhores práticas Google</h2>
+<p>Ads que seguem o ABCD entregam +30% lift em vendas e +17% em marca. Fonte: <a href="https://www.thinkwithgoogle.com/future-of-marketing/creativity/youtube-video-ad-creative/" target="_blank">Think with Google</a></p>
+
+<div class="grid2" style="margin-top:16px">
+  <div class="card card-green">
+    <span class="tag tag-green">A — ATTRACT (primeiros 5s)</span>
+    <p><strong style="color:var(--white)">Close-up no André</strong> — enquadramento fechado no rosto</p>
+    <p><strong style="color:var(--white)">2-3 cortes rápidos</strong> nos primeiros 5 segundos</p>
+    <p><strong style="color:var(--white)">Pergunta direta</strong> que gera identificação</p>
+    <p><strong style="color:var(--white)">Ritmo acelerado</strong> — cortes a cada 1-2s no início</p>
+  </div>
+  <div class="card card-blue">
+    <span class="tag tag-blue">B — BRAND (marca cedo)</span>
+    <p><strong style="color:var(--white)">Logo nos primeiros 3 segundos</strong> — NÃO prejudica performance (confirmado Google)</p>
+    <p><strong style="color:var(--white)">Lower third:</strong> "André Franco — Boost Research"</p>
+    <p><strong style="color:var(--white)">Menção verbal:</strong> "Aqui na Boost Research..."</p>
+  </div>
+  <div class="card card-yellow">
+    <span class="tag tag-yellow">C — CONNECT (conexão)</span>
+    <p><strong style="color:var(--white)">André como protagonista</strong> — rosto humano gera conexão</p>
+    <p><strong style="color:var(--white)">Benefício funcional + emocional</strong></p>
+    <p><strong style="color:var(--white)">Falar COM o viewer</strong>, não PARA o viewer</p>
+    <p><strong style="color:var(--white)">Storytelling:</strong> problema &rarr; insight &rarr; solução</p>
+  </div>
+  <div class="card card-red">
+    <span class="tag tag-red">D — DIRECT (ação)</span>
+    <p><strong style="color:var(--white)">CTA específico:</strong> "Solicite sua análise gratuita"</p>
+    <p><strong style="color:var(--white)">CTA visual E verbal</strong> simultaneamente</p>
+    <p><strong style="color:var(--white)">End card:</strong> logo Boost + CTA + URL</p>
+    <p><strong style="color:var(--white)">Oferta clara:</strong> o que a pessoa ganha ao clicar</p>
+  </div>
+</div>
+
+<!-- ==================== DISCLAIMER ==================== -->
+
+<h2>3. Disclaimers obrigatórios</h2>
+
+<div class="card card-red">
+  <span class="tag tag-red">COMPLIANCE — CVM + ANBIMA + GOOGLE</span>
+  <p style="margin-top:8px"><strong style="color:var(--white)">Disclaimer padrão (TODOS os vídeos):</strong></p>
+  <p style="color:var(--white);font-style:italic;margin:8px 0">"Investimentos em criptoativos envolvem riscos. Retornos passados não garantem resultados futuros."</p>
+  <p><strong style="color:var(--white)">Onde deve aparecer:</strong></p>
+  <p>1. <strong>Áudio</strong> — André deve falar o disclaimer no vídeo</p>
+  <p>2. <strong>Visual</strong> — texto legível nos primeiros 15 segundos (regra YouTube Ads)</p>
+  <p>3. <strong>End card</strong> — disclaimer completo + CNPJ nos últimos 5 segundos</p>
+  <p style="margin-top:12px"><strong style="color:var(--yellow)">Disclaimers adicionais por tema:</strong></p>
+  <p>Tema 3 (IR): + "Este conteúdo não substitui orientação tributária profissional."</p>
+  <p>Tema 10 (INSS): + "Criptoativos não substituem previdência social."</p>
+  <p>Tema 12 (DeFi): + "Protocolos DeFi possuem riscos adicionais de smart contract."</p>
+</div>
+<p class="note">Fontes: <a href="https://support.google.com/adspolicy/answer/2464998" target="_blank">Financial products policy</a> · <a href="https://support.google.com/adspolicy/answer/14009787" target="_blank">Cryptocurrencies policy</a> · Resolução CVM 20, Art. 14</p>
+
+<!-- ==================== 12 TEMAS COM COPY ==================== -->
+
+<h2>4. Os 12 temas — Copy + Specs de produção</h2>
+
+<!-- TEMA 1 -->
+<div class="card card-green">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-green">TEMA 1 | PRIORIDADE 1 | 54% dos clientes</span>
+    <h3 style="margin-top:4px">Quando vender Bitcoin — o que ninguém te ensina</h3></div>
+    <div class="spec"><strong>In-stream</strong> 2-3min · 16:9 · 1920x1080 · 3 variações</div>
+  </div>
+  <div class="hook">"Passaram oito topos de Bitcoin e eu não realizei. Se você se identifica, presta atenção."</div>
+  <div class="hook">"A maioria dos investidores de cripto nunca vendeu no momento certo. Eu também não vendia — até criar regras pra isso."</div>
+  <div class="hook">"Você sabe comprar Bitcoin. Mas sabe vender?"</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline (máx 40 chars):</strong> Quando vender Bitcoin? André Franco mostra</p>
+    <p><strong style="color:var(--white)">Long headline (máx 90):</strong> Quando vender Bitcoin? André Franco mostra as regras que usa desde 2016</p></div>
+    <div><p><strong style="color:var(--white)">Description (máx 90):</strong> André Franco ensina regras de saída para cripto. Assista.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Saiba Mais</p></div>
+  </div>
+</div>
+
+<!-- TEMA 2 -->
+<div class="card card-green">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-green">TEMA 2 | PRIORIDADE 1 | 51% dos clientes</span>
+    <h3 style="margin-top:4px">O investidor que não tem tempo</h3></div>
+    <div class="spec"><strong>In-stream curto</strong> 30-60s · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Você investe bem no tradicional. Mas cripto? Não tem tempo, não tem segurança. Normal."</div>
+  <div class="hook">"Falta tempo pra acompanhar cripto? A maioria dos nossos clientes também não tem. E tudo bem."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Sem tempo pra cripto? A Boost analisa</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Sem tempo pra acompanhar cripto? A Boost faz a análise — você decide</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Curadoria cripto pra quem não tem tempo. Conheça.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Conheça a Boost</p></div>
+  </div>
+</div>
+
+<!-- TEMA 3 -->
+<div class="card card-green">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-yellow">TEMA 3 | PRIORIDADE 1 | NINGUÉM ABORDA</span>
+    <h3 style="margin-top:4px">Cripto e IR — o que ninguém te conta</h3></div>
+    <div class="spec"><strong>In-stream</strong> 2-4min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Você declarou cripto no IR este ano? Se não, a Receita já sabe que você tem."</div>
+  <div class="hook">"A Receita Federal cruza dados de exchanges desde 2019. Se você tem cripto e não declarou, esse vídeo é pra você."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Cripto e IR: o que a Receita já sabe</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Cripto e Imposto de Renda: o que a Receita já sabe sobre você</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Como declarar cripto corretamente. André Franco explica.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Assista Agora</p></div>
+  </div>
+</div>
+
+<!-- TEMA 4 -->
+<div class="card card-blue">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-blue">TEMA 4 | PRIORIDADE 2</span>
+    <h3 style="margin-top:4px">Hold não é estratégia — por que você precisa de regras de saída</h3></div>
+    <div class="spec"><strong>In-stream</strong> 2-3min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Hold não é estratégia. É rezar pra dar certo. E eu digo isso como alguém que viveu vários ciclos."</div>
+  <div class="hook">"Você segurou cripto esperando subir mais. Subiu, caiu, e você ficou olhando. Já aconteceu, né?"</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Hold não é estratégia. Veja o que é</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Hold não é estratégia. André Franco mostra o que funciona de verdade</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Regras de saída para cripto. Sem achismo, com método.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Saiba Mais</p></div>
+  </div>
+</div>
+
+<!-- TEMA 5 -->
+<div class="card card-blue">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-blue">TEMA 5 | PRIORIDADE 2</span>
+    <h3 style="margin-top:4px">Sua cripto na corretora não é sua</h3></div>
+    <div class="spec"><strong>In-stream curto</strong> 60-90s · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Se a sua corretora fechar amanhã, você sabe o que acontece com a sua cripto? A resposta é: nada bom."</div>
+  <div class="hook">"Comprei a Ledger e até hoje não transferi. Se você também, esse vídeo é pra você."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Sua cripto está segura? Descubra</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Sua cripto está segura? O que acontece se a corretora fechar</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Custódia cripto: o que você precisa saber agora.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Assista Agora</p></div>
+  </div>
+</div>
+
+<!-- TEMA 6 -->
+<div class="card card-blue">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-blue">TEMA 6 | PRIORIDADE 2 | SHORTS</span>
+    <h3 style="margin-top:4px">Sobreviver ao trauma das altcoins</h3></div>
+    <div class="spec"><strong>Shorts</strong> 30-45s · 9:16 · 1080x1920 · 2 variações</div>
+  </div>
+  <div class="hook">"Kusama comprei a 42, vendi a 19. Se você tem uma história parecida, fica até o final."</div>
+  <div class="hook">"Altcoin que derreteu. Projeto que sumiu. Gostinho amargo que ficou. Vamos falar sobre isso."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline (Shorts, 40 chars):</strong> Trauma de altcoin é real. Veja como sair</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> André Franco fala sobre prejuízo em altcoins. Sem filtro.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Assista Agora</p></div>
+  </div>
+</div>
+
+<!-- TEMA 7 -->
+<div class="card card-blue">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag tag-blue">TEMA 7 | PRIORIDADE 2</span>
+    <h3 style="margin-top:4px">O que a IA não te conta sobre cripto</h3></div>
+    <div class="spec"><strong>In-stream</strong> 2-3min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"9% dos investidores já usam IA pra investir. Mas a IA não sabe o que o André sabe — e ele vai te mostrar por quê."</div>
+  <div class="hook">"O ChatGPT te dá uma resposta. O André te dá contexto. Tem uma diferença enorme entre os dois."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> IA não substitui analista. Veja por quê</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> IA não substitui analista. Veja o que ela erra sobre cripto</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> André Franco mostra os limites da IA em cripto.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Saiba Mais</p></div>
+  </div>
+</div>
+
+<!-- TEMA 8 -->
+<div class="card" style="border-left:3px solid var(--gray2)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag" style="background:rgba(255,255,255,.06);color:var(--gray)">TEMA 8 | PRIORIDADE 3 | SHORTS</span>
+    <h3 style="margin-top:4px">3 erros que a maioria dos investidores de cripto comete</h3></div>
+    <div class="spec"><strong>Shorts</strong> 30-60s · 9:16 · 1080x1920 · 2 variações</div>
+  </div>
+  <div class="hook">"Três erros. A maioria dos investidores de cripto comete pelo menos dois. Você provavelmente também."</div>
+  <div class="hook">"Erro número um: comprar sem regra de saída. Dois e três são piores."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline (40 chars):</strong> 3 erros que custam caro em cripto</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> André Franco lista os erros mais comuns. Confira.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Assista Agora</p></div>
+  </div>
+</div>
+
+<!-- TEMA 9 -->
+<div class="card" style="border-left:3px solid var(--gray2)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag" style="background:rgba(255,255,255,.06);color:var(--gray)">TEMA 9 | PRIORIDADE 3</span>
+    <h3 style="margin-top:4px">Como eu comecei em cripto em 2016 — e o que aprendi</h3></div>
+    <div class="spec"><strong>In-stream</strong> 3-5min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Em 2016 quase ninguém no Brasil falava de Bitcoin a sério. Eu comecei ali. E o que aprendi muda tudo."</div>
+  <div class="hook">"Eu analiso cripto desde 2016. Vivi ciclos de alta, de queda, de pânico. Deixa eu te contar o que ficou."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> André Franco analisa cripto desde 2016</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> André Franco analisa cripto desde 2016. Veja o que ele aprendeu</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> A trajetória de quem vive cripto há quase uma década.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Conheça a História</p></div>
+  </div>
+</div>
+
+<!-- TEMA 10 -->
+<div class="card" style="border-left:3px solid var(--gray2)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag" style="background:rgba(255,255,255,.06);color:var(--gray)">TEMA 10 | PRIORIDADE 3</span>
+    <h3 style="margin-top:4px">93% dos aposentados dependem do INSS — e o seu plano?</h3></div>
+    <div class="spec"><strong>In-stream</strong> 2-3min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"93% dos aposentados brasileiros dependem do INSS. Dado da ANBIMA. E você, qual é o seu plano?"</div>
+  <div class="hook">"84% dos brasileiros não começaram a guardar pra aposentadoria. Se você é um deles, esse vídeo é pra você."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> 93% dependem do INSS. E o seu plano?</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> 93% dependem do INSS. Cripto pode ser parte do seu plano B</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Dados ANBIMA 2026. André Franco analisa alternativas.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Saiba Mais</p></div>
+  </div>
+</div>
+
+<!-- TEMA 11 -->
+<div class="card" style="border-left:3px solid var(--gray2)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag" style="background:rgba(255,255,255,.06);color:var(--gray)">TEMA 11 | PRIORIDADE 3</span>
+    <h3 style="margin-top:4px">O que uma casa de análise independente faz de diferente</h3></div>
+    <div class="spec"><strong>In-stream curto</strong> 45-90s · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"A Boost não tem fundo próprio, não recebe comissão de exchange, não vende token. Então como ganha dinheiro? Honorário fixo. Só isso."</div>
+  <div class="hook">"Quando o analista que te recomenda cripto também vende cripto, tem um problema. Na Boost, a gente só analisa."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Sem fundo, sem comissão, sem conflito</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Casa de análise independente: sem fundo, sem comissão, sem conflito</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> Boost Research: análise cripto com honorário fixo.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Conheça a Boost</p></div>
+  </div>
+</div>
+
+<!-- TEMA 12 -->
+<div class="card" style="border-left:3px solid var(--gray2)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+    <div><span class="tag" style="background:rgba(255,255,255,.06);color:var(--gray)">TEMA 12 | PRIORIDADE 3</span>
+    <h3 style="margin-top:4px">Renda fixa digital — o que é e como funciona</h3></div>
+    <div class="spec"><strong>In-stream</strong> 3-5min · 16:9 · 1920x1080 · 2 variações</div>
+  </div>
+  <div class="hook">"Renda fixa digital. Você já ouviu falar mas não entende direito. Normal — quase ninguém entende."</div>
+  <div class="hook">"E se existisse uma renda fixa que rende mais, funciona 24/7, e não depende de banco? Existe. Chama DeFi."</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><p><strong style="color:var(--white)">Headline:</strong> Renda fixa digital: o que é e os riscos</p>
+    <p><strong style="color:var(--white)">Long headline:</strong> Renda fixa digital: o que é, como funciona, quais os riscos</p></div>
+    <div><p><strong style="color:var(--white)">Description:</strong> André Franco explica DeFi de forma simples e direta.</p>
+    <p><strong style="color:var(--white)">CTA:</strong> Assista Agora</p></div>
+  </div>
+</div>
+
+<!-- ==================== CHECKLIST DE ENTREGA ==================== -->
+
+<h2>5. Checklist de entrega por peça</h2>
+
+<table class="tbl">
+  <thead><tr><th>Item</th><th>Spec</th><th>Obrigatório?</th></tr></thead>
+  <tbody>
+    <tr><td>Vídeo horizontal</td><td>1920x1080, H.264, MP4, 30fps mín</td><td>Sim (in-stream)</td></tr>
+    <tr><td>Vídeo vertical</td><td>1080x1920, H.264, MP4, 30fps mín</td><td>Sim (Shorts)</td></tr>
+    <tr><td>Legendas .SRT</td><td>Português, sincronizado</td><td>Sim (in-stream)</td></tr>
+    <tr><td>Legendas burn-in</td><td>Texto gravado no vídeo, fonte grande</td><td>Sim (Shorts)</td></tr>
+    <tr><td>Thumbnail</td><td>1280x720, JPG/PNG, máx 2MB, rosto André</td><td>Sim (Discovery)</td></tr>
+    <tr><td>Imagem landscape</td><td>1200x628 (1.91:1)</td><td>Sim (Demand Gen)</td></tr>
+    <tr><td>Imagem portrait</td><td>960x1200 (4:5)</td><td>Sim (Demand Gen)</td></tr>
+    <tr><td>Logo</td><td>1200x1200 (1:1), PNG, fundo transparente</td><td>Sim</td></tr>
+    <tr><td>Disclaimer visual</td><td>Legível, primeiros 15s + end card</td><td>Obrigatório (compliance)</td></tr>
+    <tr><td>Disclaimer áudio</td><td>André fala o disclaimer no vídeo</td><td>Obrigatório (compliance)</td></tr>
+    <tr><td>Lower third</td><td>"André Franco — Boost Research"</td><td>Sim (ABCD: Brand)</td></tr>
+    <tr><td>End card</td><td>Logo + CTA + URL + disclaimer, 5s</td><td>Sim</td></tr>
+  </tbody>
+</table>
+
+<!-- ==================== RESUMO TOTAL DE PEÇAS ==================== -->
+
+<h2>6. Total de peças necessárias</h2>
+
+<h3>Fase 1 — Teste (primeiros 30 dias)</h3>
+<table class="tbl">
+  <thead><tr><th>Tema</th><th>Formato</th><th>Variações</th><th>Peças</th></tr></thead>
+  <tbody>
+    <tr><td>1. Quando vender Bitcoin</td><td>In-stream 2-3min</td><td>3 hooks</td><td>3 vídeos</td></tr>
+    <tr><td>2. Investidor sem tempo</td><td>In-stream curto 30-60s</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>3. Cripto e IR</td><td>In-stream 2-4min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>8. 3 erros em cripto</td><td>Shorts 30-60s</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>9. Como comecei em 2016</td><td>In-stream 3-5min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>10. 93% dependem do INSS</td><td>In-stream 2-3min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr style="border-top:2px solid var(--green)"><td colspan="3" style="color:var(--green);font-weight:700">Total Fase 1</td><td style="color:var(--green);font-weight:700">13 vídeos</td></tr>
+  </tbody>
+</table>
+
+<h3>Fase 2 — Escala (dias 31-90)</h3>
+<table class="tbl">
+  <thead><tr><th>Tema</th><th>Formato</th><th>Variações</th><th>Peças</th></tr></thead>
+  <tbody>
+    <tr><td>4. Hold não é estratégia</td><td>In-stream 2-3min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>5. Cripto na corretora</td><td>In-stream curto 60-90s</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>6. Trauma das altcoins</td><td>Shorts 30-45s</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>7. IA e cripto</td><td>In-stream 2-3min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>Cortes dos vencedores Fase 1</td><td>Shorts verticais recortados</td><td>—</td><td>~5 Shorts</td></tr>
+    <tr style="border-top:2px solid var(--blue)"><td colspan="3" style="color:var(--blue);font-weight:700">Total Fase 2</td><td style="color:var(--blue);font-weight:700">13 vídeos</td></tr>
+  </tbody>
+</table>
+
+<h3>Fase 3 — Maturidade (dia 90+)</h3>
+<table class="tbl">
+  <thead><tr><th>Tema</th><th>Formato</th><th>Variações</th><th>Peças</th></tr></thead>
+  <tbody>
+    <tr><td>11. Casa de análise independente</td><td>In-stream curto 45-90s</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>12. Renda fixa digital</td><td>In-stream 3-5min</td><td>2 hooks</td><td>2 vídeos</td></tr>
+    <tr><td>Remarketing (oferta direta)</td><td>In-stream curto 30s</td><td>—</td><td>2 vídeos</td></tr>
+    <tr><td>Bumper (reforço de marca)</td><td>Bumper 6s</td><td>—</td><td>2 vídeos</td></tr>
+    <tr style="border-top:2px solid var(--yellow)"><td colspan="3" style="color:var(--yellow);font-weight:700">Total Fase 3</td><td style="color:var(--yellow);font-weight:700">8 vídeos</td></tr>
+  </tbody>
+</table>
+
+<div class="grid3" style="margin-top:24px">
+  <div class="summary-box"><div class="num">34</div><div class="label">Total de vídeos (3 fases)</div></div>
+  <div class="summary-box"><div class="num">13</div><div class="label">Fase 1 (gravar primeiro)</div></div>
+  <div class="summary-box"><div class="num">6</div><div class="label">Sessões de gravação estimadas</div></div>
+</div>
+
+<p class="note" style="margin-top:32px">
+  Specs técnicas: fontes oficiais Google Ads Help e Think with Google (abril 2026).<br>
+  Copy: @vera (Senior Copywriter) com base em ICP Insights v2 (1.412 dores) e Raio-X ANBIMA 2026.<br>
+  Compliance: auditado contra CVM Resolução 20, ANBIMA Código de Publicidade, Google Ads Financial Services Policy.<br><br>
+  <a href="APRESENTACAO_YOUTUBE_ADS_BOOST_v1.html" style="color:var(--green);font-weight:600">&larr; Voltar para a apresentação</a>
+</p>
+
+</div>
+</body>
+</html>
