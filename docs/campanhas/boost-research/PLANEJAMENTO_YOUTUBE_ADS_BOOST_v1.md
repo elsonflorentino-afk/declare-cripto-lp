@@ -92,7 +92,7 @@ Ninguém faz o que a Boost pode fazer:
 1. **Tom confessional.** Todos usam hype ou institucional frio. Ninguém fala na linguagem real do investidor ("tomei um preju", "fiquei refém do ciclo").
 2. **Fiscal e offshore.** 72 menções no ICP, zero concorrentes abordando publicamente.
 3. **Método de realização.** A dor #1 (54% dos ICPs) — "não sei quando vender" — não tem nenhum anúncio no YouTube abordando.
-4. **Ex-Empiricus.** André saiu da Empiricus. 42% dos ICP Premium já passaram por lá. Esse ângulo é exclusivo e poderoso.
+4. **Ex-Empiricus.** André saiu da Empiricus. Muitos clientes Premium já passaram por lá. Esse ângulo é exclusivo e poderoso.
 
 ---
 
@@ -403,10 +403,10 @@ utm_term={audiencia}
 | CPV | ≤ R$0,35 | ≤ R$0,25 | ≤ R$0,20 |
 | View Rate | ≥ 25% | ≥ 30% | ≥ 35% |
 | CTR | ≥ 0,7% | ≥ 1,0% | ≥ 1,2% |
-| CPL (lead) | ≤ R$120 | ≤ R$80 | ≤ R$60 |
+| CPL (lead) | ≤ R$120 | ≤ R$80 | ≤ R$80 |
 | CPL qualificado (≥R$50k) | ≤ R$600 | ≤ R$400 | ≤ R$300 |
-| Leads/mês | 50+ | 200+ | 400+ |
-| Leads qualif/mês | 10+ | 40+ | 80+ |
+| Leads/mês | 30-50 | 180+ | 350+ |
+| Leads qualif/mês | 6-10 | 35+ | 70+ |
 | EVC rate | Baseline | +20% vs baseline | +30% vs baseline |
 
 ---
@@ -415,22 +415,33 @@ utm_term={audiencia}
 
 | Risco | Probabilidade | Impacto | Mitigação |
 |-------|--------------|---------|-----------|
-| Reprovação de anúncio (política Google cripto) | Alta | Médio | Greg conhece as regras. Disclaimers prontos. Conta com histórico limpo |
+| **Certificação Google para cripto não aprovada** | Média | **CRÍTICO** | Solicitar ANTES de tudo (5-7 dias úteis). Sem certificação, nenhum anúncio roda |
+| Reprovação de anúncio (política Google cripto) | Alta | **Alto** | Disclaimers prontos. Submeter 2-3 anúncios primeiro e aguardar aprovação antes de subir em massa. Reincidência pode suspender conta |
+| **Fase de aprendizado do Smart Bidding** | Alta | Médio | Cada campanha com Max Conversions entra em "learning" por 7-14 dias com CPA 2-3x acima do target. Lançar campanhas escalonadas (1/semana) |
 | CPL alto no início | Alta | Baixo | Budget de teste baixo (R$200/dia). Cortar rápido |
+| **Consent Mode v2 não configurado** | Média | Alto | Sem Consent Mode, Google modela ~30% menos conversões. Configurar no sGTM ANTES de lançar |
+| **Canal YouTube não vinculado ao Google Ads** | Média | Alto | Sem vinculação: sem audiences de video viewers, sem sequências, sem earned views. Pré-requisito técnico |
 | Produção de vídeo lenta | Média | Alto | Shorts cortados de in-stream. 1 gravação = 3+ peças |
 | Canibalização com Meta Ads | Baixa | Médio | Exclusão cruzada via Customer Match. Públicos diferentes |
 | Fadiga de criativo | Média | Médio | Refresh a cada 3-4 semanas. Banco de 12 temas prontos |
 
 ---
 
-## 12. Próximos passos
+## 12. Pré-requisitos técnicos (antes de lançar)
+
+1. [ ] **Solicitar certificação Google para Financial Services/Crypto** (BLOQUEANTE, 5-7 dias úteis)
+2. [ ] **Vincular canal YouTube ao Google Ads** (conta ID: 17899489316)
+3. [ ] Configurar Consent Mode v2 no sGTM
+4. [ ] Verificar Enhanced Conversions com Tag Assistant
+5. [ ] Criar audiences de Customer Match com lista RD Station
+6. [ ] Configurar conversões primárias (lead form) e secundárias (scroll, video view)
+7. [ ] Capturar GCLID nas LPs (preparação para Offline Conversion Import na Fase 2)
+
+## 13. Próximos passos
 
 1. [ ] André aprovar temas e priorizar gravações
-2. [ ] Definir budget aprovado para Fase 1
+2. [ ] Definir budget aprovado para Fase 1 (R$6k/mês de mídia + custo de produção)
 3. [ ] Gravar primeiros 3 vídeos (Temas 1, 2, 3)
-4. [ ] Configurar conta Google Ads (se não existe) ou usar existente (ID: 17899489316)
-5. [ ] Criar Customer Match com lista RD Station
-6. [ ] Configurar conversões no Google Ads (Lead form + WhatsApp)
 7. [ ] Vincular canal YouTube ao Google Ads
 8. [ ] Configurar UTMs e tags RD para YouTube
 9. [ ] Lançar campanhas Fase 1
