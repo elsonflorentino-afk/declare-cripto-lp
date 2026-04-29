@@ -51,7 +51,7 @@ _WATERMARK_URI = "data:image/svg+xml," + _urlparse.quote(_WATERMARK_SVG, safe=''
 CSS = """
 @page {
     size: A4;
-    margin: 2cm 2cm 2.5cm 2cm;
+    margin: 2cm 2cm 3cm 2cm;
     @top-right {
         content: "Boost Research";
         font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -417,11 +417,11 @@ ul li::marker {
 /* ── Social footer fixo (todas as páginas) ── */
 .social-footer {
     position: fixed;
-    bottom: 8mm;
+    bottom: 3mm;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 7.5pt;
+    font-size: 7pt;
     color: #888;
     z-index: 100;
 }
