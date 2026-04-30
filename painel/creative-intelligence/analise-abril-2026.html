@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Intelligence — Abril 2026 vs Março | Boost Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e13;--bg2:#111820;--bg3:#1a2230;--green:#03E4D0;--green2:#00B37E;--white:#f0f2f5;--gray:#8899aa;--red:#ff4d6a;--yellow:#ffc940;--blue:#4da6ff}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);padding:0}
+.header{padding:32px 48px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between}
+.header h1{font-size:24px;font-weight:700}
+.header .period{font-size:13px;color:var(--gray)}
+.container{max-width:1200px;margin:0 auto;padding:32px 48px 80px}
+h2{font-size:18px;font-weight:700;margin:40px 0 16px;color:var(--green)}
+h3{font-size:15px;font-weight:600;margin:20px 0 8px}
+
+/* Summary cards */
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:40px}
+.s-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;text-align:center}
+.s-card .val{font-size:28px;font-weight:800;margin:4px 0}
+.s-card .label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.s-card .change{font-size:12px;font-weight:600;margin-top:4px}
+.up{color:var(--green)}.down{color:var(--red)}.neutral{color:var(--yellow)}
+
+/* Comparison table */
+.cmp-tbl{width:100%;border-collapse:collapse;margin:12px 0 24px;font-size:13px}
+.cmp-tbl th{text-align:left;padding:10px 12px;color:var(--green);font-weight:600;border-bottom:2px solid rgba(3,228,208,.2);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.cmp-tbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--gray)}
+.cmp-tbl tr:hover td{color:var(--white)}
+.cmp-tbl td:first-child{color:var(--white);font-weight:500}
+
+/* Creative cards */
+.creative-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:16px 0}
+.creative-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.creative-card:hover{border-color:rgba(3,228,208,.2)}
+.creative-card .thumb{width:100%;height:180px;object-fit:cover;background:var(--bg3)}
+.creative-card .thumb-placeholder{width:100%;height:180px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gray)}
+.creative-card .info{padding:16px}
+.creative-card .name{font-size:13px;font-weight:600;margin-bottom:8px;line-height:1.4}
+.creative-card .metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.creative-card .metric{text-align:center}
+.creative-card .metric .mv{font-size:18px;font-weight:700}
+.creative-card .metric .ml{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px}
+.creative-card .tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.creative-card .tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px}
+.tg{background:rgba(3,228,208,.12);color:var(--green)}
+.ty{background:rgba(255,201,64,.12);color:var(--yellow)}
+.tr{background:rgba(255,77,106,.12);color:var(--red)}
+.tb{background:rgba(77,166,255,.12);color:var(--blue)}
+
+/* Insight cards */
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.insight{background:var(--bg2);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:20px}
+.insight h3{margin:0 0 8px;font-size:14px;color:var(--white)}
+.insight p{font-size:13px;color:var(--gray);line-height:1.6}
+.insight-red{border-left-color:var(--red)}
+.insight-yellow{border-left-color:var(--yellow)}
+
+.note{font-size:11px;color:var(--gray);margin-top:32px;line-height:1.6}
+@media(max-width:768px){.summary{grid-template-columns:1fr 1fr}.creative-grid{grid-template-columns:1fr}.insight-grid{grid-template-columns:1fr}.container{padding:20px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Creative Intelligence — Abril 2026</h1>
+    <p class="period">Comparativo com Março 2026 | Dados Meta Ads API + RD Station</p>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- RESUMO EXECUTIVO -->
+<div class="summary">
+  <div class="s-card">
+    <div class="label">Spend</div>
+    <div class="val">R$42k</div>
+    <div class="change down">-12% vs Março (R$48k)</div>
+  </div>
+  <div class="s-card">
+    <div class="label">Leads (Meta)</div>
+    <div class="val">747</div>
+    <div class="change down">-16% vs Março (888)</div>
+  </div>
+  <div class="s-card">
+    <div class="label">CPL Bruto</div>
+    <div class="val">R$56</div>
+    <div class="change neutral">+4% vs Março (R$54)</div>
+  </div>
+  <div class="s-card">
+    <div class="label">Qualificados (RD)</div>
+    <div class="val" style="color:var(--green)">92</div>
+    <div class="change up">Fonte: Segmentacoes RD</div>
+  </div>
+  <div class="s-card">
+    <div class="label">CPL Qualificado</div>
+    <div class="val" style="color:var(--yellow)">R$461</div>
+    <div class="change neutral">92 leads >=R$50k</div>
+  </div>
+</div>
+
+<!-- COMPARATIVO MARCO vs ABRIL -->
+<h2>Marco vs Abril — O que mudou</h2>
+
+<table class="cmp-tbl">
+  <thead><tr><th>Metrica</th><th>Marco</th><th>Abril</th><th>Variacao</th></tr></thead>
+  <tbody>
+    <tr><td>Spend total</td><td>R$48.352</td><td>R$42.428</td><td class="down">-12%</td></tr>
+    <tr><td>Impressoes</td><td>2.184.957</td><td>1.073.353</td><td class="down">-51%</td></tr>
+    <tr><td>Clicks</td><td>41.712</td><td>24.945</td><td class="down">-40%</td></tr>
+    <tr><td>Leads (Meta)</td><td>888</td><td>747</td><td class="down">-16%</td></tr>
+    <tr><td>CPL bruto</td><td>R$54</td><td>R$56</td><td class="neutral">+4%</td></tr>
+  </tbody>
+</table>
+
+<h3>Campanhas Marco (top)</h3>
+<table class="cmp-tbl">
+  <thead><tr><th>Campanha</th><th>Spend</th><th>Leads</th><th>CPL</th></tr></thead>
+  <tbody>
+    <tr><td>TEST-CRIATIVOS (Lead)</td><td>R$13.030</td><td>310</td><td style="color:var(--green)">R$42</td></tr>
+    <tr><td>MORNO LEADS PROSP ABO</td><td>R$9.192</td><td>196</td><td style="color:var(--green)">R$46</td></tr>
+    <tr><td>QUENTE LEADS PROSP ABO</td><td>R$3.470</td><td>122</td><td style="color:var(--green)">R$28</td></tr>
+    <tr><td>C4 CONSIDERACAO</td><td>R$4.061</td><td>21</td><td style="color:var(--red)">R$193</td></tr>
+    <tr><td>C4 CONVERSAO</td><td>R$3.927</td><td>25</td><td style="color:var(--red)">R$157</td></tr>
+  </tbody>
+</table>
+
+<h3>Campanhas Abril (top)</h3>
+<table class="cmp-tbl">
+  <thead><tr><th>Campanha</th><th>Spend</th><th>Leads</th><th>CPL</th></tr></thead>
+  <tbody>
+    <tr><td>C4 CONVERSAO</td><td>R$9.828</td><td>29</td><td style="color:var(--red)">R$338</td></tr>
+    <tr><td>C4 CONSIDERACAO</td><td>R$7.059</td><td>25</td><td style="color:var(--red)">R$282</td></tr>
+    <tr><td>C5 ANDROMEDA V2 (Conversao-LP)</td><td>R$4.755</td><td>148</td><td style="color:var(--green)">R$32</td></tr>
+    <tr><td>IR Cripto 2026 (Lead Form)</td><td>R$4.455</td><td>307</td><td style="color:var(--green)">R$14</td></tr>
+    <tr><td>C5 ANDROMEDA (Conversao-LP)</td><td>R$4.179</td><td>119</td><td style="color:var(--green)">R$35</td></tr>
+    <tr><td>QUIZ PATRIMONIO</td><td>R$3.427</td><td>78</td><td style="color:var(--green)">R$43</td></tr>
+    <tr><td>CONVERSAO-FORM</td><td>R$2.146</td><td>39</td><td style="color:var(--green)">R$55</td></tr>
+  </tbody>
+</table>
+
+<!-- INSIGHTS -->
+<h2>Insights — O que realmente mudou</h2>
+
+<div class="insight-grid">
+  <div class="insight insight-red">
+    <h3>C4 CONVERSAO degradou forte</h3>
+    <p>CPL saltou de R$157 (marco) para R$338 (abril) — mais que dobrou. Mesmo criativo, mesmo targeting, mas frequencia saturou. Os ads AF-CRIPTO FEED e BOOST-BROAD CARROSSEL estao com frequencia acima de 3x. Precisa de criativos novos urgente.</p>
+  </div>
+  <div class="insight insight-red">
+    <h3>Impressoes caíram 51%</h3>
+    <p>De 2.1M para 1M. Campanhas de awareness (VideoViews, Awareness Seguidores) que rodavam em marco foram pausadas em abril. O funil ficou sem topo — so consideracao e conversao.</p>
+  </div>
+  <div class="insight">
+    <h3>IR Cripto Lead Form: volume x qualidade</h3>
+    <p>307 leads a CPL R$14 — volume absurdo. Mas taxa de qualificacao de apenas 9%. Funciona como porta de entrada para nurture, nao para conversao direta. 18 qualificados vieram daqui.</p>
+  </div>
+  <div class="insight">
+    <h3>C5 ANDROMEDA V2 e a surpresa</h3>
+    <p>148 leads a CPL R$32. Campanha que testou broad targeting (Andromeda) com LP em vez de Lead Form. Performance boa — mescla volume com alguma qualificacao via form.</p>
+  </div>
+  <div class="insight insight-yellow">
+    <h3>Qualificados: 92 em abril vs ~79 em marco</h3>
+    <p>Apesar de menos leads brutos (-16%), os qualificados SUBIRAM. Isso sugere que as campanhas de abril filtraram melhor — especialmente C4 CONVERSAO (taxa 75-100% nos ads que converteram) e QUIZ PATRIMONIO (filtro nativo).</p>
+  </div>
+  <div class="insight insight-yellow">
+    <h3>Budget redistribuído — menos awareness, mais conversao</h3>
+    <p>Marco tinha R$6.5k em awareness/seguidores. Abril moveu tudo para conversao e lead form. O CPL bruto ficou estavel (R$54 vs R$56), mas com campanhas mais caras (C4 a R$300+) sendo compensadas por Lead Forms baratos (R$14-32).</p>
+  </div>
+</div>
+
+<!-- TOP CRIATIVOS COM THUMBNAILS -->
+<h2>Top 10 criativos — Por leads qualificados</h2>
+<p style="font-size:13px;color:var(--gray);margin-bottom:16px">Cruzamento Meta Ads x RD Station Segmentacoes (>=R$50k patrimonio)</p>
+
+<div class="creative-grid">
+
+  <div class="creative-card">
+    <img class="thumb" src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t45.1600-4/667610479_122221215188050031_1028205597578763324_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=478c00&_nc_ohc=placeholder&_nc_ht=scontent.fcpq4-1.fna&oh=placeholder&oe=placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">E05-10ANOS (Lead Form IR)</div>
+    <div class="info">
+      <div class="name">[NOVO] E05-10ANOS</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv" style="color:var(--green)">18</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv">R$140</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv">10%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag tg">Lead Form</span><span class="tag tg">Volume</span><span class="tag ty">Taxa baixa</span></div>
+    </div>
+  </div>
+
+  <div class="creative-card">
+    <img class="thumb" src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t45.1600-4/653962116_122219903978050031_1791281280992965259_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=478c00&_nc_ohc=placeholder&_nc_ht=scontent.fcpq4-1.fna&oh=placeholder&oe=placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">BOOST-CRIPTO-FORM FEED</div>
+    <div class="info">
+      <div class="name">[BR][QUENTE][BOOST-CRIPTO-FORM][FEED][C4][V1]</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv" style="color:var(--green)">10</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv" style="color:var(--green)">R$123</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv">43%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag tg">Melhor CPL com volume</span><span class="tag tb">Feed</span></div>
+    </div>
+  </div>
+
+  <div class="creative-card">
+    <img class="thumb" src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t45.1600-4/654432068_122219902328050031_4659515961344020204_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=478c00&_nc_ohc=placeholder&_nc_ht=scontent.fcpq4-1.fna&oh=placeholder&oe=placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">BOOST-TRAD FEED V2</div>
+    <div class="info">
+      <div class="name">[BR][MORNO][BOOST-TRAD][FEED][C4][V2]</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv" style="color:var(--green)">9</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv">R$191</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv" style="color:var(--green)">90%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag tg">Taxa excepcional</span><span class="tag tb">Feed</span><span class="tag tb">Morno</span></div>
+    </div>
+  </div>
+
+  <div class="creative-card">
+    <img class="thumb" src="https://external.fcpq4-1.fna.fbcdn.net/emg1/v/t13/placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">BOOST-BROAD CARROSSEL</div>
+    <div class="info">
+      <div class="name">[BR][QUENTE][BOOST-BROAD][CARROSSEL][C4][V1]</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv" style="color:var(--green)">8</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv" style="color:var(--red)">R$510</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv" style="color:var(--green)">80%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag ty">CPL alto</span><span class="tag tg">Taxa alta</span><span class="tag tb">Carrossel</span></div>
+    </div>
+  </div>
+
+  <div class="creative-card">
+    <img class="thumb" src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t45.1600-4/654240780_122219902364050031_5086527653370241599_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=478c00&_nc_ohc=placeholder&_nc_ht=scontent.fcpq4-1.fna&oh=placeholder&oe=placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">AF-CRIPTO FEED</div>
+    <div class="info">
+      <div class="name">[BR][QUENTE][AF-CRIPTO][FEED][C4][C1]</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv" style="color:var(--green)">6</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv">R$318</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv" style="color:var(--green)">75%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag tg">Alta qualidade</span><span class="tag tr">Freq saturada</span><span class="tag tb">Feed</span></div>
+    </div>
+  </div>
+
+  <div class="creative-card">
+    <img class="thumb" src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t45.1600-4/653994601_122219902214050031_8446650983890494001_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=478c00&_nc_ohc=placeholder&_nc_ht=scontent.fcpq4-1.fna&oh=placeholder&oe=placeholder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+    <div class="thumb-placeholder" style="display:none">AF-CRIPTO STORY</div>
+    <div class="info">
+      <div class="name">[BR][MORNO][AF-CRIPTO][STORY][C4][V2]</div>
+      <div class="metrics">
+        <div class="metric"><div class="mv">4</div><div class="ml">Qualificados</div></div>
+        <div class="metric"><div class="mv">R$274</div><div class="ml">CPL Qualif</div></div>
+        <div class="metric"><div class="mv" style="color:var(--green)">100%</div><div class="ml">Taxa Qualif</div></div>
+      </div>
+      <div class="tags"><span class="tag tg">100% taxa</span><span class="tag tb">Story</span><span class="tag ty">Baixo volume</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RECOMENDACOES PARA NOVOS CRIATIVOS -->
+<h2>Recomendacoes para novos criativos</h2>
+
+<div class="insight-grid">
+  <div class="insight">
+    <h3>1. Replicar DNA do BOOST-CRIPTO-FORM</h3>
+    <p>Melhor equilibrio custo x qualidade (CPL R$123, 43% taxa). O form na LP filtra. O criativo tipo "BOOST" com linguagem de cripto funciona. Criar 3-5 variacoes novas com mesma estrutura de copy.</p>
+  </div>
+  <div class="insight">
+    <h3>2. BOOST-TRAD V1 merece escala</h3>
+    <p>CPL R$83 (menor de todos) com 100% taxa. Publico morno com interesse em mercado tradicional que quer entrar em cripto. Exatamente o ICP do E-book 1. Escalar com novas variacoes de criativo.</p>
+  </div>
+  <div class="insight insight-red">
+    <h3>3. AF-CRIPTO FEED saturou</h3>
+    <p>Frequencia acima de 4x. CPL subiu de R$186 (marco) para R$318 (abril). Precisa de refresh de criativo urgente. Manter o angulo (Andre + cripto) mas trocar a imagem e copy. A foto af-258 (NY) pode ser usada.</p>
+  </div>
+  <div class="insight insight-yellow">
+    <h3>4. Lead Form IR: volume sem qualidade</h3>
+    <p>307 leads a R$14 CPL mas so 9% qualificados. Usar como topo de funil (nurture via e-mail) e nao como conversao. Para E-book 1, preferir LP com form completo (patrimonio) ao inves de Lead Form.</p>
+  </div>
+  <div class="insight">
+    <h3>5. Story tem potencial inexplorado</h3>
+    <p>AF-CRIPTO STORY: 100% taxa qualificacao. Pouquissimo volume porque pouco budget. Para o E-book 1, testar stories com o mesmo angulo — filtra naturalmente (so quem esta interessado assiste ate o fim).</p>
+  </div>
+  <div class="insight">
+    <h3>6. Carrossel: qualidade sim, escala nao</h3>
+    <p>80% taxa mas CPL R$510. Formato educa bem mas poucos clicam. Manter 1 carrossel ativo por campanha como complemento, nao como principal.</p>
+  </div>
+</div>
+
+<!-- FORMULA PARA E-BOOK 1 -->
+<h2>Formula para criativos E-book 1 (baseada em dados)</h2>
+
+<div class="insight-grid" style="grid-template-columns:1fr">
+  <div class="insight" style="border-left-color:var(--green)">
+    <h3>O que funciona (extraido dos dados de abril)</h3>
+    <p style="margin-top:12px">
+      <strong style="color:var(--white)">Formato:</strong> FEED 1080x1080 (34 qualificados, melhor equilíbrio) + Story como complemento (taxa 89-100%)<br><br>
+      <strong style="color:var(--white)">Copy:</strong> Pergunta-filtro na abertura ("Voce tem R$100 mil+?") + objecao ("mas tem metodo?") + 3 bullets com beneficio concreto + CTA sem atrito<br><br>
+      <strong style="color:var(--white)">Targeting:</strong> Publico MORNO (visitou perfil, salvou post 30d) > Publico QUENTE (saturado). LAL seguidor para escalar<br><br>
+      <strong style="color:var(--white)">Destino:</strong> LP com form completo (patrimonio) > Lead Form. Taxa qualificacao: LP 43-100% vs Lead Form 9%<br><br>
+      <strong style="color:var(--white)">KV:</strong> Andre Franco + cripto (85% taxa) > Boost institucional (43%) > Boost generico (baixa taxa)
+    </p>
+  </div>
+</div>
+
+<p class="note">
+  Dados: Meta Ads API (01-30/abr/2026) + RD Station Segmentacoes (19356678 + 19356688).<br>
+  92 leads qualificados (>=R$50k) cruzados com 159 anuncios com gasto.<br>
+  Gerado em 30/abr/2026. Dashboard completo: <a href="index.html" style="color:var(--green)">Creative Intelligence</a>
+</p>
+
+</div>
+</body>
+</html>
