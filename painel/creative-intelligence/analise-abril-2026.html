@@ -231,9 +231,66 @@ h3{font-size:15px;font-weight:600;margin:20px 0 8px}
   </div>
 </div>
 
+<!-- RASTREAMENTO DEFINITIVO -->
+<h2>Rastreamento definitivo — De onde vieram os 92 qualificados</h2>
+<p style="font-size:13px;color:var(--gray);margin-bottom:16px">Cruzamento RD Station events (traffic_value = utm_content = nome do criativo). Apenas 25 dos 92 têm criativo identificável.</p>
+
+<div class="summary" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
+  <div class="s-card">
+    <div class="label">Rastreável por criativo</div>
+    <div class="val" style="color:var(--green)">25</div>
+    <div class="change up">27% — com UTM no link</div>
+  </div>
+  <div class="s-card">
+    <div class="label">Não rastreável</div>
+    <div class="val" style="color:var(--red)">67</div>
+    <div class="change down">73% — Lead Form ou sem UTM</div>
+  </div>
+  <div class="s-card">
+    <div class="label">Total qualificados</div>
+    <div class="val">92</div>
+    <div class="change neutral">Segmentações RD >=R$50k</div>
+  </div>
+</div>
+
+<div class="insight-grid">
+  <div class="insight">
+    <h3>Qualificados rastreáveis por criativo (25)</h3>
+    <table class="cmp-tbl" style="margin:8px 0 0">
+      <thead><tr><th>Criativo (utm_content)</th><th>Qualif</th></tr></thead>
+      <tbody>
+        <tr><td>AF-TRAD FEED [C4]</td><td style="color:var(--green);font-weight:700">5</td></tr>
+        <tr><td>AF-CRIPTO FEED [C4] (quente)</td><td style="color:var(--green);font-weight:700">4</td></tr>
+        <tr><td>AF-CRIPTO STORY [C4] (morno)</td><td style="color:var(--green);font-weight:700">4</td></tr>
+        <tr><td>feed-af-cripto-c6 (C6 novo)</td><td style="color:var(--green);font-weight:700">4</td></tr>
+        <tr><td>BOOST-BROAD CARROSSEL [C4]</td><td>2</td></tr>
+        <tr><td>BOOST-TRAD STORY [C4]</td><td>2</td></tr>
+        <tr><td>AF-CRIPTO FEED [C4] (morno)</td><td>1</td></tr>
+        <tr><td>AF-TRAD CARROSSEL [C4]</td><td>1</td></tr>
+        <tr><td>C4 FORM</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight insight-red">
+    <h3>Não rastreáveis (67)</h3>
+    <table class="cmp-tbl" style="margin:8px 0 0">
+      <thead><tr><th>Origem</th><th>Qualif</th><th>Motivo</th></tr></thead>
+      <tbody>
+        <tr><td>E-book IR Cripto (Lead Form)</td><td>36</td><td style="color:var(--red)">Lead Form não grava UTM</td></tr>
+        <tr><td>Lead Form legado (mar/2026)</td><td>17</td><td style="color:var(--red)">Lead Form sem UTM</td></tr>
+        <tr><td>LP Análise sem UTM</td><td>4</td><td style="color:var(--yellow)">Provável C5/vídeo</td></tr>
+        <tr><td>Meta (tag genérica)</td><td>3</td><td style="color:var(--red)">Só tag "meta"</td></tr>
+        <tr><td>Sem rastreamento</td><td>4</td><td style="color:var(--red)">Nenhuma informação</td></tr>
+        <tr><td>Lead Form novo + Quiz</td><td>3</td><td style="color:var(--yellow)">Parcial</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px"><strong style="color:var(--red)">Ação:</strong> Adicionar UTM em todos os links das campanhas. Lead Form sempre com utm fixos.</p>
+  </div>
+</div>
+
 <!-- TOP CRIATIVOS COM THUMBNAILS -->
-<h2>Top 10 criativos — Por leads qualificados</h2>
-<p style="font-size:13px;color:var(--gray);margin-bottom:16px">Cruzamento Meta Ads x RD Station Segmentacoes (>=R$50k patrimonio)</p>
+<h2>Top criativos — Por leads qualificados (cruzamento Meta x RD)</h2>
+<p style="font-size:13px;color:var(--gray);margin-bottom:16px">Cards com thumbnail, copy, métricas e qualificados atribuídos</p>
 
 <div class="creative-grid">
 
@@ -416,7 +473,7 @@ h3{font-size:15px;font-weight:600;margin:20px 0 8px}
 
 <div class="insight" style="margin-bottom:16px;border-left-color:var(--yellow)">
   <h3>Rastreamento dos vídeos VID-* (C5 ANDROMEDA)</h3>
-  <p>Os vídeos VID-* (C5 ANDROMEDA) enviam para a LP Análise com identifier <code>lp_mentoria_boost</code> — o mesmo da C4. Dos 27 qualificados com esse identifier, 11 vieram da C4 CONVERSÃO e 7 da C4 CONSIDERAÇÃO (via traffic_campaign). <strong style="color:var(--white)">Os 9 restantes não têm traffic_campaign</strong> — são provavelmente dos vídeos C5. Para resolver: adicionar UTM de campanha nos links dos vídeos VID-*.</p>
+  <p>Os vídeos VID-* (C5 ANDROMEDA) enviam para a LP Análise com identifier <code>lp_mentoria_boost</code> — o mesmo da C4. Dos 27 qualificados com esse identifier, 14 vieram da C4 CONVERSÃO e 7 da C4 CONSIDERAÇÃO (via traffic_campaign). <strong style="color:var(--white)">4 restantes não têm nenhum traffic_campaign</strong> — são provavelmente dos vídeos C5. <strong style="color:var(--yellow)">Ação: adicionar UTM nos links dos VID-*.</strong></p>
 </div>
 
 <div class="creative-grid">
@@ -431,9 +488,9 @@ h3{font-size:15px;font-weight:600;margin:20px 0 8px}
       <div class="metrics">
         <div class="metric"><div class="mv" style="color:var(--green)">88</div><div class="ml">Leads totais</div></div>
         <div class="metric"><div class="mv" style="color:var(--green)">R$25</div><div class="ml">CPL bruto</div></div>
-        <div class="metric"><div class="mv" style="color:var(--yellow)">~9</div><div class="ml">Qualificados est.</div></div>
+        <div class="metric"><div class="mv" style="color:var(--yellow)">~4</div><div class="ml">Qualificados est.</div></div>
       </div>
-      <div class="tags"><span class="tag tg">Melhor vídeo</span><span class="tag tg">CPL R$25</span><span class="tag ty">~9 qualificados sem campaign (provavelmente daqui)</span></div>
+      <div class="tags"><span class="tag tg">Melhor vídeo</span><span class="tag tg">CPL R$25</span><span class="tag ty">4 qualificados LP sem UTM (provável daqui)</span></div>
       <div style="margin-top:10px;padding:10px;background:rgba(255,255,255,.03);border-radius:6px;font-size:11px;color:var(--gray);line-height:1.5">
         <strong style="color:#A0A0C0">Copy:</strong> Carteira com método: regra de saída, percentual de alocação, critério de rebalanceamento. Análise gratuita com André Franco. Sem compromisso de contratação.
       </div>
