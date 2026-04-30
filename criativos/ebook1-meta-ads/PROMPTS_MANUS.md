@@ -37,7 +37,7 @@ Conteúdo lado esquerdo:
 - Topo: logo Boost Research (branco, pequeno, canto superior esquerdo)
 - Headline grande: "Quanto do seu patrimônio vai pra cripto?"
 - Linha divisória verde (#03E4D0), 40px de largura
-- Texto dourado (#C9A84C): "E-book gratuito por André Franco"
+- Texto dourado (#C9A84C): "Para quem investe R$100 mil+ e quer cripto sem achismo"
 - Badge com borda verde: "GRATUITO"
 
 Conteúdo lado direito:
@@ -66,7 +66,7 @@ Conteúdo:
 - Headline: "100% em tradicional é diversificação?"
 - Subtítulo cinza (#A0A0C0): "Seu portfólio pode estar mais exposto do que você imagina"
 - Linha verde 40px
-- "E-book gratuito por André Franco" em dourado (#C9A84C)
+- "Para quem investe R$100 mil+ e quer cripto sem achismo" em dourado (#C9A84C)
 - Badge borda verde: "GRATUITO"
 - Mockup 3D do e-book à direita (capa preta, título branco, lombada verde)
 - Rodapé: disclaimer em cinza
