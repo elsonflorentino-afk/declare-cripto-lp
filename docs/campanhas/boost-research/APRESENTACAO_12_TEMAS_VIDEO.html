@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 Temas de Vídeo — Boost Research YouTube Ads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e13;--bg2:#111820;--bg3:#1a2230;--green:#03E4D0;--green2:#00B37E;--white:#f0f2f5;--gray:#8899aa;--gray2:#556677;--red:#ff4d6a;--yellow:#ffc940;--blue:#4da6ff}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow:hidden}
+.deck{position:relative;width:100%;height:100%}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 80px;opacity:0;pointer-events:none;transition:opacity .4s ease;overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto}
+.si{width:100%;max-width:1080px;margin:0 auto}
+.slide-cover{background:linear-gradient(135deg,#0a0e13 0%,#111820 50%,#0d1a1a 100%);text-align:center}
+.slide-cover .si{display:flex;flex-direction:column;align-items:center}
+.slide-dark{background:var(--bg)}
+.slide-accent{background:linear-gradient(135deg,#0b1a1a 0%,#0a0e13 100%)}
+.logo-svg{width:180px;margin-bottom:24px;filter:brightness(0) invert(1)}
+.logo-sm{width:90px;position:absolute;top:24px;left:80px;filter:brightness(0) invert(1)}
+h1{font-size:44px;font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:12px}
+h2{font-size:34px;font-weight:700;line-height:1.15;letter-spacing:-1px;margin-bottom:10px}
+h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:6px}
+.subtitle{font-size:18px;color:var(--gray);font-weight:400;line-height:1.5;max-width:700px}
+.label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;margin-top:8px}
+.accent{color:var(--green)}
+.red{color:var(--red)}
+.pill{display:inline-block;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;background:var(--bg2);color:var(--gray);border:1px solid rgba(255,255,255,.06)}
+.pill-green{border-color:rgba(3,228,208,.3);color:var(--green)}
+
+/* Theme card */
+.theme-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:28px 32px;margin-bottom:16px;position:relative}
+.theme-card:hover{border-color:rgba(3,228,208,.15)}
+.theme-num{position:absolute;top:20px;right:28px;font-size:48px;font-weight:900;color:rgba(3,228,208,.08);line-height:1}
+.theme-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:10px}
+.tg{background:rgba(3,228,208,.12);color:var(--green)}
+.ty{background:rgba(255,201,64,.12);color:var(--yellow)}
+.tb{background:rgba(77,166,255,.12);color:var(--blue)}
+.tr{background:rgba(255,77,106,.12);color:var(--red)}
+.theme-title{font-size:22px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.theme-meta{display:flex;gap:20px;margin:12px 0;flex-wrap:wrap}
+.theme-meta-item{font-size:12px;color:var(--gray)}
+.theme-meta-item strong{color:var(--white)}
+.theme-hook{font-size:15px;color:var(--white);font-style:italic;padding:12px 16px;background:rgba(3,228,208,.04);border-left:3px solid var(--green);border-radius:0 8px 8px 0;margin:10px 0;line-height:1.5}
+.theme-why{font-size:13px;color:var(--gray);line-height:1.6;margin-top:10px}
+.theme-why strong{color:var(--white)}
+
+/* Cols */
+.cols{display:flex;gap:32px;margin-top:20px}
+.col{flex:1}
+
+/* Grid */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+
+/* Bar */
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.bar-label{width:180px;font-size:12px;color:var(--gray);text-align:right}
+.bar-track{flex:1;height:24px;background:var(--bg2);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:var(--bg)}
+.bar-green{background:linear-gradient(90deg,var(--green2),var(--green))}
+
+/* Scroll */
+.slide-scroll{overflow-y:auto;max-height:calc(100vh - 140px);padding-right:8px}
+.slide-scroll::-webkit-scrollbar{width:3px}
+.slide-scroll::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+
+/* Nav */
+.nav{position:fixed;bottom:24px;right:40px;display:flex;gap:8px;align-items:center;z-index:100}
+.nav-btn{width:40px;height:40px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(10,14,19,.8);color:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);transition:border-color .2s}
+.nav-btn:hover{border-color:var(--green)}
+.counter{font-size:12px;color:var(--gray);font-weight:500;min-width:50px;text-align:center}
+
+@media(max-width:1024px){.slide{padding:40px 48px}.logo-sm{left:48px}h1{font-size:32px}h2{font-size:26px}.theme-title{font-size:18px}.cols{flex-direction:column;gap:16px}.grid2{grid-template-columns:1fr}}
+@media(max-width:768px){.slide{padding:24px 20px}.logo-sm{width:70px;top:16px;left:20px}h1{font-size:26px}h2{font-size:20px}.theme-card{padding:20px}.bar-label{width:120px}}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- SLIDE 0: CAPA -->
+<div class="slide slide-cover active" data-idx="0">
+<div class="si">
+  <img src="boost-logo-horizontal.svg" alt="Boost Research" class="logo-svg">
+  <h1 style="margin-top:16px">12 Temas de Vídeo<br><span class="accent">YouTube Ads</span></h1>
+  <p class="subtitle" style="margin-top:12px">O que gravar, por que gravar, e qual dor do investidor cada tema resolve</p>
+  <div style="margin-top:36px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <div class="pill pill-green">Baseado em 1.412 dores reais (ICP Insights)</div>
+    <div class="pill pill-green">Raio-X ANBIMA 2026 (5.832 entrevistas)</div>
+  </div>
+  <p style="margin-top:36px;font-size:13px;color:var(--gray2)">Abril 2026 | Boost Research</p>
+</div>
+</div>
+
+<!-- SLIDE 1: POR QUE ESSES TEMAS -->
+<div class="slide slide-dark" data-idx="1">
+<img src="boost-logo-horizontal.svg" alt="" class="logo-sm">
+<div class="si">
+  <div class="label">De onde vieram os temas</div>
+  <h2>Cada tema resolve uma <span class="accent">dor real</span> do investidor</h2>
+  <p class="subtitle" style="font-size:14px;margin-bottom:16px">Extraímos 1.412 citações de 228 reuniões reais entre advisors e clientes Boost. Estes são os 7 problemas mais frequentes — e os 12 temas respondem diretamente a eles.</p>
+  <div style="max-width:100%;margin-top:8px">
+    <div class="bar-row"><span class="bar-label">Não sabe quando vender</span><div class="bar-track"><div class="bar-fill bar-green" style="width:100%">145 menções (54%) → Temas 1, 4</div></div></div>
+    <div class="bar-row"><span class="bar-label">Sem tempo / conhecimento</span><div class="bar-track"><div class="bar-fill bar-green" style="width:92%">134 menções (51%) → Tema 2</div></div></div>
+    <div class="bar-row"><span class="bar-label">Medo / ansiedade</span><div class="bar-track"><div class="bar-fill bar-green" style="width:60%">87 menções → Temas 8, 9</div></div></div>
+    <div class="bar-row"><span class="bar-label">Impostos / fiscal</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--yellow)">72 menções → Tema 3 (NINGUÉM ABORDA)</div></div></div>
+    <div class="bar-row"><span class="bar-label">Custódia / segurança</span><div class="bar-track"><div class="bar-fill bar-green" style="width:37%">54 menções → Tema 5</div></div></div>
+    <div class="bar-row"><span class="bar-label">Trauma com altcoins</span><div class="bar-track"><div class="bar-fill bar-green" style="width:36%">52 menções → Tema 6</div></div></div>
+    <div class="bar-row"><span class="bar-label">DeFi / renda fixa digital</span><div class="bar-track"><div class="bar-fill bar-green" style="width:32%">47 menções → Tema 12</div></div></div>
+  </div>
+  <p style="font-size:11px;color:var(--gray2);margin-top:12px">Fonte: ICP Insights v2, Boost Research (Confidencial) | Temas 7, 10, 11 vêm de dados ANBIMA e posicionamento estratégico</p>
+</div>
+</div>
+
+<!-- SLIDE 2: PRIORIDADE 1 — TEMAS 1, 2, 3 -->
+<div class="slide slide-accent" data-idx="2">
+<img src="boost-logo-horizontal.svg" alt="" class="logo-sm">
+<div class="si">
+  <div class="label">Prioridade 1 — Gravar primeiro</div>
+  <h2>Os 3 temas com <span class="accent">maior potencial</span></h2>
+  <div class="slide-scroll">
+
+  <div class="theme-card"><div class="theme-num">01</div>
+    <span class="theme-tag tg">54% dos clientes têm essa dor</span>
+    <div class="theme-title">"Quando vender Bitcoin — o que ninguém te ensina"</div>
+    <div class="theme-meta">
+      <div class="theme-meta-item"><strong>Formato:</strong> In-stream 2-3min</div>
+      <div class="theme-meta-item"><strong>Funil:</strong> Consideração → Conversão</div>
+      <div class="theme-meta-item"><strong>CTA:</strong> Análise gratuita</div>
+    </div>
+    <div class="theme-hook">"Você já viu o Bitcoin subir 300%, não vendeu, e depois viu cair 80%? A maioria dos investidores passa por isso."</div>
+    <div class="theme-why"><strong>Por que esse tema:</strong> A dor #1 do ICP (145 menções). "Não sei quando vender" é o problema mais citado nas reuniões. Nenhum concorrente aborda isso no YouTube. O vídeo ensina regras de saída — não promete resultado.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">02</div>
+    <span class="theme-tag tg">51% dos clientes têm essa dor</span>
+    <div class="theme-title">"O investidor que não tem tempo"</div>
+    <div class="theme-meta">
+      <div class="theme-meta-item"><strong>Formato:</strong> In-stream curto 30-60s</div>
+      <div class="theme-meta-item"><strong>Funil:</strong> Consideração</div>
+      <div class="theme-meta-item"><strong>CTA:</strong> Conheça a Boost</div>
+    </div>
+    <div class="theme-hook">"Você trabalha 12 horas por dia e não tem tempo pra acompanhar cripto?"</div>
+    <div class="theme-why"><strong>Por que esse tema:</strong> O ICP da Boost é profissional ocupado com patrimônio. Ele não quer mais conteúdo — quer alguém que faça a curadoria pra ele. "Eu faço a análise. Você toma a decisão." Posiciona a Boost como solução prática.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">03</div>
+    <span class="theme-tag ty">NINGUÉM aborda esse tema</span>
+    <div class="theme-title">"Cripto e Imposto de Renda — o que ninguém te conta"</div>
+    <div class="theme-meta">
+      <div class="theme-meta-item"><strong>Formato:</strong> In-stream 2-3min</div>
+      <div class="theme-meta-item"><strong>Funil:</strong> Awareness → Consideração</div>
+      <div class="theme-meta-item"><strong>Sazonalidade:</strong> jan-abr (IR) e set-nov (planejamento)</div>
+    </div>
+    <div class="theme-hook">"Você pagou mais imposto do que deveria na última declaração de cripto?"</div>
+    <div class="theme-why"><strong>Por que esse tema:</strong> 72 menções nas atas. Zero concorrentes falam disso publicamente. Território completamente livre. O vídeo educa sobre planejamento tributário legal, sem sugerir evasão. Gera autoridade imediata.</div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 3: PRIORIDADE 2 — TEMAS 4, 5, 6, 7 -->
+<div class="slide slide-dark" data-idx="3">
+<img src="boost-logo-horizontal.svg" alt="" class="logo-sm">
+<div class="si">
+  <div class="label">Prioridade 2 — Alta diferenciação</div>
+  <h2>4 temas que <span class="accent">só a Boost</span> pode fazer</h2>
+  <div class="slide-scroll">
+
+  <div class="theme-card"><div class="theme-num">04</div>
+    <span class="theme-tag tb">Provoca reflexão</span>
+    <div class="theme-title">"Hold não é estratégia — por que você precisa de regras de saída"</div>
+    <div class="theme-hook">"Hold não é estratégia. É fé."</div>
+    <div class="theme-why"><strong>Por que:</strong> Confronta a crença mais popular do mercado cripto (HODL). O ICP já viveu isso — segurou, perdeu, e agora está resignado. O vídeo mostra que existe alternativa: regra de saída antes de entrar.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">05</div>
+    <span class="theme-tag tb">Educacional prático</span>
+    <div class="theme-title">"Sua cripto na corretora não é sua"</div>
+    <div class="theme-hook">"Você não é dono da sua cripto se ela tá na corretora."</div>
+    <div class="theme-why"><strong>Por que:</strong> 54 menções sobre custódia. O ICP sabe que deveria usar Ledger mas não fez. FTX e Mt. Gox são precedentes reais. Formato Shorts (30s) + In-stream (2min) para alcance + profundidade.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">06</div>
+    <span class="theme-tag tb">Tom confessional</span>
+    <div class="theme-title">"Sobreviver ao trauma das altcoins"</div>
+    <div class="theme-hook">"Altcoin que ia triplicar e te deixou no prejuízo?"</div>
+    <div class="theme-why"><strong>Por que:</strong> 52 menções. O ICP chega cético com qualquer altcoin. Este vídeo reconhece o trauma em vez de ignorar. Tom confessional funciona melhor que motivacional para público resignado.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">07</div>
+    <span class="theme-tag tb">Ângulo único — ninguém faz</span>
+    <div class="theme-title">"O que a IA não te conta sobre cripto"</div>
+    <div class="theme-hook">"O ChatGPT te dá uma resposta. O André te dá contexto. Tem uma diferença enorme."</div>
+    <div class="theme-why"><strong>Por que:</strong> 9% dos investidores já usam IA para investir (ANBIMA 2026). Posiciona André como "o humano que a IA não substitui". Nenhum concorrente explora esse ângulo.</div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 4: PRIORIDADE 3 — TEMAS 8-12 -->
+<div class="slide slide-accent" data-idx="4">
+<img src="boost-logo-horizontal.svg" alt="" class="logo-sm">
+<div class="si">
+  <div class="label">Prioridade 3 — Alcance e autoridade</div>
+  <h2>5 temas para <span class="accent">construir marca</span></h2>
+  <div class="slide-scroll">
+
+  <div class="theme-card"><div class="theme-num">08</div>
+    <span class="theme-tag" style="background:rgba(255,255,255,.06);color:var(--gray)">Awareness</span>
+    <div class="theme-title">"3 erros que a maioria dos investidores de cripto comete"</div>
+    <div class="theme-hook">"Você provavelmente já cometeu pelo menos 2 desses erros."</div>
+    <div class="theme-why"><strong>Por que:</strong> Formato listicle é o mais clicado no YouTube. Compila as dores 1+2+6 num vídeo curto. Ideal para Shorts (30-60s) — alcance alto, custo baixo.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">09</div>
+    <span class="theme-tag" style="background:rgba(255,255,255,.06);color:var(--gray)">Storytelling</span>
+    <div class="theme-title">"Como eu comecei em cripto em 2016 — e o que aprendi"</div>
+    <div class="theme-hook">"Em 2016, quase ninguém no Brasil falava de Bitcoin a sério. Eu comecei ali."</div>
+    <div class="theme-why"><strong>Por que:</strong> Autoridade construída por vivência, não por título. "Desde 2016" é verificável. Cria conexão humana. Compliance: NÃO citar valores de retorno no ad pago — apenas a jornada pessoal.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">10</div>
+    <span class="theme-tag" style="background:rgba(255,255,255,.06);color:var(--gray)">Dado ANBIMA</span>
+    <div class="theme-title">"93% dos aposentados dependem do INSS — e o seu plano?"</div>
+    <div class="theme-hook">"93% dos brasileiros aposentados dependem exclusivamente do INSS. Dado da ANBIMA 2026."</div>
+    <div class="theme-why"><strong>Por que:</strong> Dado real e verificável que atinge todo investidor. Cripto como UMA das opções de planejamento de longo prazo, não como promessa. Apelo massivo.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">11</div>
+    <span class="theme-tag" style="background:rgba(255,255,255,.06);color:var(--gray)">Posicionamento</span>
+    <div class="theme-title">"O que uma casa de análise independente faz de diferente"</div>
+    <div class="theme-hook">"A Boost não tem fundo próprio, não recebe comissão de exchange, não vende token. Honorário fixo. Só isso."</div>
+    <div class="theme-why"><strong>Por que:</strong> Diferenciação competitiva que nenhum concorrente com fundo próprio pode copiar. O ICP desconfia de todo mundo — esse vídeo responde a objeção central. Compliance: não citar concorrente por nome.</div>
+  </div>
+
+  <div class="theme-card"><div class="theme-num">12</div>
+    <span class="theme-tag" style="background:rgba(255,255,255,.06);color:var(--gray)">Educacional</span>
+    <div class="theme-title">"Renda fixa digital — o que é e como funciona"</div>
+    <div class="theme-hook">"Existe um tipo de investimento em cripto que funciona parecido com renda fixa. Mas tem diferenças importantes."</div>
+    <div class="theme-why"><strong>Por que:</strong> 47 menções. O cliente NÃO entende DeFi. Os advisors gastam 15-20min por call explicando. Este vídeo pré-educa antes da call. Compliance: NÃO citar retorno percentual no ad.</div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 5: RESUMO VISUAL -->
+<div class="slide slide-dark" data-idx="5">
+<img src="boost-logo-horizontal.svg" alt="" class="logo-sm">
+<div class="si">
+  <div class="label">Visão geral</div>
+  <h2>12 temas organizados por <span class="accent">prioridade</span></h2>
+  <div class="grid2" style="margin-top:20px">
+    <div>
+      <h3 style="color:var(--green);font-size:14px;margin-bottom:12px">PRIORIDADE 1 — Gravar primeiro</h3>
+      <div style="font-size:13px;color:var(--gray);line-height:2">
+        <strong style="color:var(--white)">1.</strong> Quando vender Bitcoin<br>
+        <strong style="color:var(--white)">2.</strong> O investidor que não tem tempo<br>
+        <strong style="color:var(--white)">3.</strong> Cripto e Imposto de Renda
+      </div>
+      <h3 style="color:var(--blue);font-size:14px;margin:20px 0 12px">PRIORIDADE 2 — Alta diferenciação</h3>
+      <div style="font-size:13px;color:var(--gray);line-height:2">
+        <strong style="color:var(--white)">4.</strong> Hold não é estratégia<br>
+        <strong style="color:var(--white)">5.</strong> Sua cripto na corretora não é sua<br>
+        <strong style="color:var(--white)">6.</strong> Sobreviver ao trauma das altcoins<br>
+        <strong style="color:var(--white)">7.</strong> O que a IA não te conta sobre cripto
+      </div>
+    </div>
+    <div>
+      <h3 style="color:var(--gray);font-size:14px;margin-bottom:12px">PRIORIDADE 3 — Alcance e autoridade</h3>
+      <div style="font-size:13px;color:var(--gray);line-height:2">
+        <strong style="color:var(--white)">8.</strong> 3 erros que a maioria comete<br>
+        <strong style="color:var(--white)">9.</strong> Como comecei em 2016<br>
+        <strong style="color:var(--white)">10.</strong> 93% dependem do INSS<br>
+        <strong style="color:var(--white)">11.</strong> Casa de análise independente<br>
+        <strong style="color:var(--white)">12.</strong> Renda fixa digital
+      </div>
+      <div style="margin-top:24px;padding:16px;background:var(--bg2);border-left:3px solid var(--green);border-radius:0 10px 10px 0">
+        <p style="font-size:13px;color:var(--gray);line-height:1.6"><strong style="color:var(--white)">Fase 1 (30 dias):</strong> Gravar temas 1, 2, 3 + Shorts do tema 8. Total: 8 vídeos.<br><br><strong style="color:var(--white)">Fase 2 (dias 31-90):</strong> Temas 4, 5, 6, 7 + Shorts recortados.<br><br><strong style="color:var(--white)">Fase 3 (dia 90+):</strong> Temas 8-12 + remarketing + sequências.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 6: PRÓXIMOS PASSOS -->
+<div class="slide slide-cover" data-idx="6">
+<div class="si">
+  <img src="boost-logo-horizontal.svg" alt="Boost Research" class="logo-svg">
+  <h2 style="margin-top:20px">Próximos passos</h2>
+  <div style="text-align:left;max-width:560px;margin:24px auto 0">
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--bg);flex-shrink:0">1</div>
+      <p style="font-size:16px;color:var(--white)">André escolher quais temas quer gravar primeiro</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--bg);flex-shrink:0">2</div>
+      <p style="font-size:16px;color:var(--white)">Agendar sessão de gravação (1 sessão = 3+ vídeos)</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--bg);flex-shrink:0">3</div>
+      <p style="font-size:16px;color:var(--white)">Editar, legendar e subir no YouTube</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+      <div style="width:28px;height:28px;border-radius:50%;background:rgba(3,228,208,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--green);flex-shrink:0">4</div>
+      <p style="font-size:16px;color:var(--gray)">Lançar campanhas YouTube Ads (R$6k/mês)</p>
+    </div>
+  </div>
+  <p style="margin-top:28px;font-size:12px;color:var(--gray2)">Baseado em 1.412 dores reais (ICP Insights v2) + 5.832 entrevistas (ANBIMA 2026)</p>
+  <div style="margin-top:16px">
+    <a href="APRESENTACAO_YOUTUBE_ADS_BOOST_v1.html" style="display:inline-block;padding:10px 20px;border-radius:8px;border:1px solid rgba(3,228,208,.3);color:var(--green);font-weight:600;font-size:13px;text-decoration:none">Ver apresentação completa (estratégia + campanha) &rarr;</a>
+  </div>
+</div>
+</div>
+
+</div>
+
+<nav class="nav">
+  <button class="nav-btn" id="prev" aria-label="Anterior">&larr;</button>
+  <span class="counter" id="counter">1 / 7</span>
+  <button class="nav-btn" id="next" aria-label="Próximo">&rarr;</button>
+</nav>
+
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const total=slides.length;
+  let cur=0;
+  const counter=document.getElementById('counter');
+  function go(n){if(n<0||n>=total)return;slides[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');counter.textContent=(cur+1)+' / '+total}
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.getElementById('next').onclick=()=>go(cur+1);
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
+  let sx=0;
+  document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){dx<0?go(cur+1):go(cur-1)}},{passive:true});
+})();
+</script>
+</body>
+</html>
