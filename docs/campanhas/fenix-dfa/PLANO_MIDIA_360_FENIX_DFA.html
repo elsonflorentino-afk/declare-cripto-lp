@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plano de Mídia 360 — Fenix DFA</title>
+<title>Plano de Midia 360 — Fenix DFA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,20 +45,13 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .slide-dark{background:var(--bg)}
 .slide-accent{background:linear-gradient(135deg,#1a1008 0%,#0a0e13 100%)}
 
-/* Logo */
+/* Logo — somente capa */
 .logo-text{
   font-size:42px;font-weight:900;letter-spacing:2px;
   background:linear-gradient(135deg,var(--amber),var(--orange));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
   margin-bottom:8px;
-}
-.logo-text-sm{
-  font-size:18px;font-weight:800;letter-spacing:1.5px;
-  background:linear-gradient(135deg,var(--amber),var(--orange));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-  position:absolute;top:24px;left:80px;
 }
 
 /* Typography */
@@ -137,14 +130,20 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 .pill{display:inline-block;font-size:11px;font-weight:500;padding:5px 12px;border-radius:20px;background:var(--bg2);color:var(--gray);border:1px solid rgba(255,255,255,.06)}
 .pill-amber{border-color:rgba(245,158,11,.3);color:var(--amber)}
 
-/* Timeline */
-.timeline{display:flex;gap:0;margin-top:28px;position:relative}
-.timeline::before{content:'';position:absolute;top:18px;left:0;right:0;height:2px;background:var(--bg3)}
-.tl-item{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 8px}
-.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--amber);margin-bottom:12px;z-index:1}
-.tl-dot.gray{background:var(--gray2)}
-.tl-label{font-size:11px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1px}
-.tl-text{font-size:12px;color:var(--gray);text-align:center;margin-top:6px;line-height:1.4}
+/* Phase row */
+.phase-row{display:flex;gap:16px;margin-top:28px}
+.phase{flex:1;background:var(--bg2);border-radius:12px;padding:22px;border-top:3px solid var(--gray2)}
+.phase.p1{border-top-color:var(--amber)}
+.phase.p2{border-top-color:var(--blue)}
+.phase.p3{border-top-color:var(--green)}
+.phase.p4{border-top-color:var(--purple)}
+.phase .phase-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.phase.p1 .phase-title{color:var(--amber)}
+.phase.p2 .phase-title{color:var(--blue)}
+.phase.p3 .phase-title{color:var(--green)}
+.phase.p4 .phase-title{color:var(--purple)}
+.phase h3{font-size:18px;margin-bottom:8px}
+.phase p{font-size:12px;color:var(--gray);line-height:1.5}
 
 /* Quote */
 .quote{
@@ -185,21 +184,6 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 .ic-red{background:rgba(255,77,106,.12);color:var(--red)}
 .ic-purple{background:rgba(167,139,250,.12);color:var(--purple)}
 
-/* Phase row */
-.phase-row{display:flex;gap:16px;margin-top:28px}
-.phase{flex:1;background:var(--bg2);border-radius:12px;padding:22px;border-top:3px solid var(--gray2)}
-.phase.p1{border-top-color:var(--amber)}
-.phase.p2{border-top-color:var(--blue)}
-.phase.p3{border-top-color:var(--green)}
-.phase.p4{border-top-color:var(--purple)}
-.phase .phase-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
-.phase.p1 .phase-title{color:var(--amber)}
-.phase.p2 .phase-title{color:var(--blue)}
-.phase.p3 .phase-title{color:var(--green)}
-.phase.p4 .phase-title{color:var(--purple)}
-.phase h3{font-size:18px;margin-bottom:8px}
-.phase p{font-size:12px;color:var(--gray);line-height:1.5}
-
 /* Nav */
 .nav{
   position:fixed;bottom:24px;right:40px;
@@ -230,10 +214,224 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 .glow-1{top:-100px;right:-50px}
 .glow-2{bottom:-100px;left:-50px}
 
+/* ============================== */
+/* AD MOCKUPS                     */
+/* ============================== */
+
+/* --- Instagram Feed Mockup --- */
+.ig-mockup{
+  width:400px;max-width:100%;background:#000;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:'Inter',sans-serif;
+}
+.ig-header{
+  display:flex;align-items:center;gap:10px;padding:12px 14px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.ig-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#000;
+}
+.ig-user{display:flex;flex-direction:column}
+.ig-user strong{font-size:13px;color:#fff}
+.ig-user span{font-size:10px;color:#8899aa}
+.ig-sponsored{font-size:10px;color:#8899aa;margin-left:auto}
+.ig-creative{
+  background:#0a0e13;padding:32px 24px;text-align:center;
+  border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.ig-creative-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:4px 12px;border-radius:20px;
+  background:rgba(16,185,129,.15);color:var(--green);
+  border:1px solid rgba(16,185,129,.3);
+  margin-bottom:16px;letter-spacing:1px;text-transform:uppercase;
+}
+.ig-creative-logo{
+  font-size:18px;font-weight:900;letter-spacing:1.5px;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:16px;
+}
+.ig-creative h3{
+  font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.2;
+}
+.ig-creative p{font-size:13px;color:#8899aa;line-height:1.5;margin-bottom:0}
+.ig-cta-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;background:#111;
+}
+.ig-cta-btn{
+  font-size:12px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  padding:8px 18px;border-radius:6px;border:none;
+}
+.ig-cta-url{font-size:11px;color:#556677}
+.ig-text{padding:12px 14px;font-size:12px;color:#ccc;line-height:1.5}
+.ig-text strong{color:#fff}
+.ig-actions{
+  display:flex;gap:16px;padding:8px 14px 12px;
+}
+.ig-action{font-size:18px;color:#ccc;cursor:default}
+
+/* --- Google Search Mockup --- */
+.gsr-mockup{
+  width:560px;max-width:100%;background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);font-family:'Inter',Arial,sans-serif;color:#202124;
+}
+.gsr-bar{
+  display:flex;align-items:center;gap:10px;padding:14px 18px;
+  background:#fff;border-bottom:1px solid #dfe1e5;
+}
+.gsr-logo{font-size:20px;font-weight:700}
+.gsr-logo span:nth-child(1){color:#4285F4}
+.gsr-logo span:nth-child(2){color:#EA4335}
+.gsr-logo span:nth-child(3){color:#FBBC05}
+.gsr-logo span:nth-child(4){color:#4285F4}
+.gsr-logo span:nth-child(5){color:#34A853}
+.gsr-logo span:nth-child(6){color:#EA4335}
+.gsr-input{
+  flex:1;padding:8px 14px;border:1px solid #dfe1e5;border-radius:24px;
+  font-size:13px;color:#202124;background:#fff;
+}
+.gsr-body{padding:16px 18px}
+.gsr-ad{margin-bottom:16px}
+.gsr-ad-label{
+  display:inline-block;font-size:10px;font-weight:700;color:#202124;
+  background:#f1f3f4;padding:2px 6px;border-radius:3px;margin-bottom:4px;
+  border:1px solid #dadce0;
+}
+.gsr-ad-url{font-size:12px;color:#202124;margin-bottom:2px}
+.gsr-ad-url span{color:#5f6368}
+.gsr-ad h3{font-size:18px;color:#1a0dab;font-weight:400;margin-bottom:4px;line-height:1.3;cursor:pointer}
+.gsr-ad h3:hover{text-decoration:underline}
+.gsr-ad p{font-size:13px;color:#4d5156;line-height:1.4;margin-bottom:0}
+.gsr-ad p strong{color:#202124}
+.gsr-sitelinks{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;
+  margin-top:10px;padding-top:8px;border-top:1px solid #ebebeb;
+}
+.gsr-sitelink{font-size:13px;color:#1a0dab;cursor:pointer}
+.gsr-sitelink:hover{text-decoration:underline}
+.gsr-sitelink-desc{font-size:11px;color:#4d5156;margin-top:1px}
+
+/* --- YouTube In-Stream Mockup --- */
+.yt-mockup{
+  width:520px;max-width:100%;background:#000;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);position:relative;
+}
+.yt-player{
+  position:relative;width:100%;padding-top:56.25%;background:#0a0e13;
+  overflow:hidden;
+}
+.yt-player-content{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:24px;text-align:center;
+}
+.yt-player-content h3{
+  font-size:26px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:8px;
+}
+.yt-player-content p{font-size:14px;color:var(--amber);font-weight:600}
+.yt-ad-badge{
+  position:absolute;bottom:12px;left:12px;
+  font-size:11px;color:#fff;background:rgba(0,0,0,.7);
+  padding:4px 10px;border-radius:4px;
+}
+.yt-skip{
+  position:absolute;bottom:12px;right:12px;
+  font-size:12px;font-weight:600;color:#fff;
+  background:rgba(0,0,0,.75);padding:8px 16px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.3);
+}
+.yt-cta-overlay{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:#1a1a1a;
+}
+.yt-cta-overlay-left{display:flex;flex-direction:column}
+.yt-cta-overlay-left strong{font-size:13px;color:#fff}
+.yt-cta-overlay-left span{font-size:11px;color:#aaa}
+.yt-cta-overlay-btn{
+  font-size:12px;font-weight:700;color:#0a0e13;
+  background:var(--amber);padding:8px 18px;border-radius:4px;
+  border:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.yt-controls{
+  display:flex;align-items:center;gap:12px;padding:8px 14px;
+  background:#181818;
+}
+.yt-progress{flex:1;height:3px;background:#333;border-radius:2px;position:relative}
+.yt-progress-fill{width:15%;height:100%;background:#ff0000;border-radius:2px}
+.yt-time{font-size:11px;color:#aaa}
+
+/* --- LinkedIn Sponsored Content Mockup --- */
+.li-mockup{
+  width:460px;max-width:100%;background:#1b1f23;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:'Inter',sans-serif;
+}
+.li-header{
+  display:flex;align-items:flex-start;gap:10px;padding:14px 16px;
+}
+.li-avatar{
+  width:44px;height:44px;border-radius:8px;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;color:#000;flex-shrink:0;
+}
+.li-user{display:flex;flex-direction:column;flex:1}
+.li-user strong{font-size:13px;color:#fff}
+.li-user .li-followers{font-size:11px;color:#8899aa;margin-top:1px}
+.li-user .li-promoted{font-size:11px;color:#8899aa;margin-top:1px}
+.li-dots{font-size:18px;color:#8899aa;cursor:default}
+.li-text{padding:0 16px 12px;font-size:13px;color:#ccc;line-height:1.55}
+.li-text strong{color:#fff}
+.li-image{
+  background:#0a0e13;padding:28px 24px;text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.li-image-logo{
+  font-size:16px;font-weight:900;letter-spacing:1.5px;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:14px;
+}
+.li-image h3{
+  font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.3;
+}
+.li-image p{font-size:12px;color:#8899aa;line-height:1.4}
+.li-cta-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:#111418;
+}
+.li-cta-url{font-size:11px;color:#8899aa}
+.li-cta-btn{
+  font-size:12px;font-weight:700;color:#fff;
+  background:transparent;padding:6px 16px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.5);
+}
+.li-engagement{
+  display:flex;align-items:center;gap:6px;padding:8px 16px;
+  border-top:1px solid rgba(255,255,255,.06);
+  font-size:11px;color:#8899aa;
+}
+.li-engagement-dots{
+  display:flex;gap:2px;
+}
+.li-engagement-dot{
+  width:14px;height:14px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:8px;
+}
+.li-actions{
+  display:flex;justify-content:space-around;padding:8px 16px 12px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.li-action{font-size:12px;color:#8899aa;font-weight:500}
+
 /* Responsive */
 @media(max-width:1024px){
   .slide{padding:40px 48px}
-  .logo-text-sm{left:48px}
   h1{font-size:34px}
   h2{font-size:26px}
   h3{font-size:18px}
@@ -244,11 +442,10 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
   .phase-row{flex-direction:column}
   .tbl{font-size:11px}
   .tbl th,.tbl td{padding:8px 10px}
-  .timeline{flex-wrap:wrap;gap:12px}
+  .ig-mockup,.gsr-mockup,.yt-mockup,.li-mockup{width:100%}
 }
 @media(max-width:768px){
   .slide{padding:24px 20px}
-  .logo-text-sm{font-size:14px;top:16px;left:20px}
   .logo-text{font-size:32px}
   h1{font-size:26px;letter-spacing:-1px}
   h2{font-size:20px;letter-spacing:-.5px}
@@ -263,11 +460,6 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
   .cols{flex-direction:column;gap:16px}
   .phase-row{flex-direction:column;gap:12px}
   .phase{padding:16px}
-  .timeline{flex-direction:column;gap:8px}
-  .tl-item{flex-direction:row;gap:12px}
-  .bar-label{width:90px;font-size:10px}
-  .bar-fill{font-size:9px}
-  .quote{font-size:16px;padding:16px 18px}
   .funnel-step{padding:10px 16px;font-size:12px}
   .nav{bottom:12px;right:16px}
 }
@@ -278,7 +470,7 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 <div class="deck">
 
 <!-- ============================================ -->
-<!-- SLIDE 0 — CAPA                               -->
+<!-- SLIDE 0 - CAPA                               -->
 <!-- ============================================ -->
 <div class="slide slide-cover active" id="s0">
   <div class="glow-orb glow-1"></div>
@@ -294,94 +486,91 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 1 — O DESAFIO                          -->
+<!-- SLIDE 1 - O CENARIO                          -->
 <!-- ============================================ -->
 <div class="slide slide-dark" id="s1">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">O cenario</div>
-    <h2>O Desafio</h2>
-    <p class="subtitle">Produto inovador, mercado complexo, concorrentes capitalizados.</p>
+    <div class="label">FENIX DFA</div>
+    <h2>O Cenario &mdash; <span class="accent">Por que midia paga agora</span></h2>
+    <p class="subtitle">Momento ideal para acelerar: mercado em crescimento, produto validado, categoria sem dono.</p>
 
     <div class="card-grid card-grid-2" style="margin-top:28px">
       <div class="card card-amber">
-        <div class="tag tag-amber">EMPRESA NOVA</div>
-        <h3>Fundada em 2023</h3>
-        <p>Brand awareness baixo. O mercado ainda nao conhece a plataforma que valida se os backups realmente funcionam.</p>
-      </div>
-      <div class="card card-red">
-        <div class="tag tag-red">CICLO LONGO</div>
-        <h3>B2B Enterprise</h3>
-        <p>Multiplos decisores (CTO, CISO, VP), ciclo de vendas de 3-6 meses, necessidade de prova de valor antes da compra.</p>
-      </div>
-      <div class="card card-blue">
-        <div class="tag tag-blue">CONCORRENCIA</div>
-        <h3>Players capitalizados</h3>
-        <p>Rubrik, Druva, Bocada competem com budgets de marketing superiores. Mas nenhum e verdadeiramente agnostico.</p>
+        <div class="tag tag-amber">TIMING</div>
+        <h3>Mercado em expansao</h3>
+        <p>Backup SaaS: USD 1.2B (2026) para USD 5.1B (2035) &mdash; CAGR 15.6%. Janela de oportunidade para capturar market share antes da consolidacao.</p>
       </div>
       <div class="card card-green">
-        <div class="tag tag-green">OPORTUNIDADE</div>
-        <h3>Posicao unica</h3>
-        <p>A Fenix e a unica plataforma 100% agnostica. Integra com qualquer vendor de backup. Esse e o diferencial competitivo.</p>
+        <div class="tag tag-green">CATEGORIA UNICA</div>
+        <h3>Sem concorrente direto</h3>
+        <p>A Fenix DFA e a unica plataforma 100% agnostica de observabilidade de backup. Nao existe outro player fazendo exatamente o que a Fenix faz. A categoria e nossa.</p>
+      </div>
+      <div class="card card-blue">
+        <div class="tag tag-blue">REGULACAO</div>
+        <h3>Compliance como acelerador</h3>
+        <p>LGPD, GDPR, DORA, HIPAA e cyber insurance estao forcando empresas a validar seus backups. A demanda nao e opcional &mdash; e regulatoria.</p>
+      </div>
+      <div class="card card-red">
+        <div class="tag tag-red">PRODUTO PRONTO</div>
+        <h3>Trial que converte</h3>
+        <p>O produto ja esta maduro. Quando o CTO ve que 30% dos backups tem falhas que ele desconhecia, a venda se faz sozinha. Falta escalar a entrada do funil.</p>
       </div>
     </div>
 
     <div class="quote" style="margin-top:28px">
-      "Mercado de Backup SaaS: USD 1.2B (2026) &rarr; USD 5.1B (2035) &mdash; CAGR 15.6%"
-      <div class="quote-author">Timing perfeito para capturar market share</div>
+      "A Fenix nao compete com vendors de backup. Ela monitora TODOS eles. E a unica plataforma verdadeiramente agnostica do mercado."
+      <div class="quote-author">Posicionamento unico &mdash; sem concorrente direto</div>
     </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 2 — OBJETIVOS DA MIDIA                 -->
+<!-- SLIDE 2 - OBJETIVOS                          -->
 <!-- ============================================ -->
 <div class="slide slide-accent" id="s2">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Objetivos</div>
+    <div class="label">FENIX DFA</div>
     <h2>O que a midia precisa <span class="accent">entregar</span></h2>
     <p class="subtitle">Tres pilares complementares que alimentam o funil de vendas enterprise.</p>
 
     <div class="card-grid card-grid-3" style="margin-top:28px">
       <div class="card card-amber" style="text-align:center">
-        <div class="icon-circle ic-amber" style="margin:0 auto 12px">&#x1F4E2;</div>
+        <div class="icon-circle ic-amber" style="margin:0 auto 12px">A</div>
         <h3>Awareness</h3>
         <p>Ser conhecida como <strong style="color:var(--amber)">"a plataforma que valida se seu backup funciona"</strong>. Fixar posicionamento no mercado.</p>
       </div>
       <div class="card card-blue" style="text-align:center">
-        <div class="icon-circle ic-blue" style="margin:0 auto 12px">&#x1F3AF;</div>
+        <div class="icon-circle ic-blue" style="margin:0 auto 12px">L</div>
         <h3>Leads</h3>
         <p>Gerar base de <strong style="color:var(--blue)">contatos qualificados</strong> (CTO, CISO, VP Infra) em empresas de medio e grande porte.</p>
       </div>
       <div class="card card-green" style="text-align:center">
-        <div class="icon-circle ic-green" style="margin:0 auto 12px">&#x1F680;</div>
+        <div class="icon-circle ic-green" style="margin:0 auto 12px">T</div>
         <h3>Trial</h3>
         <p>Converter leads em <strong style="color:var(--green)">trials de 30 dias</strong> com suporte dedicado. O produto se vende quando testado.</p>
       </div>
     </div>
 
     <div class="funnel" style="margin-top:32px">
-      <div class="funnel-step f1">&#x1F4E2; Awareness &mdash; "Seus backups funcionam de verdade?"</div>
+      <div class="funnel-step f1">Awareness &mdash; "Seus backups funcionam de verdade?"</div>
       <div class="funnel-arrow">&darr;</div>
-      <div class="funnel-step f2">&#x1F50D; Consideracao &mdash; Conteudo educacional, whitepapers, webinars</div>
+      <div class="funnel-step f2">Consideracao &mdash; Conteudo educacional, whitepapers, webinars</div>
       <div class="funnel-arrow">&darr;</div>
-      <div class="funnel-step f3">&#x2705; Trial &mdash; 30 dias gratuitos com onboarding</div>
+      <div class="funnel-step f3">Trial &mdash; 30 dias gratuitos com onboarding</div>
       <div class="funnel-arrow">&darr;</div>
-      <div class="funnel-step f4">&#x1F91D; Reuniao &mdash; Resultado do diagnostico + proposta</div>
+      <div class="funnel-step f4">Reuniao &mdash; Resultado do diagnostico + proposta</div>
       <div class="funnel-arrow">&darr;</div>
-      <div class="funnel-step f5">&#x1F4DD; Contrato &mdash; SaaS subscription</div>
+      <div class="funnel-step f5">Contrato &mdash; SaaS subscription</div>
     </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 3 — PUBLICO-ALVO                       -->
+<!-- SLIDE 3 - PUBLICO-ALVO                       -->
 <!-- ============================================ -->
 <div class="slide slide-dark" id="s3">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">ICP &mdash; Ideal Customer Profile</div>
+    <div class="label">FENIX DFA &mdash; ICP</div>
     <h2>Publico-Alvo</h2>
 
     <div class="cols" style="margin-top:24px">
@@ -429,113 +618,72 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 4 — CANAIS DE MIDIA — VISAO 360       -->
+<!-- SLIDE 4 - CANAIS PRINCIPAIS                  -->
 <!-- ============================================ -->
 <div class="slide slide-accent" id="s4">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Estrategia multicanal</div>
-    <h2>Canais de Midia &mdash; <span class="accent">Visao 360</span></h2>
-    <p class="subtitle">Cada canal com um papel claro no funil. Orquestrados para maximizar conversao com budget otimizado.</p>
+    <div class="label">FENIX DFA &mdash; Estrategia multicanal</div>
+    <h2>Canais Principais &mdash; <span class="accent">Midia Paga</span></h2>
+    <p class="subtitle">Tres canais de midia paga, cada um com papel claro no funil. Orquestrados para maximizar conversao.</p>
 
-    <table class="tbl" style="margin-top:24px">
-      <thead>
-        <tr>
-          <th>Canal</th>
-          <th>Papel no funil</th>
-          <th>Objetivo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="color:var(--amber);font-weight:600">&#x1F4BC; LinkedIn Ads</td>
-          <td>Consideracao + Conversao</td>
-          <td>Alcance direto a decisores B2B. Sponsored Content + InMail</td>
-        </tr>
-        <tr>
-          <td style="color:var(--blue);font-weight:600">&#x1F50D; Google Search</td>
-          <td>Conversao</td>
-          <td>Capturar intencao ativa: "backup monitoring", "compliance backup"</td>
-        </tr>
-        <tr>
-          <td style="color:var(--blue);font-weight:600">&#x1F4FA; Google Display/YouTube</td>
-          <td>Awareness</td>
-          <td>Retargeting + educacao com videos curtos</td>
-        </tr>
-        <tr>
-          <td style="color:var(--green);font-weight:600">&#x1F4DD; Content/SEO</td>
-          <td>Awareness + Autoridade</td>
-          <td>Blog, whitepapers, case studies</td>
-        </tr>
-        <tr>
-          <td style="color:var(--purple);font-weight:600">&#x1F4F1; Meta Ads</td>
-          <td>Awareness</td>
-          <td>Retargeting de visitantes do site</td>
-        </tr>
-        <tr>
-          <td style="color:var(--amber);font-weight:600">&#x1F3A4; Webinars</td>
-          <td>Consideracao</td>
-          <td>Amplificar presenca em MWC/Hannover digitalmente</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">&#x2B50; G2/Capterra</td>
-          <td>Credibilidade</td>
-          <td>Reviews = selo de confianca para buyer enterprise</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">&#x2709; E-mail Marketing</td>
-          <td>Nurture</td>
-          <td>Nutricao de leads ate trial</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card-grid card-grid-3" style="margin-top:28px">
+      <div class="card card-amber" style="text-align:center">
+        <div class="icon-circle ic-amber" style="margin:0 auto 12px">in</div>
+        <h3>LinkedIn Ads</h3>
+        <div class="tag tag-amber" style="margin-top:8px">CONSIDERACAO + CONVERSAO</div>
+        <p style="margin-top:8px">Alcance direto a decisores B2B por cargo, setor e tamanho de empresa. Sponsored Content + Message Ads + Lead Gen Forms.</p>
+        <p style="margin-top:8px"><strong style="color:var(--amber)">R$5.000 &mdash; R$10.000/mes</strong></p>
+      </div>
+      <div class="card card-blue" style="text-align:center">
+        <div class="icon-circle ic-blue" style="margin:0 auto 12px">G</div>
+        <h3>Google Ads</h3>
+        <div class="tag tag-blue" style="margin-top:8px">SEARCH + YOUTUBE</div>
+        <p style="margin-top:8px">Capturar intencao ativa (Search) + educacao e retargeting (YouTube). Termos de alta intencao: "backup monitoring", "compliance backup".</p>
+        <p style="margin-top:8px"><strong style="color:var(--blue)">R$3.000 &mdash; R$8.000/mes</strong></p>
+      </div>
+      <div class="card card-purple" style="text-align:center">
+        <div class="icon-circle ic-purple" style="margin:0 auto 12px">M</div>
+        <h3>Meta Ads</h3>
+        <div class="tag tag-purple" style="margin-top:8px">AWARENESS + RETARGETING</div>
+        <p style="margin-top:8px">Retargeting de visitantes do site + awareness em feed. Criativos de impacto para fixar a marca na mente do decisor.</p>
+        <p style="margin-top:8px"><strong style="color:var(--purple)">R$2.000 &mdash; R$4.000/mes</strong></p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;border:2px solid rgba(245,158,11,.3);background:rgba(245,158,11,.04);text-align:center">
+      <div class="cols" style="margin-top:0;gap:60px;justify-content:center">
+        <div class="big-num-item" style="text-align:center;align-items:center">
+          <div class="big-num">R$10-22k</div>
+          <span>investimento mensal total em midia</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 5 — LINKEDIN ADS                       -->
+<!-- SLIDE 5 - LINKEDIN ADS + MOCKUP             -->
 <!-- ============================================ -->
 <div class="slide slide-dark" id="s5">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Canal principal</div>
+    <div class="label">FENIX DFA &mdash; Canal principal</div>
     <h2>LinkedIn Ads &mdash; <span class="accent">O motor B2B</span></h2>
 
     <div class="cols">
       <div class="col">
-        <div class="big-num-row" style="margin-top:0">
-          <div class="big-num-item">
-            <div class="big-num">80%</div>
-            <span>dos leads B2B vem do LinkedIn</span>
-          </div>
-        </div>
-
-        <h3 style="margin-top:24px">Por que LinkedIn</h3>
-        <ul class="check-list">
+        <h3>Por que LinkedIn</h3>
+        <ul class="check-list" style="margin-top:8px">
           <li><strong>Targeting por cargo:</strong> CTO, CISO, VP IT, IT Director</li>
           <li><strong>Targeting por setor:</strong> Financeiro, Saude, Telecom, Farma</li>
           <li><strong>Targeting por tamanho:</strong> 200+ funcionarios</li>
           <li><strong>Lead Gen Forms:</strong> conversao sem sair da plataforma</li>
         </ul>
 
-        <h3 style="margin-top:24px">Budget sugerido</h3>
-        <p class="subtitle" style="font-size:15px"><strong style="color:var(--amber)">R$5.000 &mdash; R$10.000/mes</strong></p>
-      </div>
-      <div class="col">
-        <h3>Formatos recomendados</h3>
-        <div class="card-grid" style="grid-template-columns:1fr;gap:12px;margin-top:12px">
-          <div class="card card-amber">
-            <h3>Sponsored Content</h3>
-            <p>Artigos + infograficos sobre riscos de backup nao validado. Feed do decisor.</p>
-          </div>
-          <div class="card card-blue">
-            <h3>Message Ads (InMail)</h3>
-            <p>Convite direto para trial de 30 dias. Mensagem personalizada por setor.</p>
-          </div>
-          <div class="card card-green">
-            <h3>Lead Gen Forms</h3>
-            <p>Formulario pre-preenchido. Conversao sem friccao. Integracao com CRM.</p>
-          </div>
+        <h3 style="margin-top:20px">Formatos</h3>
+        <div class="pill-row" style="margin-top:6px">
+          <span class="pill pill-amber">Sponsored Content</span>
+          <span class="pill pill-amber">Message Ads (InMail)</span>
+          <span class="pill pill-amber">Lead Gen Forms</span>
         </div>
 
         <h3 style="margin-top:20px">KPIs</h3>
@@ -546,122 +694,254 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
           <span class="pill pill-amber">CTR</span>
         </div>
       </div>
+      <div class="col" style="display:flex;justify-content:center;align-items:flex-start">
+        <!-- LinkedIn Mockup -->
+        <div class="li-mockup">
+          <div class="li-header">
+            <div class="li-avatar">FX</div>
+            <div class="li-user">
+              <strong>Fenix DFA</strong>
+              <span class="li-followers">1.247 seguidores</span>
+              <span class="li-promoted">Promovido</span>
+            </div>
+            <div class="li-dots">...</div>
+          </div>
+          <div class="li-text">
+            CTOs de empresas reguladas estao descobrindo que seus backups nao passam em auditoria. A Fenix DFA monitora e valida automaticamente. <strong>Trial gratuito de 30 dias.</strong>
+          </div>
+          <div class="li-image">
+            <div class="li-image-logo">FENIX DFA</div>
+            <h3>Seu backup passa no teste de compliance?</h3>
+            <p>Plataforma agnostica de observabilidade. Integra com qualquer vendor. Descubra falhas antes da auditoria.</p>
+          </div>
+          <div class="li-cta-bar">
+            <div class="li-cta-url">fenixdfa.com</div>
+            <div class="li-cta-btn">Sign Up</div>
+          </div>
+          <div class="li-engagement">
+            <div class="li-engagement-dots">
+              <span class="li-engagement-dot" style="background:#378FE9;color:#fff">+</span>
+              <span class="li-engagement-dot" style="background:#E16745;color:#fff">!</span>
+            </div>
+            <span>47</span>
+            <span style="margin-left:auto">12 comentarios &middot; 3 compartilhamentos</span>
+          </div>
+          <div class="li-actions">
+            <span class="li-action">Gostei</span>
+            <span class="li-action">Comentar</span>
+            <span class="li-action">Compartilhar</span>
+            <span class="li-action">Enviar</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 6 — GOOGLE ADS                         -->
+<!-- SLIDE 6 - GOOGLE SEARCH + MOCKUP            -->
 <!-- ============================================ -->
 <div class="slide slide-accent" id="s6">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Captura de intencao</div>
-    <h2>Google Ads &mdash; <span class="accent">Search + Display + YouTube</span></h2>
+    <div class="label">FENIX DFA &mdash; Captura de intencao</div>
+    <h2>Google Search &mdash; <span class="accent">Alta intencao</span></h2>
 
     <div class="cols">
       <div class="col">
-        <div class="card card-blue" style="margin-bottom:16px">
-          <div class="tag tag-blue">SEARCH</div>
-          <h3>Termos de alta intencao</h3>
-          <p>Quem busca ja tem a dor. Capturar no momento da decisao.</p>
-          <div class="pill-row" style="margin-top:10px">
-            <span class="pill pill-amber">backup monitoring tool</span>
-            <span class="pill pill-amber">compliance backup LGPD</span>
-            <span class="pill pill-amber">validar backup</span>
-            <span class="pill pill-amber">cyber insurance backup</span>
-            <span class="pill pill-amber">backup audit software</span>
-            <span class="pill pill-amber">backup SLA monitoring</span>
-          </div>
+        <h3>Termos de alta intencao</h3>
+        <p class="subtitle" style="font-size:14px">Quem busca ja tem a dor. Capturar no momento da decisao.</p>
+        <div class="pill-row" style="margin-top:12px">
+          <span class="pill pill-amber">backup monitoring tool</span>
+          <span class="pill pill-amber">compliance backup LGPD</span>
+          <span class="pill pill-amber">validar backup</span>
+          <span class="pill pill-amber">cyber insurance backup</span>
+          <span class="pill pill-amber">backup audit software</span>
+          <span class="pill pill-amber">backup SLA monitoring</span>
         </div>
 
-        <div class="card card-purple">
-          <div class="tag tag-purple">DISPLAY</div>
-          <h3>Retargeting</h3>
-          <p>Visitantes do site que nao converteram. Banners com prova social e urgencia de compliance.</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card card-red" style="margin-bottom:16px">
-          <div class="tag tag-red">YOUTUBE</div>
-          <h3>Videos educacionais curtos</h3>
-          <p>15-30s sobre riscos de backup. Pre-roll em canais de TI. "Voce confia no seu backup? Descubra em 30 dias."</p>
-        </div>
-
-        <div class="card card-amber">
-          <div class="tag tag-amber">CONVERSAO</div>
-          <h3>Landing page otimizada</h3>
-          <p>Todo trafego converge para <strong style="color:var(--amber)">trial de 30 dias</strong> como conversao primaria. Formulario curto: nome, e-mail, empresa, cargo.</p>
-        </div>
+        <h3 style="margin-top:24px">Estrategia</h3>
+        <ul class="check-list" style="margin-top:8px">
+          <li><strong>Mes 1:</strong> Search puro (alta intencao, CPL mais baixo)</li>
+          <li><strong>Mes 2+:</strong> Expandir para Display retargeting</li>
+          <li><strong>Conversao:</strong> Trial 30 dias como objetivo primario</li>
+        </ul>
 
         <h3 style="margin-top:20px">Budget sugerido</h3>
         <p style="font-size:15px;color:var(--gray)"><strong style="color:var(--amber)">R$3.000 &mdash; R$8.000/mes</strong></p>
-        <p style="font-size:12px;color:var(--gray2);margin-top:4px">Iniciar com Search (alta intencao) e expandir para Display/YouTube no mes 2.</p>
+      </div>
+      <div class="col" style="display:flex;justify-content:center;align-items:flex-start">
+        <!-- Google Search Mockup -->
+        <div class="gsr-mockup">
+          <div class="gsr-bar">
+            <div class="gsr-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+            <div class="gsr-input">backup monitoring compliance LGPD</div>
+          </div>
+          <div class="gsr-body">
+            <div class="gsr-ad">
+              <div class="gsr-ad-label">Patrocinado</div>
+              <div class="gsr-ad-url">fenixdfa.com<span>/trial</span></div>
+              <h3>Monitore Seus Backups 24/7 | Fenix DFA &mdash; Trial Gratis</h3>
+              <p>Valide se seus backups funcionam antes que seja tarde. Plataforma <strong>agnostica</strong>, compliance LGPD/GDPR. <strong>30 dias gratis.</strong></p>
+              <div class="gsr-sitelinks">
+                <div>
+                  <div class="gsr-sitelink">Free Trial</div>
+                  <div class="gsr-sitelink-desc">30 dias gratis. Sem cartao.</div>
+                </div>
+                <div>
+                  <div class="gsr-sitelink">Funcionalidades</div>
+                  <div class="gsr-sitelink-desc">Monitoramento, alertas, relatorios.</div>
+                </div>
+                <div>
+                  <div class="gsr-sitelink">Compliance</div>
+                  <div class="gsr-sitelink-desc">LGPD, GDPR, DORA, HIPAA.</div>
+                </div>
+                <div>
+                  <div class="gsr-sitelink">Sobre Nos</div>
+                  <div class="gsr-sitelink-desc">Observabilidade agnostica de backup.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 7 — CONTENT MARKETING + SEO            -->
+<!-- SLIDE 7 - YOUTUBE ADS + MOCKUP              -->
 <!-- ============================================ -->
 <div class="slide slide-dark" id="s7">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Autoridade e trafego organico</div>
-    <h2>Content Marketing + <span class="accent">SEO</span></h2>
-    <p class="subtitle">Conteudo que educa, gera autoridade e rankeia para termos de nicho com baixa concorrencia.</p>
+    <div class="label">FENIX DFA &mdash; Video</div>
+    <h2>YouTube Ads &mdash; <span class="accent">Educacao e awareness</span></h2>
 
-    <div class="card-grid card-grid-3" style="margin-top:24px">
-      <div class="card card-amber">
-        <div class="tag tag-amber">BLOG</div>
-        <h3>Artigos estrategicos</h3>
-        <p>"Seus backups funcionam de verdade?" &bull; "LGPD e backup: o que muda em 2026" &bull; "Cyber insurance: por que backups validados reduzem o premio" &bull; "DORA e resiliencia digital"</p>
-      </div>
-      <div class="card card-blue">
-        <div class="tag tag-blue">WHITEPAPERS</div>
-        <h3>Conteudo premium</h3>
-        <p>"Guia de Compliance de Backup para CTOs" &bull; "ROI de Observabilidade de Backup" &bull; Gated content para captura de leads qualificados.</p>
-      </div>
-      <div class="card card-green">
-        <div class="tag tag-green">CASE STUDIES</div>
-        <h3>Prova social</h3>
-        <p>Clientes que descobriram falhas criticas nos backups com a Fenix. Resultados mensurados. Historias reais de prevencao de desastres.</p>
-      </div>
-    </div>
-
-    <div class="cols" style="margin-top:24px">
+    <div class="cols">
       <div class="col">
-        <h3>Distribuicao</h3>
-        <ul class="check-list">
-          <li><strong>Guest posts</strong> em IT Forum, TI Inside (ja cobriram a Fenix)</li>
-          <li><strong>LinkedIn Articles</strong> do CEO como thought leader</li>
-          <li><strong>Newsletter mensal</strong> para base de leads</li>
+        <h3>Formato: In-Stream (15-30s)</h3>
+        <ul class="check-list" style="margin-top:8px">
+          <li><strong>Pre-roll</strong> em canais de TI, ciberseguranca e infraestrutura</li>
+          <li><strong>Mensagem direta:</strong> "Voce confia no seu backup?"</li>
+          <li><strong>CTA:</strong> Trial gratuito de 30 dias</li>
         </ul>
-      </div>
-      <div class="col">
-        <h3>SEO &mdash; Termos-alvo</h3>
-        <div class="pill-row" style="margin-top:8px">
-          <span class="pill pill-amber">observabilidade de backup</span>
-          <span class="pill pill-amber">validar backup LGPD</span>
-          <span class="pill pill-amber">auditoria de backup</span>
-          <span class="pill pill-amber">backup compliance</span>
-          <span class="pill pill-amber">monitoramento de backup</span>
-          <span class="pill pill-amber">cyber insurance backup</span>
+
+        <h3 style="margin-top:24px">Roteiro sugerido (15s)</h3>
+        <div class="card card-amber" style="margin-top:8px">
+          <p style="color:var(--white);font-style:italic;line-height:1.6">
+            "Sua empresa acredita que os dados estao protegidos. Mas voce ja testou se consegue recuperar em caso de desastre?<br><br>
+            A Fenix DFA monitora seus backups 24/7 e mostra o que realmente funciona.<br><br>
+            Trial gratuito de 30 dias. Sem compromisso."
+          </p>
         </div>
-        <p style="font-size:12px;color:var(--gray2);margin-top:8px">Nicho = baixa concorrencia + alta intencao. Janela de oportunidade para ranquear rapidamente.</p>
+
+        <h3 style="margin-top:20px">Targeting</h3>
+        <div class="pill-row" style="margin-top:6px">
+          <span class="pill pill-amber">In-market: IT Security</span>
+          <span class="pill pill-amber">Custom: backup software</span>
+          <span class="pill pill-amber">Remarketing: site visitors</span>
+        </div>
+      </div>
+      <div class="col" style="display:flex;justify-content:center;align-items:flex-start">
+        <!-- YouTube Mockup -->
+        <div class="yt-mockup">
+          <div class="yt-player">
+            <div class="yt-player-content">
+              <h3>Seus backups funcionam?</h3>
+              <p>FENIX DFA &mdash; Descubra em 30 dias</p>
+            </div>
+            <div class="yt-ad-badge">Anuncio &middot; 0:15</div>
+            <div class="yt-skip">Pular anuncio &raquo;</div>
+          </div>
+          <div class="yt-cta-overlay">
+            <div class="yt-cta-overlay-left">
+              <strong>Fenix DFA</strong>
+              <span>fenixdfa.com/trial</span>
+            </div>
+            <div class="yt-cta-overlay-btn">Teste Gratis 30 Dias</div>
+          </div>
+          <div class="yt-controls">
+            <span style="font-size:16px;color:#fff">||</span>
+            <div class="yt-progress">
+              <div class="yt-progress-fill"></div>
+            </div>
+            <span class="yt-time">0:02 / 0:15</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 8 — ESTRATEGIA DE TRIAL                -->
+<!-- SLIDE 8 - META ADS + MOCKUP                 -->
 <!-- ============================================ -->
 <div class="slide slide-accent" id="s8">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Conversao</div>
+    <div class="label">FENIX DFA &mdash; Awareness + Retargeting</div>
+    <h2>Meta Ads &mdash; <span class="accent">Feed e retargeting</span></h2>
+
+    <div class="cols">
+      <div class="col">
+        <h3>Papel no funil</h3>
+        <ul class="check-list" style="margin-top:8px">
+          <li><strong>Awareness:</strong> Criativos de impacto no feed do Instagram e Facebook</li>
+          <li><strong>Retargeting:</strong> Visitantes do site que nao converteram</li>
+          <li><strong>Lookalike:</strong> Audiencias similares a trials iniciados</li>
+        </ul>
+
+        <h3 style="margin-top:24px">Exemplo de texto primario</h3>
+        <div class="card card-amber" style="margin-top:8px">
+          <p style="color:var(--white);line-height:1.6">
+            Sua empresa acredita que os dados estao protegidos. Mas ja testou se consegue recuperar em caso de desastre?<br><br>
+            A Fenix DFA monitora seus backups 24/7 e mostra o que realmente funciona.<br><br>
+            Trial gratuito, sem compromisso.
+          </p>
+        </div>
+
+        <h3 style="margin-top:20px">Budget sugerido</h3>
+        <p style="font-size:15px;color:var(--gray)"><strong style="color:var(--amber)">R$2.000 &mdash; R$4.000/mes</strong></p>
+      </div>
+      <div class="col" style="display:flex;justify-content:center;align-items:flex-start">
+        <!-- Instagram Feed Mockup -->
+        <div class="ig-mockup">
+          <div class="ig-header">
+            <div class="ig-avatar">FX</div>
+            <div class="ig-user">
+              <strong>fenixdfa</strong>
+              <span>Patrocinado</span>
+            </div>
+            <div class="ig-sponsored">...</div>
+          </div>
+          <div class="ig-creative">
+            <div class="ig-creative-badge">Gratis por 30 dias</div>
+            <div class="ig-creative-logo">FENIX DFA</div>
+            <h3>Seus backups funcionam de verdade?</h3>
+            <p>Descubra em 30 dias &mdash; Teste gratis</p>
+          </div>
+          <div class="ig-cta-bar">
+            <div class="ig-cta-url">fenixdfa.com</div>
+            <div class="ig-cta-btn">Iniciar Trial Gratuito</div>
+          </div>
+          <div class="ig-text">
+            <strong>fenixdfa</strong> Sua empresa acredita que os dados estao protegidos. Mas ja testou se consegue recuperar em caso de desastre? A Fenix DFA monitora seus backups 24/7 e mostra o que realmente funciona. Trial gratuito, sem compromisso.
+          </div>
+          <div class="ig-actions">
+            <span class="ig-action">&#9825;</span>
+            <span class="ig-action">&#9901;</span>
+            <span class="ig-action">&#10148;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SLIDE 9 - ESTRATEGIA DE TRIAL               -->
+<!-- ============================================ -->
+<div class="slide slide-dark" id="s9">
+  <div class="slide-inner">
+    <div class="label">FENIX DFA &mdash; Conversao</div>
     <h2>Estrategia de <span class="accent">Trial 30 Dias</span></h2>
     <p class="subtitle">O trial e o ponto central da estrategia. Todo canal deve convergir para ele.</p>
 
@@ -713,12 +993,11 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 9 — PROJECAO DE RESULTADOS             -->
+<!-- SLIDE 10 - PROJECAO DE RESULTADOS            -->
 <!-- ============================================ -->
-<div class="slide slide-dark" id="s9">
-  <div class="logo-text-sm">FENIX DFA</div>
+<div class="slide slide-accent" id="s10">
   <div class="slide-inner">
-    <div class="label">Projecao</div>
+    <div class="label">FENIX DFA &mdash; Projecao</div>
     <h2>O que a midia pode <span class="accent">trazer</span></h2>
     <p class="subtitle">Estimativas conservadoras baseadas em benchmarks de SaaS B2B enterprise.</p>
 
@@ -748,18 +1027,18 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
           <td>R$125 &mdash; R$250</td>
         </tr>
         <tr>
-          <td style="color:var(--purple)">Retargeting (G+Meta)</td>
+          <td style="color:var(--blue)">YouTube Ads</td>
           <td>R$2.000</td>
-          <td style="color:var(--white)">10 &mdash; 20</td>
-          <td style="color:var(--green)">3 &mdash; 6</td>
-          <td>R$100 &mdash; R$200</td>
+          <td style="color:var(--white)">5 &mdash; 15</td>
+          <td style="color:var(--green)">1 &mdash; 3</td>
+          <td>R$130 &mdash; R$400</td>
         </tr>
         <tr>
-          <td style="color:var(--green)">Content/SEO</td>
-          <td>R$3.000 (producao)</td>
-          <td style="color:var(--white)">15 &mdash; 30</td>
-          <td style="color:var(--green)">3 &mdash; 6</td>
-          <td>R$100 &mdash; R$200</td>
+          <td style="color:var(--purple)">Meta Ads</td>
+          <td>R$3.000</td>
+          <td style="color:var(--white)">15 &mdash; 25</td>
+          <td style="color:var(--green)">3 &mdash; 5</td>
+          <td>R$120 &mdash; R$200</td>
         </tr>
       </tbody>
     </table>
@@ -771,11 +1050,11 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
           <span>investimento mensal total</span>
         </div>
         <div class="big-num-item" style="text-align:center;align-items:center">
-          <div class="big-num">85-150</div>
+          <div class="big-num">80-140</div>
           <span>leads qualificados/mes</span>
         </div>
         <div class="big-num-item" style="text-align:center;align-items:center">
-          <div class="big-num">19-34</div>
+          <div class="big-num">17-30</div>
           <span>trials iniciados/mes</span>
         </div>
       </div>
@@ -786,98 +1065,38 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 10 — CALENDARIO DE EXECUCAO            -->
-<!-- ============================================ -->
-<div class="slide slide-accent" id="s10">
-  <div class="logo-text-sm">FENIX DFA</div>
-  <div class="slide-inner">
-    <div class="label">Roadmap</div>
-    <h2>Calendario de <span class="accent">Execucao</span></h2>
-    <p class="subtitle">Abordagem progressiva: validar canais antes de escalar.</p>
-
-    <div class="phase-row" style="margin-top:28px">
-      <div class="phase p1">
-        <div class="phase-title">Mes 1 &mdash; Setup</div>
-        <h3>Fundacao</h3>
-        <ul class="check-list" style="margin-top:8px">
-          <li>Setup contas LinkedIn Ads + Google Ads</li>
-          <li>Criar landing page trial otimizada</li>
-          <li>Configurar tracking (GTM + pixels)</li>
-          <li>Lancar primeiras campanhas LinkedIn</li>
-          <li>Ativar Google Search (termos de intencao)</li>
-        </ul>
-      </div>
-      <div class="phase p2">
-        <div class="phase-title">Mes 2 &mdash; Otimizacao</div>
-        <h3>Iteracao</h3>
-        <ul class="check-list" style="margin-top:8px">
-          <li>Otimizar com dados reais (CPL, CTR)</li>
-          <li>Ativar retargeting Google + Meta</li>
-          <li>Publicar primeiro blog post</li>
-          <li>Testar Message Ads no LinkedIn</li>
-          <li>Ajustar segmentacao por resultados</li>
-        </ul>
-      </div>
-      <div class="phase p3">
-        <div class="phase-title">Mes 3 &mdash; Escala</div>
-        <h3>Aceleracao</h3>
-        <ul class="check-list" style="margin-top:8px">
-          <li>Escalar canais vencedores</li>
-          <li>Lancar webinar tematico</li>
-          <li>Publicar whitepaper gated</li>
-          <li>Iniciar programa de reviews (G2)</li>
-          <li>A/B test em criativos e LPs</li>
-        </ul>
-      </div>
-      <div class="phase p4">
-        <div class="phase-title">Mes 4+ &mdash; Expansao</div>
-        <h3>Maturidade</h3>
-        <ul class="check-list" style="margin-top:8px">
-          <li>Budget proporcional aos vencedores</li>
-          <li>YouTube educacional (pre-roll)</li>
-          <li>Case studies publicados</li>
-          <li>Capterra profile completo</li>
-          <li>Automacao de nurture por e-mail</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================ -->
-<!-- SLIDE 11 — CREDIBILIDADE                     -->
+<!-- SLIDE 11 - ACOES COMPLEMENTARES              -->
 <!-- ============================================ -->
 <div class="slide slide-dark" id="s11">
-  <div class="logo-text-sm">FENIX DFA</div>
   <div class="slide-inner">
-    <div class="label">Trust signals</div>
-    <h2>Credibilidade &mdash; <span class="accent">Acoes complementares</span></h2>
-    <p class="subtitle">A midia paga funciona melhor quando existe infraestrutura de confianca ao redor.</p>
+    <div class="label">FENIX DFA &mdash; Alem da midia paga</div>
+    <h2>Acoes <span class="accent">Complementares</span></h2>
+    <p class="subtitle">A midia paga funciona melhor quando existe infraestrutura de confianca ao redor. Estas acoes nao sao canais de midia paga, mas amplificam os resultados.</p>
 
     <div class="card-grid card-grid-2" style="margin-top:24px">
-      <div class="card card-amber">
-        <div class="icon-circle ic-amber">&#x2B50;</div>
-        <h3>G2 + Capterra</h3>
-        <p>Cadastrar a Fenix, solicitar reviews de clientes existentes. <strong style="color:var(--amber)">Reviews sao o selo de confianca #1</strong> para buyer B2B enterprise. Sem reviews = red flag.</p>
-      </div>
       <div class="card card-green">
-        <div class="icon-circle ic-green">&#x1F4CA;</div>
-        <h3>Case Studies</h3>
-        <p>Documentar resultados reais. "Empresa X descobriu que 40% dos backups tinham falhas." Formato PDF + pagina no site.</p>
+        <div class="tag tag-green">CONTEUDO</div>
+        <h3>Content Marketing + SEO</h3>
+        <p>Blog com artigos estrategicos: "Seus backups funcionam de verdade?", "LGPD e backup", "Cyber insurance". Whitepapers gated para captura de leads. SEO em termos de nicho com baixa concorrencia.</p>
+      </div>
+      <div class="card card-amber">
+        <div class="tag tag-amber">CREDIBILIDADE</div>
+        <h3>G2 + Capterra</h3>
+        <p>Cadastrar a Fenix, solicitar reviews de clientes existentes. <strong style="color:var(--amber)">Reviews sao o selo de confianca #1</strong> para buyer B2B enterprise.</p>
       </div>
       <div class="card card-blue">
-        <div class="icon-circle ic-blue">&#x1F3A4;</div>
-        <h3>Eventos digitais</h3>
-        <p>Amplificar presenca em MWC Barcelona e Hannover Messe com conteudo digital: recaps, LinkedIn posts, short videos.</p>
+        <div class="tag tag-blue">EVENTOS</div>
+        <h3>Webinars + Eventos digitais</h3>
+        <p>Webinars tematicos sobre compliance e observabilidade. Amplificar presenca em MWC e Hannover Messe com conteudo digital: recaps, LinkedIn posts, short videos.</p>
       </div>
       <div class="card card-purple">
-        <div class="icon-circle ic-purple">&#x1F464;</div>
-        <h3>CEO como thought leader</h3>
-        <p>LinkedIn pessoal do CEO com posts regulares sobre observabilidade, compliance e resiliencia de dados. Humaniza a marca.</p>
+        <div class="tag tag-purple">THOUGHT LEADERSHIP</div>
+        <h3>CEO como autoridade</h3>
+        <p>LinkedIn pessoal do CEO com posts regulares sobre observabilidade, compliance e resiliencia de dados. Humaniza a marca e gera confianca.</p>
       </div>
     </div>
 
-    <div class="cols" style="margin-top:24px">
+    <div class="cols" style="margin-top:20px">
       <div class="col">
         <div class="card card-amber">
           <h3>Programa de indicacao</h3>
@@ -895,7 +1114,7 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
 </div>
 
 <!-- ============================================ -->
-<!-- SLIDE 12 — PROXIMOS PASSOS                   -->
+<!-- SLIDE 12 - PROXIMOS PASSOS                   -->
 <!-- ============================================ -->
 <div class="slide slide-cover" id="s12">
   <div class="glow-orb glow-1"></div>
@@ -909,32 +1128,32 @@ h3{font-size:22px;font-weight:600;line-height:1.3;margin-bottom:8px}
       <div class="card card-amber" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--amber);margin-bottom:8px">01</div>
         <h3>Definir budget</h3>
-        <p>Alinhar investimento mensal de midia. Recomendacao minima: R$10k/mes.</p>
+        <p>Alinhar investimento mensal de midia. Recomendacao minima: R$10k/mes nos 3 canais principais.</p>
       </div>
       <div class="card card-blue" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--blue);margin-bottom:8px">02</div>
         <h3>Landing page trial</h3>
-        <p>Criar LP otimizada para conversao em trial de 30 dias com tracking completo.</p>
+        <p>Criar LP otimizada para conversao em trial de 30 dias com tracking completo (GTM + pixels).</p>
       </div>
       <div class="card card-green" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--green);margin-bottom:8px">03</div>
         <h3>Setup ads</h3>
-        <p>Configurar LinkedIn Ads + Google Ads. Pixels, conversoes, segmentacoes.</p>
+        <p>Configurar LinkedIn Ads + Google Ads + Meta Ads. Pixels, conversoes, segmentacoes.</p>
       </div>
       <div class="card card-purple" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--purple);margin-bottom:8px">04</div>
-        <h3>Primeiro conteudo</h3>
-        <p>Produzir whitepaper ou webinar como lead magnet para topo de funil.</p>
+        <h3>Criativos</h3>
+        <p>Produzir criativos para cada canal baseados nos mockups apresentados. Testar variacoes de copy e visual.</p>
       </div>
       <div class="card card-amber" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--amber);margin-bottom:8px">05</div>
-        <h3>G2 + Capterra</h3>
-        <p>Cadastrar profiles e iniciar coleta de reviews de clientes atuais.</p>
+        <h3>Lancar campanhas</h3>
+        <p>Go live! LinkedIn e Google Search na semana 1. Meta e YouTube na semana 2.</p>
       </div>
       <div class="card card-red" style="text-align:left">
         <div style="font-size:28px;font-weight:800;color:var(--red);margin-bottom:8px">06</div>
-        <h3>Lancar campanhas</h3>
-        <p>Go live! Monitorar metricas diariamente na primeira semana.</p>
+        <h3>Otimizar e escalar</h3>
+        <p>Monitorar metricas diariamente. Escalar canais vencedores. Pausar o que nao performa.</p>
       </div>
     </div>
 
