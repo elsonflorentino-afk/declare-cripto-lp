@@ -1,11 +1,44 @@
-# Briefing para Designer — LinkedIn Ads Fenix DFA
+# Briefing LinkedIn Ads — Fenix DFA (Prioridade 1: CIO/CISO)
 
 **Data:** 03/maio/2026
 **Cliente:** Fenix DFA (fenixdfa.com)
-**Canal:** LinkedIn Ads — Sponsored Content (feed)
+**Canal:** LinkedIn Ads — Sponsored Content com Lead Gen Form
 **Audiência:** CIOs, CISOs, VPs of Infrastructure, Heads of IT Security
-**Objetivo:** Gerar awareness + trials (30 dias grátis)
-**Entregas:** 3 peças estáticas (1200x628px landscape)
+**Conversão:** Download do Executive One-Pager (Lead Gen Form)
+**Budget:** Limitado — otimizar para menor CPL possível
+**Entregas:** 3 peças estáticas (1200x628px)
+
+---
+
+## Estratégia — Otimização de budget
+
+O cliente tem pouco orçamento. Para maximizar cada real:
+
+**Formato:** LinkedIn Lead Gen Form (NÃO landing page)
+- Lead preenche dentro do LinkedIn (sem sair da plataforma)
+- Campos pré-preenchidos pelo LinkedIn (nome, email, cargo, empresa)
+- Material para download: Executive One-Pager (PDF)
+- CPL estimado: R$30-80 (vs R$100-200 com LP)
+
+**Fluxo:**
+```
+Anúncio no feed → Lead Gen Form (nome, email, cargo, empresa)
+→ Download automático do One-Pager → Follow-up por email (nurture)
+→ Resilience Assessment (call com vendas)
+```
+
+**Por que Lead Gen Form e não LP:**
+- Taxa de conversão 2-5x maior (campos pré-preenchidos)
+- Sem fricção de carregamento de página
+- Ideal para budget limitado
+
+---
+
+## Mensagem central (do OnePager)
+
+> "Most companies discover their backup doesn't work during a ransomware attack. Fenix DFA finds that out first."
+
+**Tradução para os criativos:** A empresa acha que está protegida. Não está. A Fenix DFA mostra onde estão as falhas ANTES do incidente.
 
 ---
 
@@ -13,14 +46,14 @@
 
 | Item | Valor |
 |------|-------|
-| Logo | Fenix DFA (solicitar ao cliente arquivo SVG/PNG) |
-| Cor primária | Amber/laranja (#F59E0B) |
-| Cor fundo | Escuro (#0A0E13 ou #12191D) |
-| Cor texto | Branco (#FFFFFF) |
-| Cor secundária | Cinza claro (#A0A0C0) |
-| Font | Inter ou equivalente sans-serif |
-| Tom visual | Enterprise, sóbrio, dark mode, sem hype |
-| CTA | "Start Free Trial" ou "Teste Grátis 30 Dias" |
+| Logo | Fenix DFA (arquivo: `~/Downloads/Fenix-DFA-Logo.svg` e `.png`) |
+| Logo fundo azul | `~/Downloads/Fenix-Logo-Preview-FundoAzul.png` |
+| Logo transparente | `~/Downloads/Fenix-DFA-Logo-Transparente.png` |
+| Cor primária | Laranja Fenix (#E8551B — extraído do OnePager) |
+| Cor fundo | Escuro (#1A1A2E) ou branco (testar ambos) |
+| Cor texto | Branco (fundo escuro) ou preto (fundo claro) |
+| Accent | Amber (#F59E0B) para badges/CTAs |
+| Font | Sans-serif enterprise (Inter, Helvetica Neue) |
 
 ---
 
@@ -28,140 +61,251 @@
 
 | Item | Spec |
 |------|------|
-| Dimensão | 1200 x 628px (landscape) |
+| Dimensão imagem | 1200 x 628px (landscape) |
 | Formato | JPG ou PNG |
 | Tamanho máximo | 5MB |
-| Texto na imagem | Mínimo possível (LinkedIn penaliza excesso) |
-| Safe zone | Manter texto no centro, margens de 60px |
+| Headline do anúncio | Máx 70 caracteres |
+| Texto introdutório | Máx 150 palavras (recomendado curto) |
+| CTA do Lead Gen Form | "Download" |
 
 ---
 
-## CRIATIVO 1 — "Backups quebrando em silêncio"
+## CRIATIVO 1 — Silent Failures
 
-### Copy (texto do post LinkedIn)
-**Headline (imagem):** Seus backups estão quebrando em silêncio.
+### Texto do post LinkedIn
+**Headline:** Seus backups estão quebrando em silêncio.
 
-**Texto do post:**
-Operações de backup falham todos os dias sem que ninguém perceba. A equipe de TI recebe o alerta tarde demais — ou não recebe. A Fenix DFA monitora seus backups em tempo real e identifica falhas antes que virem incidentes. Trial gratuito de 30 dias.
+**Texto introdutório:**
+Assets saem de cobertura. Schedulers suspendem e nunca retomam. Retenção encolhe sem aprovação. O console mostra verde — mas o recovery já está quebrado.
 
-**CTA botão:** Start Free Trial
+A maioria das empresas descobre isso durante o incidente. A Fenix DFA descobre antes.
 
-### Direção visual
-**Conceito:** Silêncio + perigo oculto. A imagem deve transmitir a ideia de que algo está errado mas ninguém está vendo.
+Baixe o Executive One-Pager e veja os 3 riscos que executivos não podem ignorar.
 
-**Imagem sugerida:**
-- Sala de servidores/data center escura com luzes vermelhas piscando ao fundo (como alertas ignorados)
-- OU: Tela de monitoramento com um dashboard mostrando gráficos — mas com um indicador vermelho que ninguém está olhando
-- OU: Imagem abstrata de linhas de dados/código com uma falha/glitch sutil no meio
+### Imagem (1200x628)
 
-**Composição:**
-- Fundo escuro (#0A0E13) ocupando 60% da imagem (lado esquerdo)
-- Imagem no lado direito (40%)
-- Headline "Seus backups estão quebrando em silêncio." no lado esquerdo, branco, fonte grande bold
-- Logo Fenix DFA pequeno no canto inferior esquerdo
-- Badge sutil "FREE TRIAL · 30 DAYS" em amber (#F59E0B), canto inferior direito
+**Layout sugerido — opção A (fundo escuro):**
+```
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│  ⚠  SEUS BACKUPS ESTÃO                             │
+│     QUEBRANDO EM SILÊNCIO.                          │
+│                                                     │
+│  O console mostra verde.                            │
+│  O recovery já está quebrado.                       │
+│                                                     │
+│  ┌──────────────────────┐                           │
+│  │ DOWNLOAD ONE-PAGER → │  (badge laranja)          │
+│  └──────────────────────┘                           │
+│                                                     │
+│  FENIX DFA                        fenixdfa.com      │
+└─────────────────────────────────────────────────────┘
+```
 
-**Referência de banco de imagens:**
-- Buscar: "data center dark", "server room red light", "monitoring dashboard alert"
-- Sites: Unsplash, Pexels, Shutterstock, Adobe Stock
-- Palavras-chave: "server failure", "data center emergency", "monitoring screen alert", "cybersecurity dark"
+**Elementos visuais:**
+- Fundo: escuro (#1A1A2E) com gradiente sutil
+- Ícone de alerta (⚠) em laranja Fenix grande no topo
+- Headline em branco, bold, 2 linhas
+- Subtítulo em cinza claro, 2 linhas
+- Badge "DOWNLOAD ONE-PAGER →" em laranja (#E8551B)
+- Logo Fenix DFA canto inferior esquerdo
+- URL canto inferior direito
+- SEM foto, SEM imagem de banco — apenas tipografia + ícone (mais limpo, mais enterprise)
+
+**Layout sugerido — opção B (com imagem):**
+- Lado esquerdo (55%): texto sobre fundo escuro
+- Lado direito (45%): imagem de dashboard/monitoramento com indicadores verdes mas um alerta vermelho escondido
+- Imagem: buscar "monitoring dashboard false positive", "server monitoring green status"
+
+### Lead Gen Form
+- Headline: "Baixe o Executive One-Pager"
+- Descrição: "Veja os 3 riscos que CIOs e CISOs não podem ignorar sobre operações de backup."
+- Campos: Nome (pré-preenchido), Email (pré-preenchido), Cargo (pré-preenchido), Empresa (pré-preenchido)
+- CTA: "Download"
+- Política de privacidade: fenixdfa.com/privacy
+- Thank you: link para o PDF do One-Pager
 
 ---
 
-## CRIATIVO 2 — "Reguladores exigem evidência contínua"
+## CRIATIVO 2 — Regulatory Exposure
 
-### Copy (texto do post LinkedIn)
-**Headline (imagem):** Reguladores não aceitam screenshots. Exigem evidência contínua.
+### Texto do post LinkedIn
+**Headline:** Reguladores não aceitam screenshots. Exigem evidência contínua.
 
-**Texto do post:**
-DORA, NIS2, GDPR. A próxima auditoria vai pedir prova de que seus backups funcionam — não uma captura de tela de ontem. A Fenix DFA gera evidência automatizada e contínua de compliance para as regulações que afetam seu setor. Trial gratuito de 30 dias.
+**Texto introdutório:**
+DORA. NIS2. GDPR. ISO 27001. SOX.
 
-**CTA botão:** Start Free Trial
+Todos exigem evidência contínua e auditável de que seus dados podem ser recuperados. Não um relatório montado na véspera da auditoria.
 
-### Direção visual
-**Conceito:** Compliance + pressão regulatória. A imagem deve transmitir seriedade institucional, regulação, conformidade.
+A Fenix DFA gera documentação de compliance automatizada, timestamped e defensible. Disponível on demand — não reunida em pânico.
 
-**Imagem sugerida:**
-- Documento/relatório de compliance aberto sobre uma mesa com selos de aprovação — mas com um item marcado em vermelho (reprovado)
-- OU: Martelo de juiz + tela de computador com dados (compliance + tech)
-- OU: Escudo/badge de certificação com os logos DORA, NIS2, GDPR em destaque (mais abstrato/gráfico)
+Baixe o Executive One-Pager.
 
-**Composição:**
+### Imagem (1200x628)
+
+**Layout sugerido:**
+```
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│  DORA · NIS2 · GDPR · ISO 27001 · SOX              │
+│  (em laranja, espaçados, como badges)               │
+│                                                     │
+│  REGULADORES NÃO ACEITAM                            │
+│  SCREENSHOTS.                                       │
+│  EXIGEM EVIDÊNCIA CONTÍNUA.                         │
+│                                                     │
+│  ┌──────────────────────┐                           │
+│  │ DOWNLOAD ONE-PAGER → │                           │
+│  └──────────────────────┘                           │
+│                                                     │
+│  FENIX DFA                        fenixdfa.com      │
+└─────────────────────────────────────────────────────┘
+```
+
+**Elementos visuais:**
+- Topo: badges dos frameworks regulatórios em linha (DORA, NIS2, GDPR, ISO 27001, SOX) — cada um em caixa com borda laranja
+- Headline em branco, bold, 3 linhas
+- A palavra "SCREENSHOTS" pode ter um efeito de risco/tachado (strikethrough) sutil
+- Badge download em laranja
 - Fundo escuro
-- As siglas "DORA · NIS2 · GDPR" em destaque na parte superior (amber #F59E0B, fonte bold, espaçadas)
-- Headline abaixo: "Reguladores não aceitam screenshots. Exigem evidência contínua." em branco
-- Imagem como elemento de fundo com overlay escuro (opacidade 70-80%) para o texto ficar legível
-- Logo Fenix DFA canto inferior esquerdo
-- Badge "FREE TRIAL · 30 DAYS" canto inferior direito
+- Logo + URL no rodapé
 
-**Referência de banco de imagens:**
-- Buscar: "compliance audit", "regulatory document", "GDPR compliance", "digital compliance certificate"
-- Palavras-chave: "audit report", "certification badge", "compliance check", "regulatory pressure", "legal technology"
+**Alternativa com imagem:**
+- Documento de compliance com carimbo "REJECTED" em vermelho
+- Buscar: "compliance audit rejected", "regulatory document stamp failed"
 
 ---
 
-## CRIATIVO 3 — "A cadeia de accountability"
+## CRIATIVO 3 — Accountability
 
-### Copy (texto do post LinkedIn)
-**Headline (imagem):** Quando a recuperação falha, a responsabilidade escala.
+### Texto do post LinkedIn
+**Headline:** Quando a recuperação falha, a responsabilidade escala.
 
-**Texto do post:**
-A cadeia de accountability precisa existir antes do incidente, não depois. Quem é responsável quando o backup não recupera? A Fenix DFA rastreia cada operação de backup, atribui responsabilidades e gera relatórios de accountability automaticamente. Quando o board perguntar, a resposta já existe. Trial gratuito de 30 dias.
+**Texto introdutório:**
+A cadeia de accountability precisa existir antes do incidente, não depois.
 
-**CTA botão:** Start Free Trial
+Cada finding com um owner. Cada risco atribuído. Cada decisão visível — do analista ao board. Quando o regulador perguntar "quem era responsável?", a resposta já existe.
 
-### Direção visual
-**Conceito:** Responsabilidade + cadeia hierárquica + pressão do board. A imagem deve transmitir a ideia de que a responsabilidade sobe na hierarquia quando algo falha.
+A Fenix DFA constrói essa cadeia automaticamente. Baixe o Executive One-Pager.
 
-**Imagem sugerida:**
-- Sala de reunião executiva/boardroom vazia com uma tela grande mostrando um relatório de falha — a cadeira do responsável está vazia (ele não tem resposta)
-- OU: Organograma corporativo com setas subindo (a responsabilidade escalando) e um ponto vermelho no topo
-- OU: Executivo C-level em reunião com expressão séria, olhando para um relatório/dashboard no laptop
+### Imagem (1200x628)
 
-**Composição:**
-- Fundo escuro com imagem em overlay sutil
-- Headline grande: "Quando a recuperação falha, a responsabilidade escala." em branco
-- Subtítulo menor: "A cadeia de accountability precisa existir antes do incidente." em cinza (#A0A0C0)
-- Logo Fenix DFA canto inferior esquerdo
-- Badge "FREE TRIAL · 30 DAYS" canto inferior direito
+**Layout sugerido:**
+```
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│  QUANDO A RECUPERAÇÃO FALHA,                        │
+│  A RESPONSABILIDADE ESCALA.                         │
+│                                                     │
+│       Analyst                                       │
+│          ↓                                          │
+│       IT Manager                                    │
+│          ↓                                          │
+│       VP Infrastructure                             │
+│          ↓                                          │
+│       CISO / CIO                                    │
+│          ↓                                          │
+│       BOARD  ← (highlight em vermelho)              │
+│                                                     │
+│  ┌──────────────────────┐                           │
+│  │ DOWNLOAD ONE-PAGER → │                           │
+│  └──────────────────────┘                           │
+│  FENIX DFA                        fenixdfa.com      │
+└─────────────────────────────────────────────────────┘
+```
 
-**Referência de banco de imagens:**
-- Buscar: "boardroom meeting", "executive pressure", "corporate accountability", "C-level meeting serious"
-- Palavras-chave: "empty boardroom chair", "corporate hierarchy", "executive responsibility", "board meeting crisis"
+**Elementos visuais:**
+- Headline bold em branco
+- Cadeia hierárquica visual: setas subindo de Analyst → IT Manager → VP → CISO → Board
+- Cada nível é um retângulo/pill com o título do cargo
+- A seta final (Board) fica em vermelho/laranja — é onde a pressão chega
+- Visual clean, tipográfico, sem foto
+- Logo + badge download + URL
+
+**Alternativa com imagem:**
+- Sala de board vazia, cadeira do CEO em destaque, tela com relatório de falha
+- Buscar: "empty boardroom chair", "corporate board meeting pressure"
 
 ---
 
-## Resumo de entrega
+## Elementos obrigatórios — TODOS os criativos
 
-| Criativo | Headline | Conceito visual | Imagem |
-|----------|----------|----------------|--------|
-| 1 | "Seus backups estão quebrando em silêncio." | Perigo oculto | Data center escuro com alertas vermelhos |
-| 2 | "Reguladores não aceitam screenshots." | Pressão regulatória | DORA/NIS2/GDPR em destaque + compliance |
-| 3 | "Quando a recuperação falha, a responsabilidade escala." | Accountability do board | Boardroom/executivo + relatório de falha |
-
-## Elementos obrigatórios em TODOS os criativos
-
-- [ ] Logo Fenix DFA (canto inferior esquerdo)
-- [ ] Badge "FREE TRIAL · 30 DAYS" em amber (#F59E0B)
-- [ ] Fundo escuro (#0A0E13 ou overlay 70-80% sobre imagem)
-- [ ] Headline legível em tamanho de feed LinkedIn (600px width)
-- [ ] Sem excesso de texto na imagem (LinkedIn penaliza)
+- [ ] Logo Fenix DFA (usar SVG de `~/Downloads/Fenix-DFA-Logo.svg`)
+- [ ] Badge "DOWNLOAD ONE-PAGER →" em laranja (#E8551B)
+- [ ] URL fenixdfa.com no rodapé
+- [ ] Fundo escuro (#1A1A2E) — preferencialmente sem foto (mais enterprise)
+- [ ] Headline legível em tamanho de feed LinkedIn (~600px width)
+- [ ] Pouco texto na imagem — LinkedIn penaliza excesso
 - [ ] Dimensão: 1200x628px, JPG ou PNG, máx 5MB
-- [ ] Tom: enterprise, sóbrio, sem hype, sem emojis
+- [ ] Tom: enterprise, sóbrio, técnico — público é C-level sob pressão regulatória
 
-## Tons que NÃO usar
+## O que NÃO fazer
 
-- Nada colorido/vibrante (não é SaaS de consumo)
-- Nada com pessoas sorrindo/happy corporate (público é C-level sob pressão)
-- Nada com ícones infantis ou flat design genérico
-- Nada com texto demais na imagem
+- Nada colorido/vibrante
+- Nada com pessoas sorrindo (público está sob pressão, não feliz)
+- Nada com ícones genéricos de "segurança" (cadeado, escudo)
+- Nada com "experimente grátis!" (tom de consumo, não enterprise)
+- Nada em português se a campanha for para mercado internacional
 
-## Referências visuais de LinkedIn Ads B2B enterprise
+## Idioma
 
-- CrowdStrike, Palo Alto Networks, Rubrik — dark mode, sóbrio, dados
-- Datadog, Splunk — monitoring dashboards, alertas
-- Veeam — backup/recovery, mais corporativo
+- Se campanha Brasil: copys em português
+- Se campanha global: copys em inglês (como estão acima)
+- Definir com o cliente antes de produzir
 
 ---
 
-*Briefing preparado para designer externo. Após produção, validar com @helena (Creative Director) antes de upload.*
+## Referências visuais
+
+**Enterprise SaaS security (dark mode, tipográfico):**
+- CrowdStrike LinkedIn Ads
+- Palo Alto Networks LinkedIn Ads
+- Datadog LinkedIn Ads
+- Wiz.io LinkedIn Ads
+
+**Pesquisar no LinkedIn Ad Library:**
+- linkedin.com/ad-library → buscar "CrowdStrike", "Datadog", "Rubrik"
+
+---
+
+## Fluxo completo da campanha
+
+```
+1. CRIATIVO no feed LinkedIn (3 variações)
+      ↓
+2. LEAD GEN FORM (campos pré-preenchidos pelo LinkedIn)
+   - Nome, Email, Cargo, Empresa
+   - CTA: "Download"
+      ↓
+3. DOWNLOAD automático do One-Pager (PDF)
+      ↓
+4. EMAIL de follow-up (automação)
+   - Dia 0: "Aqui está seu One-Pager + link para Resilience Assessment"
+   - Dia 3: "3 riscos que 78% das empresas ignoram"
+   - Dia 7: "Como a Fenix DFA substitui 4 custos operacionais"
+      ↓
+5. RESILIENCE ASSESSMENT (call com vendas)
+      ↓
+6. TRIAL 30 dias
+      ↓
+7. CONTRATO
+```
+
+---
+
+## Métricas esperadas (budget limitado)
+
+| Métrica | Target |
+|---------|--------|
+| Budget/mês | R$3-5k |
+| Impressões | 15.000-30.000 |
+| CTR | 0,4-0,8% |
+| CPL (Lead Gen Form) | R$30-80 |
+| Leads/mês | 40-120 |
+| Download One-Pager | 90%+ dos leads |
+| Follow-up → Assessment | 10-20% |
+| Assessment → Trial | 30-50% |
+
+---
+
+*Briefing baseado no Executive One-Pager oficial da Fenix DFA. Copys alinhadas com os 3 riscos do material: Silent Failures, Regulatory Exposure, Accountability Gaps.*
