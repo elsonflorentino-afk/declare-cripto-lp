@@ -10,18 +10,65 @@
 
 ---
 
-## Identidade Visual
+## Identidade Visual (extraída do site fenixdfa.com + logo)
 
-| Item | Valor |
-|------|-------|
-| Logo | Fenix DFA (arquivo SVG e PNG nos Downloads) |
-| Cor primária | Laranja Fenix (#E8551B) |
-| Cor fundo | Escuro (#0A0E13 ou #1A1A2E) |
-| Cor texto principal | Branco (#FFFFFF) |
-| Cor texto secundário | Cinza claro (#A0A0C0) |
-| Cor alerta/urgência | Vermelho (#FF3B3B) |
-| Font | Inter ou Helvetica Neue (sans-serif) |
-| Formato | 1200 x 628px, JPG ou PNG, máx 5MB |
+### Cores do site
+| Item | Hex | Uso |
+|------|-----|-----|
+| **Verde-limão (primária site)** | `#9DFF20` | Botões, CTAs, destaques principais |
+| **Verde-oliva escuro** | `#345C00` | Hover, elementos secundários |
+| **Fundo site** | `#FFFFFF` (branco) ou `#F6F6F6` (cinza claro) | Background |
+| **Texto** | `#000000` (preto) | Texto principal |
+| **Botões** | Fundo `#9DFF20`, texto preto. Hover: fundo preto, texto branco | Cantos retos (border-radius: 0) |
+
+### Cores do logo (ícone da fênix)
+| Item | Hex | Elemento |
+|------|-----|----------|
+| **Laranja Fenix** | `#F58634` | Letras "DFA" + corpo da fênix |
+| **Amarelo** | `#FFCC29` | Detalhes da fênix (chamas) |
+| **Amber** | `#FAA950` | Detalhes intermediários |
+| **Vermelho** | `#DD4D38` | Detalhes de fogo/calor |
+| **Branco** | `#FFFFFF` | Letras "FENIX" + ícone (fundo escuro) |
+
+### Para os criativos LinkedIn
+O site usa **fundo branco + verde-limão**, mas no LinkedIn dark funciona melhor para enterprise security. Recomendação:
+
+**Opção A — Alinhado com o site (light mode):**
+- Fundo branco `#FFFFFF` ou cinza claro `#F6F6F6`
+- Texto preto `#000000`
+- CTAs e badges em verde-limão `#9DFF20`
+- Logo com ícone colorido sobre fundo branco
+
+**Opção B — Dark mode premium (melhor para LinkedIn B2B security):**
+- Fundo escuro `#0A0E13`
+- Texto branco `#FFFFFF`
+- CTAs e badges em verde-limão `#9DFF20` (mantém identidade do site)
+- Alertas em laranja `#F58634` (cor do logo)
+- Logo branco sobre fundo escuro
+
+**Decisão:** Perguntar ao cliente qual prefere. Se não tiver preferência, testar A/B (1 light + 1 dark).
+
+### Arquivos do logo
+| Arquivo | Caminho |
+|---------|---------|
+| Logo SVG (fundo transparente) | `~/Downloads/Fenix-DFA-Logo.svg` |
+| Logo SVG alternativo | `~/Downloads/Fenix-DFA-Logo (1).svg` |
+| Logo PNG (fundo transparente) | `~/Downloads/Fenix-DFA-Logo-Transparente.png` |
+| Logo PNG | `~/Downloads/Fenix-DFA-Logo.png` |
+| Logo fundo azul | `~/Downloads/Fenix-Logo-Preview-FundoAzul.png` |
+
+### Tipografia
+- Site usa: system font stack (Segoe UI, Roboto, Helvetica Neue)
+- Fonts disponíveis: DM Sans, IBM Plex Mono, Inter
+- **Para criativos:** Inter Bold para headlines, Inter Regular para corpo
+
+### Formato
+| Item | Spec |
+|------|------|
+| Dimensão | 1200 x 628px (landscape) |
+| Formato | JPG ou PNG |
+| Tamanho máximo | 5MB |
+| Botões | Cantos retos (border-radius: 0) — identidade da marca |
 
 ---
 
