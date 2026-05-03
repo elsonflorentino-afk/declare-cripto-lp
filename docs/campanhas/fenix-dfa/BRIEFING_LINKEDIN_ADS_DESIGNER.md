@@ -72,6 +72,26 @@ Anúncio no feed → Lead Gen Form (nome, email, cargo, empresa)
 
 ## CRIATIVO 1 — Silent Failures
 
+### Conceito visual
+**FALHA SILENCIOSA.** Tudo parece ok na superfície, mas por dentro está quebrado. A imagem transmite falsa normalidade — o console mostra verde, mas o recovery já falhou. Tons escuros, iluminação vermelha, atmosfera de data center em alerta silencioso.
+
+### Imagens para o designer baixar (gratuitas)
+
+| # | Imagem | URL | Como usar |
+|---|--------|-----|-----------|
+| 1 | Sala de servidores com luz vermelha | [Unsplash — Server room red](https://unsplash.com/photos/a-red-server-room-GNcCXtQ5oxk) | Fundo com overlay escuro 70%. Texto headline por cima |
+| 2 | Data center com luzes vermelhas | [Unsplash — Red lights room](https://unsplash.com/photos/a-room-that-has-red-lights-in-it-TaTSi2ljyPA) | Alternativa mais dramática. Mesmo uso |
+| 3 | Data center futurista azul | [Unsplash — Blue server room](https://unsplash.com/photos/futuristic-server-room-lit-with-blue-lights-CuZ8VdwRpyk) | Para versão mais fria/tech. Contraste com alerta vermelho no texto |
+| 4 | Vidro rachado fundo preto | [Unsplash — Cracked glass](https://unsplash.com/photos/a-cracked-glass-window-with-a-black-background-_5e0bUpum24) | Metáfora: parece inteiro mas está rachado. Overlay com headline |
+| 5 | Iceberg (risco oculto) | [Unsplash — Iceberg](https://unsplash.com/photos/a-large-iceberg-in-the-middle-of-the-ocean-n2qV323Fitc) | Metáfora clássica: o problema visível é pequeno, o real está submerso |
+
+**Coleções extras:** [Server room dark (Pexels)](https://www.pexels.com/search/server%20room%20dark/) · [Cracked glass (Unsplash)](https://unsplash.com/s/photos/cracked-glass)
+
+### Referências de LinkedIn Ads (ver na Ad Library)
+- **CrowdStrike** → [Ad Library](https://www.linkedin.com/ad-library/?q=CrowdStrike) — Fundo dark, tipografia bold branca, dados de ameaça em destaque, vermelho como alerta
+- **Datadog** → [Ad Library](https://www.linkedin.com/ad-library/?q=Datadog) — Dashboard de observabilidade como elemento central, fundo escuro
+- **Splunk** → [Ad Library](https://www.linkedin.com/ad-library/?q=Splunk) — Infográficos de segurança, fundo degradê escuro
+
 ### Texto do post LinkedIn
 **Headline:** Seus backups estão quebrando em silêncio.
 
@@ -129,6 +149,24 @@ Baixe o Executive One-Pager e veja os 3 riscos que executivos não podem ignorar
 
 ## CRIATIVO 2 — Regulatory Exposure
 
+### Conceito visual
+**PRESSÃO REGULATÓRIA.** Peso institucional, seriedade, consequência legal. Transmitir a sensação de "auditoria iminente" — o regulador pede provas e você precisa tê-las na hora. Tons sóbrios (preto, cinza, dourado/bronze para autoridade). Elementos: martelo de juiz, documentos, badges de regulação.
+
+### Imagens para o designer baixar (gratuitas)
+
+| # | Imagem | URL | Como usar |
+|---|--------|-----|-----------|
+| 1 | Martelo de juiz + livro (fundo escuro) | [Unsplash — Gavel dark](https://unsplash.com/photos/wooden-gavel-resting-on-a-dark-surface-next-to-book-FaTLrG5-ViE) | Lado direito da composição. Texto + badges regulatórios à esquerda |
+| 2 | Martelo minimalista fundo escuro | [Unsplash — Gavel minimal](https://unsplash.com/photos/a-wooden-gavel-rests-on-a-dark-surface-T69Smz0SJ6w) | Mais limpo, ideal para composição com muito texto |
+| 3 | Martelo sobre livro fechado | [Unsplash — Gavel book](https://unsplash.com/photos/a-wooden-gavel-rests-on-a-closed-book-NB1dUts3ROU) | Autoridade + conhecimento |
+
+**Coleções extras:** [Legal compliance (Unsplash)](https://unsplash.com/s/photos/legal-compliance) · [Compliance (Pexels)](https://www.pexels.com/search/compliance/) · [Digital law (Unsplash)](https://unsplash.com/s/photos/digital-law)
+
+### Referências de LinkedIn Ads (ver na Ad Library)
+- **OneTrust** → [Ad Library](https://www.linkedin.com/ad-library/?q=OneTrust) — Escudo/check em fundo azul-marinho, badges de certificação (SOC 2, ISO 27001, GDPR)
+- **Vanta** → [Ad Library](https://www.linkedin.com/ad-library/?q=Vanta) — Minimalista, backgrounds escuros, checkmarks verdes de compliance automatizado
+- **TrustArc** → [Ad Library](https://www.linkedin.com/ad-library/?q=TrustArc) — Gráficos de frameworks regulatórios, timelines de compliance
+
 ### Texto do post LinkedIn
 **Headline:** Reguladores não aceitam screenshots. Exigem evidência contínua.
 
@@ -177,6 +215,26 @@ Baixe o Executive One-Pager.
 ---
 
 ## CRIATIVO 3 — Accountability
+
+### Conceito visual
+**ESCALAÇÃO DE RESPONSABILIDADE.** A responsabilidade sobe na hierarquia até o board. Tensão corporativa, peso da decisão. A imagem evoca "a reunião que ninguém quer ter" — quando o board pergunta "quem era responsável?" e não tem resposta. Sala vazia = alguém vai ser responsabilizado. Dominós = efeito cascata.
+
+### Imagens para o designer baixar (gratuitas)
+
+| # | Imagem | URL | Como usar |
+|---|--------|-----|-----------|
+| 1 | Sala de reunião vazia | [Unsplash — Empty meeting room](https://unsplash.com/photos/empty-meeting-room-6MtJ-y1hzTs) | Fundo com overlay escuro. A cadeira vazia = quem responde? |
+| 2 | Coleção boardrooms vazias | [Unsplash — Empty boardroom](https://unsplash.com/s/photos/empty-boardroom) | 45 fotos. Escolher a mais tensa/corporativa |
+| 3 | Dominós caindo | [Unsplash — Domino effect](https://unsplash.com/s/photos/domino-effect) | Metáfora de escalação. Efeito cascata |
+| 4 | Reuniões executivas | [Unsplash — Board meeting](https://unsplash.com/s/photos/board-meeting) | Executivos com expressão séria, pressão |
+
+**Coleções extras:** [Empty meeting room (Unsplash)](https://unsplash.com/s/photos/empty-meeting-room) · [Chain reaction (Unsplash)](https://unsplash.com/s/photos/chain-reaction)
+
+### Referências de LinkedIn Ads (ver na Ad Library)
+- **Rubrik** → [Ad Library](https://www.linkedin.com/ad-library/?q=Rubrik) — "Cyber resilience", gráficos de recovery time, tons escuros com verde
+- **Veeam** → [Ad Library](https://www.linkedin.com/ad-library/?q=Veeam) — Mensagem direta sobre recovery, ângulo "o que acontece quando você NÃO tem backup"
+- **ServiceNow** → [Ad Library](https://www.linkedin.com/ad-library/?q=ServiceNow) — Hierarquias visuais (org charts), "board-level visibility"
+- **Diligent** → [Ad Library](https://www.linkedin.com/ad-library/?q=Diligent) — Governança corporativa, boardroom moderno, "risk oversight"
 
 ### Texto do post LinkedIn
 **Headline:** Quando a recuperação falha, a responsabilidade escala.
