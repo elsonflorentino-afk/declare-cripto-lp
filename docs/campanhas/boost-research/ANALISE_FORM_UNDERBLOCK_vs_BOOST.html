@@ -23,34 +23,26 @@
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-
   .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-
-  /* Header */
   .header { text-align: center; margin-bottom: 60px; padding: 48px 32px; background: linear-gradient(135deg, rgba(3,228,208,0.08), rgba(3,228,208,0.02)); border: 1px solid var(--card-border); border-radius: 16px; }
   .header h1 { font-size: 2.2rem; color: var(--heading); margin-bottom: 8px; font-weight: 700; }
   .header .subtitle { font-size: 1.1rem; color: var(--accent); font-weight: 500; }
   .header .meta { margin-top: 16px; color: var(--text-dim); font-size: 0.9rem; }
-
-  /* Section */
   .section { margin-bottom: 56px; }
   .section h2 { font-size: 1.6rem; color: var(--heading); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); display: inline-block; }
   .section h3 { font-size: 1.2rem; color: var(--accent); margin: 32px 0 12px; }
   .section p, .section li { color: var(--text); margin-bottom: 8px; }
-
-  /* Context box */
   .context-box { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
   .context-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; }
   .context-card h4 { color: var(--heading); margin-bottom: 8px; font-size: 1rem; }
-  .context-card .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; }
   .tag-underblock { background: #7c3aed20; color: #a78bfa; border: 1px solid #7c3aed40; }
   .tag-boost { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(3,228,208,0.3); }
-
-  /* Form question card */
   .question-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; margin-bottom: 32px; overflow: hidden; }
   .question-header { padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 16px; }
   .question-number { background: var(--accent); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
   .question-number.intro { background: #7c3aed; }
+  .question-number.lp { background: #6366f1; }
   .question-number.final { background: #22c55e; }
   .question-title { font-size: 1.05rem; color: var(--heading); font-weight: 600; }
   .question-type { font-size: 0.75rem; color: var(--text-dim); background: rgba(255,255,255,0.06); padding: 2px 10px; border-radius: 12px; margin-left: auto; flex-shrink: 0; }
@@ -65,32 +57,20 @@
   .question-screenshot img:hover { transform: scale(1.02); }
   .question-screenshot .caption { text-align: center; font-size: 0.8rem; color: var(--text-dim); margin-top: 8px; }
   .screenshots-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  /* Technique cards */
   .techniques-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
   .technique-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; }
   .technique-card .num { color: var(--accent); font-weight: 700; font-size: 1.4rem; margin-bottom: 4px; }
   .technique-card h4 { color: var(--heading); font-size: 0.95rem; margin-bottom: 8px; }
   .technique-card p { font-size: 0.88rem; color: var(--text-dim); }
-
-  /* Tables */
   table { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--card); border-radius: 12px; overflow: hidden; }
   thead th { background: rgba(3,228,208,0.1); color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 16px; text-align: left; }
   tbody td { padding: 12px 16px; border-top: 1px solid var(--card-border); font-size: 0.9rem; }
   tbody tr:hover { background: rgba(255,255,255,0.02); }
-
-  /* AB test */
   .variant-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin: 16px 0; }
   .variant-card.control { border-left: 4px solid var(--text-dim); }
   .variant-card.test-b { border-left: 4px solid var(--accent); }
   .variant-card.test-c { border-left: 4px solid var(--amber); }
   .variant-card h4 { color: var(--heading); margin-bottom: 12px; }
-  .variant-label { font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border-radius: 12px; }
-  .label-control { background: rgba(255,255,255,0.1); color: var(--text-dim); }
-  .label-test { background: var(--accent-dim); color: var(--accent); }
-  .label-test-c { background: var(--amber-dim); color: var(--amber); }
-
-  /* Scenario boxes */
   .scenario { border-radius: 12px; padding: 24px; margin: 16px 0; }
   .scenario-positive { background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25); }
   .scenario-negative { background: var(--red-dim); border: 1px solid rgba(239,68,68,0.25); }
@@ -98,8 +78,6 @@
   .scenario h4 { color: var(--heading); margin-bottom: 12px; }
   .scenario ul { padding-left: 20px; }
   .scenario li { margin: 6px 0; font-size: 0.92rem; }
-
-  /* Recommendation badges */
   .rec-grid { display: grid; gap: 16px; margin: 16px 0; }
   .rec-card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid var(--card-border); }
   .rec-card.do-now { border-left: 4px solid var(--green); }
@@ -109,46 +87,37 @@
   .badge-green { background: var(--green-dim); color: var(--green); }
   .badge-amber { background: var(--amber-dim); color: var(--amber); }
   .badge-red { background: var(--red-dim); color: var(--red); }
-
-  /* Lightbox */
   .lightbox { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.92); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out; }
   .lightbox.active { display: flex; }
   .lightbox img { max-width: 92%; max-height: 92%; border-radius: 8px; }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .context-box, .techniques-grid, .screenshots-row { grid-template-columns: 1fr; }
-    .header h1 { font-size: 1.6rem; }
-    .question-header { flex-wrap: wrap; }
-    .question-type { margin-left: 52px; margin-top: -4px; }
-  }
-
-  /* TOC */
   .toc { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px 32px; margin-bottom: 48px; }
   .toc h3 { color: var(--heading); margin-bottom: 12px; font-size: 1rem; }
   .toc ol { padding-left: 20px; }
   .toc li { margin: 6px 0; }
   .toc a { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
   .toc a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .context-box, .techniques-grid, .screenshots-row { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.6rem; }
+    .question-header { flex-wrap: wrap; }
+    .question-type { margin-left: 52px; margin-top: -4px; }
+  }
 </style>
 </head>
 <body>
-
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
   <h1>Análise de Formulário: Underblock Insider vs Boost Research</h1>
   <div class="subtitle">Benchmark competitivo + Proposta de teste A/B</div>
   <div class="meta">04/mai/2026 &bull; Boost Research &bull; Confidencial</div>
 </div>
 
-<!-- TOC -->
 <div class="toc">
   <h3>Sumário</h3>
   <ol>
     <li><a href="#contexto">Contexto</a></li>
-    <li><a href="#mapeamento">Mapeamento completo do form Underblock (18 perguntas)</a></li>
+    <li><a href="#mapeamento">Mapeamento completo do form Underblock</a></li>
     <li><a href="#tecnicas">Técnicas de venda identificadas</a></li>
     <li><a href="#boost-atual">Form atual da Boost</a></li>
     <li><a href="#teste-ab">Proposta de teste A/B</a></li>
@@ -165,17 +134,17 @@
     <div class="context-card">
       <span class="tag tag-underblock">Concorrente</span>
       <h4>Mentoria Underblock Insider</h4>
-      <p>Produto high-ticket de Vinícius Bazan. R$26.990, 50 vagas. Funil via formulário de aplicação com 18 perguntas no Respondi.app.</p>
+      <p>Produto high-ticket de Vinícius Bazan. R$26.990, 50 vagas. Funil via formulário de aplicação com 16 perguntas no Respondi.app.</p>
       <p style="color:var(--text-dim); font-size:0.85rem; margin-top:8px;">Modelo: Aplicação &rarr; Seleção &rarr; Entrevista &rarr; Venda</p>
     </div>
     <div class="context-card">
       <span class="tag tag-boost">Nosso</span>
       <h4>Boost Research &mdash; Crypto Intelligence PRO</h4>
-      <p>Form curto (5 campos) na LP analise.boostresearch.com.br. Captura de leads para análise de carteira cripto com analista sênior. Produto: <strong>Crypto Intelligence PRO (~R$20k/ano)</strong>.</p>
+      <p>Form curto (5 campos) na LP analise.boostresearch.com.br. Produto: <strong>Crypto Intelligence PRO (~R$20k/ano)</strong>.</p>
       <p style="color:var(--text-dim); font-size:0.85rem; margin-top:8px;">Modelo: Análise Gratuita &rarr; Reunião &rarr; Proposta (~R$20k/ano)</p>
     </div>
   </div>
-  <p>Os dois modelos atendem o mesmo ICP: investidor com patrimônio acima de R$100k interessado em cripto.</p>
+  <p>Mesmo ICP: investidor com patrimônio acima de R$100k interessado em criptoativos.</p>
 </div>
 
 <!-- 2. MAPEAMENTO -->
@@ -183,19 +152,37 @@
   <h2>2. Mapeamento completo do form Underblock</h2>
   <p style="margin-bottom:24px; color:var(--text-dim);">Plataforma: <strong style="color:var(--text)">Respondi.app</strong> (1 pergunta por tela) &bull; URL: <code>form.respondi.app/yoVjQtzf</code></p>
 
+  <!-- LPs -->
+  <div class="question-card">
+    <div class="question-header">
+      <div class="question-number lp">LP</div>
+      <div class="question-title">Landing Pages (antes do form)</div>
+      <span class="question-type">Contexto</span>
+    </div>
+    <div class="question-body">
+      <p>O prospect passa por 2 LPs antes de chegar no form: a página do produto e a LP de ads com escassez.</p>
+    </div>
+    <div class="question-screenshot">
+      <div class="screenshots-row">
+        <div><img src="prints-underblock/00-lp-produto.png" alt="LP produto" onclick="openLightbox(this)"><div class="caption">LP Produto (underblock.com.br/produto/mentoria)</div></div>
+        <div><img src="prints-underblock/01-lp-ads.png" alt="LP ads" onclick="openLightbox(this)"><div class="caption">LP Ads com "(POUCAS VAGAS) SELEÇÃO DE NOVOS MEMBROS"</div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Intro -->
   <div class="question-card">
     <div class="question-header">
       <div class="question-number intro">0</div>
-      <div class="question-title">Tela de abertura (Intro)</div>
+      <div class="question-title">Tela de abertura do form</div>
       <span class="question-type">Intro</span>
     </div>
     <div class="question-body">
       <p class="pergunta">"MENTORIA UNDERBLOCK INSIDER &mdash; FORMULÁRIO DE APLICAÇÃO"</p>
-      <p>Aviso: preenchimento não garante vaga. 50 vagas. Contato via WhatsApp ou e-mail.</p>
+      <p>50 vagas. Não garante seleção. Contato via WhatsApp ou e-mail. Botão "Começar".</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/00-intro.png" alt="Tela intro" onclick="openLightbox(this)">
+      <img src="prints-underblock/02-form-intro.png" alt="Intro form" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -210,11 +197,11 @@
       <p class="pergunta">"Seu nome completo"</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/01-nome.png" alt="Pergunta 1" onclick="openLightbox(this)">
+      <img src="prints-underblock/03-q1-nome.png" alt="Q1 Nome" onclick="openLightbox(this)">
     </div>
   </div>
 
-  <!-- Q2 -->
+  <!-- Q2 (sem print) -->
   <div class="question-card">
     <div class="question-header">
       <div class="question-number">2</div>
@@ -223,9 +210,7 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Seu melhor e-mail para contato"</p>
-    </div>
-    <div class="question-screenshot">
-      <img src="prints-underblock/02-email.png" alt="Pergunta 2" onclick="openLightbox(this)">
+      <p class="nota">Print não capturado nesta tela.</p>
     </div>
   </div>
 
@@ -237,13 +222,13 @@
       <span class="question-type">Telefone</span>
     </div>
     <div class="question-body">
-      <p class="pergunta">"Seu celular (WhatsApp)"</p>
-      <p class="nota">Validação ativa &mdash; mostra "Informe um telefone válido" se inválido</p>
+      <p class="pergunta">"Seu celular (WhatsApp) &mdash; obs: se for de fora do Brasil, insira o código do país"</p>
+      <p class="nota">Validação ativa: "Informe um telefone válido"</p>
     </div>
     <div class="question-screenshot">
       <div class="screenshots-row">
-        <div><img src="prints-underblock/03-whatsapp.png" alt="WhatsApp campo" onclick="openLightbox(this)"><div class="caption">Campo normal</div></div>
-        <div><img src="prints-underblock/03b-whatsapp-erro.png" alt="WhatsApp erro" onclick="openLightbox(this)"><div class="caption">Erro de validação</div></div>
+        <div><img src="prints-underblock/04-q3-whatsapp.png" alt="WhatsApp" onclick="openLightbox(this)"><div class="caption">Campo preenchido</div></div>
+        <div><img src="prints-underblock/05-q3b-whatsapp-erro.png" alt="WhatsApp erro" onclick="openLightbox(this)"><div class="caption">Erro de validação</div></div>
       </div>
     </div>
   </div>
@@ -259,7 +244,7 @@
       <p class="pergunta">"Por que você acredita que deve preencher uma das vagas na Mentoria UB Insider?"</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/04-motivacao.png" alt="Pergunta 4" onclick="openLightbox(this)">
+      <img src="prints-underblock/06-q4-motivacao.png" alt="Q4 Motivação" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -272,12 +257,10 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Há quanto tempo você acompanha o meu trabalho?"</p>
-      <ul class="opcoes">
-        <li>A) Menos de 1 ano</li><li>B) 1 a 2 anos</li><li>C) 2 a 3 anos</li><li>D) 3 a 4 anos</li><li>E) Mais de 4 anos</li>
-      </ul>
+      <ul class="opcoes"><li>A) Menos de 1 ano</li><li>B) 1 a 2 anos</li><li>C) 2 a 3 anos</li><li>D) 3 a 4 anos</li><li>E) Mais de 4 anos</li></ul>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/05-tempo-acompanhamento.png" alt="Pergunta 5" onclick="openLightbox(this)">
+      <img src="prints-underblock/07-q5-tempo.png" alt="Q5 Tempo" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -290,12 +273,10 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Qual é a sua renda mensal atual?"</p>
-      <ul class="opcoes">
-        <li>A) Menos de 5 mil</li><li>B) De 5 a 10 mil</li><li>C) De 10 a 20 mil</li><li>D) De 20 a 50 mil</li><li>E) Mais de 50 mil</li>
-      </ul>
+      <ul class="opcoes"><li>A) Menos de 5 mil</li><li>B) De 5 a 10 mil</li><li>C) De 10 a 20 mil</li><li>D) De 20 a 50 mil</li><li>E) Mais de 50 mil</li></ul>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/06-renda-mensal.png" alt="Pergunta 6" onclick="openLightbox(this)">
+      <img src="prints-underblock/08-q6-renda.png" alt="Q6 Renda" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -310,7 +291,7 @@
       <p class="pergunta">"Você já investe em criptomoedas?"</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/07-investe-cripto.png" alt="Pergunta 7" onclick="openLightbox(this)">
+      <img src="prints-underblock/09-q7-investe-cripto.png" alt="Q7 Cripto" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -323,12 +304,10 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Você já investe em outros mercados? Selecione quantas opções quiser"</p>
-      <ul class="opcoes">
-        <li>A) Poupança</li><li>B) Renda Fixa</li><li>C) Ações</li><li>D) Fundos de Investimento</li><li>E) Ainda não invisto</li><li>F) Outro</li>
-      </ul>
+      <ul class="opcoes"><li>A) Poupança</li><li>B) Renda Fixa</li><li>C) Ações</li><li>D) Fundos de Investimento</li><li>E) Ainda não invisto</li><li>F) Outro</li></ul>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/08-outros-mercados.png" alt="Pergunta 8" onclick="openLightbox(this)">
+      <img src="prints-underblock/10-q8-outros-mercados.png" alt="Q8 Mercados" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -341,12 +320,10 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"No geral, quanto você tem investido hoje? (total, todos os ativos)"</p>
-      <ul class="opcoes">
-        <li>A) Menos de 10 mil</li><li>B) De 10 a 50 mil</li><li>C) De 50 a 100 mil</li><li>D) De 100 a 200 mil</li><li>E) De 200 a 500 mil</li><li>F) De 500 mil a 1 milhão</li><li>G) Mais de 1 milhão</li><li>H) Ainda não invisto</li>
-      </ul>
+      <ul class="opcoes"><li>A) Menos de 10 mil</li><li>B) De 10 a 50 mil</li><li>C) De 50 a 100 mil</li><li>D) De 100 a 200 mil</li><li>E) De 200 a 500 mil</li><li>F) De 500 mil a 1 milhão</li><li>G) Mais de 1 milhão</li><li>H) Ainda não invisto</li></ul>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/09-patrimonio-total.png" alt="Pergunta 9" onclick="openLightbox(this)">
+      <img src="prints-underblock/11-q9-patrimonio-total.png" alt="Q9 Patrimônio" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -358,11 +335,10 @@
       <span class="question-type">Múltipla escolha</span>
     </div>
     <div class="question-body">
-      <p class="pergunta">"Somando o que você já tem investido em cripto e o que pretende investir nos próximos 12 meses, selecione um valor correspondente"</p>
-      <p style="font-size:0.85rem; color:var(--text-dim);">Mesmas 8 faixas da pergunta 9</p>
+      <p class="pergunta">"Somando o que já tem em cripto + o que pretende investir em 12 meses"</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/10-patrimonio-cripto-12m.png" alt="Pergunta 10" onclick="openLightbox(this)">
+      <img src="prints-underblock/12-q10-patrimonio-cripto.png" alt="Q10 Cripto 12m" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -375,12 +351,10 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Defina o seu nível de conhecimento em criptomoedas"</p>
-      <ul class="opcoes">
-        <li>A) Iniciante</li><li>B) Intermediário</li><li>C) Avançado</li>
-      </ul>
+      <ul class="opcoes"><li>A) Iniciante</li><li>B) Intermediário</li><li>C) Avançado</li></ul>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/11-nivel-conhecimento.png" alt="Pergunta 11" onclick="openLightbox(this)">
+      <img src="prints-underblock/13-q11-nivel.png" alt="Q11 Nível" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -388,7 +362,7 @@
   <div class="question-card">
     <div class="question-header">
       <div class="question-number">12</div>
-      <div class="question-title">Concorrente / casa de análise</div>
+      <div class="question-title">Casa de análise (concorrente)</div>
       <span class="question-type">Texto</span>
     </div>
     <div class="question-body">
@@ -397,8 +371,8 @@
     </div>
     <div class="question-screenshot">
       <div class="screenshots-row">
-        <div><img src="prints-underblock/12-casa-analise.png" alt="Campo vazio" onclick="openLightbox(this)"><div class="caption">Campo vazio (botão "Avançar")</div></div>
-        <div><img src="prints-underblock/12b-casa-analise-preenchido.png" alt="Campo preenchido" onclick="openLightbox(this)"><div class="caption">Preenchido (botão muda p/ "Responder")</div></div>
+        <div><img src="prints-underblock/14-q12-casa-analise.png" alt="Q12 vazio" onclick="openLightbox(this)"><div class="caption">Campo vazio (botão "Avançar")</div></div>
+        <div><img src="prints-underblock/15-q12b-casa-preenchido.png" alt="Q12 preenchido" onclick="openLightbox(this)"><div class="caption">Preenchido (botão muda p/ "Responder")</div></div>
       </div>
     </div>
   </div>
@@ -414,7 +388,7 @@
       <p class="pergunta">"Caso consiga uma vaga na Mentoria Underblock Insider, como você acha que eu posso te ajudar?"</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/13-expectativa.png" alt="Pergunta 13" onclick="openLightbox(this)">
+      <img src="prints-underblock/16-q13-expectativa.png" alt="Q13 Expectativa" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -426,14 +400,14 @@
       <span class="question-type" style="background: var(--red-dim); color: var(--red);">Obrigatório</span>
     </div>
     <div class="question-body">
-      <p class="pergunta">"Você já ganhou dinheiro seguindo alguma recomendação minha? Descreva sua experiência em detalhes."</p>
+      <p class="pergunta">"Você já ganhou dinheiro seguindo alguma recomendação minha? Descreva em detalhes."</p>
       <p class="nota" style="background: var(--red-dim); color: var(--red);">"IMPORTANTE: Estou em busca dos meus melhores alunos/seguidores e o seu comentário pode te ajudar a ser selecionado."</p>
       <p class="tecnica">Prova social forçada: obriga o prospect a relembrar experiência positiva, reforçando autoridade do mentor</p>
     </div>
     <div class="question-screenshot">
       <div class="screenshots-row">
-        <div><img src="prints-underblock/14-prova-social.png" alt="Prova social" onclick="openLightbox(this)"><div class="caption">Pergunta obrigatória</div></div>
-        <div><img src="prints-underblock/14b-prova-social-erro.png" alt="Erro validação" onclick="openLightbox(this)"><div class="caption">Erro: "Essa resposta é obrigatória"</div></div>
+        <div><img src="prints-underblock/17-q14-prova-social.png" alt="Q14" onclick="openLightbox(this)"><div class="caption">Pergunta obrigatória</div></div>
+        <div><img src="prints-underblock/18-q14b-prova-erro.png" alt="Q14 erro" onclick="openLightbox(this)"><div class="caption">"Essa resposta é obrigatória"</div></div>
       </div>
     </div>
   </div>
@@ -447,13 +421,11 @@
     </div>
     <div class="question-body">
       <p class="pergunta">"Quanto você acha que valeria um contato direto comigo e com meu time para analisar sua carteira e trazer orientações personalizadas para este bull market?"</p>
-      <ul class="opcoes">
-        <li>A) R$ 30.000</li><li>B) R$ 40.000</li><li>C) R$ 50.000</li><li>D) Mais de R$ 50.000</li>
-      </ul>
+      <ul class="opcoes"><li>A) R$ 30.000</li><li>B) R$ 40.000</li><li>C) R$ 50.000</li><li>D) Mais de R$ 50.000</li></ul>
       <p class="tecnica">Os valores (R$30-50k+) são MAIORES que o preço real (R$26.990). O prospect ancora mentalmente em valores altos antes de ver o preço na próxima tela.</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/15-ancoragem-preco.png" alt="Ancoragem" onclick="openLightbox(this)">
+      <img src="prints-underblock/19-q15-ancoragem.png" alt="Q15 Ancoragem" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -465,13 +437,12 @@
       <span class="question-type" style="background: var(--amber-dim); color: var(--amber);">Fechamento</span>
     </div>
     <div class="question-body">
-      <p class="pergunta">"Cada vaga vai custar R$26.990 ou 12x de R$2.631,53. Caso seja selecionado, você tem disponibilidade?"</p>
+      <p class="pergunta">"R$26.990 ou 12x de R$2.631,53. 50 insiders. Tem disponibilidade?"</p>
       <ul class="opcoes"><li>A) Sim</li><li>B) Não</li></ul>
       <p class="nota">Desconto de R$2.200 para membros ativos do Underclub (cross-sell)</p>
-      <p class="tecnica">Depois da ancoragem em R$30-50k, o preço real de R$26.990 parece barato.</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/16-preco-real.png" alt="Preço real" onclick="openLightbox(this)">
+      <img src="prints-underblock/20-q16-preco-real.png" alt="Q16 Preço" onclick="openLightbox(this)">
     </div>
   </div>
 
@@ -483,13 +454,12 @@
       <span class="question-type" style="background: var(--green-dim); color: var(--green);">Final</span>
     </div>
     <div class="question-body">
-      <p><strong>URL:</strong> <code>lp2.underblock.com.br/mnt01/typ-y.html</code> (domínio próprio)</p>
+      <p><strong>URL:</strong> <code>lp2.underblock.com.br/mnt01/typ-y.html</code></p>
       <p>"Sua aplicação foi submetida com sucesso!"</p>
-      <p style="margin-top:8px; font-size:0.9rem; color:var(--text-dim);">Equipe avalia &rarr; entrevista &rarr; seleção. "Vagas preenchidas por ordem de chegada." "Boa sorte!"</p>
-      <p class="tecnica">Thank you page personalizada no domínio, com urgência ("tente responder o mais breve possível") e reforço de escassez.</p>
+      <p class="tecnica">Thank you page custom no domínio, com urgência e reforço de escassez.</p>
     </div>
     <div class="question-screenshot">
-      <img src="prints-underblock/17-thank-you.png" alt="Thank you" onclick="openLightbox(this)">
+      <img src="prints-underblock/22-thank-you.png" alt="Thank you" onclick="openLightbox(this)">
     </div>
   </div>
 </div>
@@ -502,7 +472,7 @@
     <div class="technique-card"><div class="num">02</div><h4>Escassez</h4><p>"50 insiders" na intro e no final. "Vagas por ordem de chegada" na thank you page.</p></div>
     <div class="technique-card"><div class="num">03</div><h4>Exclusividade via seleção</h4><p>Form de APLICAÇÃO, não de compra. "Caso seja selecionado" inverte a dinâmica de venda.</p></div>
     <div class="technique-card"><div class="num">04</div><h4>Prova social forçada</h4><p>Pergunta 14 obriga relembrar experiência positiva. Ativa memória emocional + gera depoimentos.</p></div>
-    <div class="technique-card"><div class="num">05</div><h4>Commitment escalation</h4><p>18 perguntas = 5-10 min investidos. Formato 1/tela disfarça tamanho. Sunk cost ativo.</p></div>
+    <div class="technique-card"><div class="num">05</div><h4>Commitment escalation</h4><p>16 perguntas = 5-10 min investidos. Formato 1/tela disfarça tamanho. Sunk cost ativo.</p></div>
     <div class="technique-card"><div class="num">06</div><h4>Qualificação progressiva</h4><p>Renda &rarr; patrimônio total &rarr; patrimônio cripto &rarr; disposição a pagar &rarr; preço real. Gradual.</p></div>
     <div class="technique-card"><div class="num">07</div><h4>Cross-sell com desconto</h4><p>Membros Underclub ganham R$2.200 off. Recompensa fidelidade na escada de produtos.</p></div>
     <div class="technique-card"><div class="num">08</div><h4>Inteligência competitiva</h4><p>Pergunta 12 coleta qual casa de análise o prospect já assina. Dado valioso.</p></div>
@@ -513,8 +483,8 @@
 
 <!-- 4. BOOST ATUAL -->
 <div class="section" id="boost-atual">
-  <h2>4. Form atual da Boost</h2>
-  <p style="margin-bottom:16px;"><strong>URL:</strong> analise.boostresearch.com.br &bull; <strong>Modelo:</strong> Captura rápida &rarr; qualificação na reunião</p>
+  <h2>4. Form atual da Boost (Crypto Intelligence PRO)</h2>
+  <p style="margin-bottom:16px;"><strong>URL:</strong> analise.boostresearch.com.br &bull; <strong>Produto:</strong> Crypto Intelligence PRO (~R$20k/ano)</p>
   <table>
     <thead><tr><th>Campo</th><th>Tipo</th><th>RD Station</th></tr></thead>
     <tbody>
@@ -533,113 +503,52 @@
 <!-- 5. TESTE AB -->
 <div class="section" id="teste-ab">
   <h2>5. Proposta de teste A/B</h2>
-
-  <h3>Hipótese</h3>
-  <p>Adicionar 2-3 perguntas estratégicas pode melhorar a qualificação SEM destruir a conversão, desde que o form fique com no máximo 8 campos visíveis.</p>
-
-  <div class="variant-card control">
-    <span class="variant-label label-control">CONTROLE</span>
-    <h4>Variante A &mdash; Form atual</h4>
-    <p>5 campos. Sem alteração. Baseline de comparação.</p>
-  </div>
-
-  <div class="variant-card test-b">
-    <span class="variant-label label-test">TESTE</span>
-    <h4>Variante B &mdash; +3 perguntas estratégicas</h4>
+  <div class="variant-card control"><h4>Variante A (Controle) &mdash; Form atual</h4><p>5 campos. Sem alteração. Baseline.</p></div>
+  <div class="variant-card test-b"><h4>Variante B &mdash; +3 perguntas estratégicas</h4>
     <table>
-      <thead><tr><th>Nova pergunta</th><th>Tipo</th><th>Valor pro negócio</th></tr></thead>
+      <thead><tr><th>Nova pergunta</th><th>Tipo</th><th>Valor</th></tr></thead>
       <tbody>
-        <tr><td>"Há quanto tempo acompanha o André Franco?"</td><td>Select: &lt;1 ano / 1-3 anos / &gt;3 anos</td><td>Mede temperatura do lead</td></tr>
-        <tr><td>"Assina ou já assinou casa de análise de cripto?"</td><td>Texto livre</td><td>Inteligência competitiva</td></tr>
-        <tr><td>"Qual sua maior dificuldade com cripto?"</td><td>Select: Não sei vender / Sem tempo / Medo / Muita info / Outro</td><td>Segmenta por dor</td></tr>
+        <tr><td>"Há quanto tempo acompanha o André?"</td><td>Select</td><td>Temperatura do lead</td></tr>
+        <tr><td>"Assina casa de análise de cripto?"</td><td>Texto</td><td>Intel competitiva</td></tr>
+        <tr><td>"Maior dificuldade com cripto?"</td><td>Select</td><td>Segmenta por dor</td></tr>
       </tbody>
     </table>
   </div>
-
-  <div class="variant-card test-c">
-    <span class="variant-label label-test-c">TESTE EXPANDIDO</span>
-    <h4>Variante C &mdash; +4 perguntas (com expectativa)</h4>
-    <p>Tudo da B + "O que você espera da análise gratuita?" (texto livre). Munição extra pro closer.</p>
-  </div>
-
-  <h3>Métricas</h3>
-  <table>
-    <thead><tr><th>Métrica</th><th>Como medir</th><th>Meta</th></tr></thead>
-    <tbody>
-      <tr><td>Taxa conversão form</td><td>Leads / visitantes (GA4)</td><td>Variante B dentro de -15% do controle</td></tr>
-      <tr><td>CPL Meta Ads</td><td>Gerenciador de Anúncios</td><td>Aceitável até +20%</td></tr>
-      <tr><td>Taxa qualificação</td><td>Leads &ge;R$50k / total (RD)</td><td>&ge; Variante A</td></tr>
-      <tr><td>Taxa reunião marcada</td><td>Reuniões / leads (CRM)</td><td>Principal. Se subir, teste venceu</td></tr>
-      <tr><td>CPR</td><td>Spend / reuniões</td><td>Métrica final de decisão</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Setup</h3>
-  <p><strong>Tráfego:</strong> 50/50 via Meta Ads &bull; <strong>Duração:</strong> 14 dias mín &bull; <strong>Volume:</strong> 100 leads/variante &bull; <strong>Budget:</strong> ~R$8.400</p>
+  <div class="variant-card test-c"><h4>Variante C &mdash; +4 perguntas</h4><p>Tudo da B + "O que espera da análise gratuita?" (munição pro closer).</p></div>
+  <p><strong>Setup:</strong> 50/50 Meta Ads &bull; 14 dias &bull; 100 leads/variante &bull; ~R$8.400 &bull; Métrica final: CPR</p>
 </div>
 
 <!-- 6. CENARIOS -->
 <div class="section" id="cenarios">
   <h2>6. O que pode acontecer com mais perguntas</h2>
-
-  <div class="scenario scenario-positive">
-    <h4>Cenário positivo</h4>
-    <ul>
-      <li><strong>Leads mais qualificados</strong> &mdash; Cada pergunta extra filtra quem não é sério. Time comercial gasta menos tempo com leads frios.</li>
-      <li><strong>Dados pra personalizar reunião</strong> &mdash; Closer sabe a dor e o histórico antes de ligar. Menos educação, mais fechamento.</li>
-      <li><strong>Segmentação pra remarketing</strong> &mdash; Quem respondeu "medo" recebe ads diferentes de "sem tempo".</li>
-      <li><strong>Inteligência competitiva grátis</strong> &mdash; Saber quais casas o ICP usa informa posicionamento e copy.</li>
-    </ul>
-  </div>
-
-  <div class="scenario scenario-negative">
-    <h4>Cenário negativo (riscos reais)</h4>
-    <ul>
-      <li><strong>Queda de conversão (-15% a -40%)</strong> &mdash; Benchmark: 5 campos ~20% CR, 7 campos ~15%, 10+ ~10%.</li>
-      <li><strong>CPL sobe proporcionalmente</strong> &mdash; Se conversão cai 20%, CPL sobe 25%. De R$200 pra R$250.</li>
-      <li><strong>Atrito no mobile</strong> &mdash; 70%+ do tráfego Meta é mobile. 8 campos inline podem parecer demais.</li>
-      <li><strong>Perda de leads impulsivos</strong> &mdash; Lead que converte rápido desiste com mais perguntas. Não volta.</li>
-      <li><strong>Abandono parcial</strong> &mdash; Com 8 campos, pode preencher 5 e largar. Lead perdido, dinheiro jogado fora.</li>
-      <li><strong>Fadiga em remarketing</strong> &mdash; Público quente que volta e vê form maior pode rejeitar na segunda visita.</li>
-    </ul>
-  </div>
-
-  <div class="scenario scenario-neutral">
-    <h4>Cenário mais provável</h4>
-    <ul>
-      <li><strong>-15% a -20%</strong> de leads totais (menos volume)</li>
-      <li><strong>+10% a +25%</strong> na taxa de qualificação (melhor qualidade)</li>
-      <li><strong>CPL sobe ~20%</strong>, mas CPR pode cair se agendamento subir</li>
-      <li><strong>Net effect:</strong> levemente positivo se o closer aproveitar os dados na reunião</li>
-    </ul>
-  </div>
+  <div class="scenario scenario-positive"><h4>Cenário positivo</h4><ul>
+    <li><strong>Leads mais qualificados</strong> &mdash; perguntas filtram quem não é sério</li>
+    <li><strong>Dados pra personalizar reunião</strong> &mdash; closer sabe a dor antes de ligar</li>
+    <li><strong>Segmentação remarketing</strong> &mdash; ads diferentes por dor</li>
+    <li><strong>Inteligência competitiva</strong> &mdash; quais casas o ICP usa</li>
+  </ul></div>
+  <div class="scenario scenario-negative"><h4>Cenário negativo</h4><ul>
+    <li><strong>Conversão cai -15% a -40%</strong> &mdash; 5 campos ~20% CR, 8 campos ~15%</li>
+    <li><strong>CPL sobe ~25%</strong> &mdash; de R$200 pra R$250</li>
+    <li><strong>Atrito no mobile</strong> &mdash; 70%+ do tráfego Meta é celular</li>
+    <li><strong>Perda de leads impulsivos</strong> &mdash; desistem com mais perguntas</li>
+    <li><strong>Abandono parcial + fadiga retargeting</strong></li>
+  </ul></div>
+  <div class="scenario scenario-neutral"><h4>Cenário mais provável</h4><ul>
+    <li><strong>-15% a -20%</strong> leads totais</li>
+    <li><strong>+10% a +25%</strong> taxa de qualificação</li>
+    <li>CPL sobe ~20%, mas <strong>CPR pode cair</strong></li>
+  </ul></div>
 </div>
 
 <!-- 7. RECOMENDACAO -->
 <div class="section" id="recomendacao">
   <h2>7. Recomendação</h2>
-
   <div class="rec-grid">
-    <div class="rec-card do-now">
-      <span class="rec-badge badge-green">Fazer agora</span>
-      <h4 style="margin-top:12px;">Adicionar campo "casa de análise" como opcional</h4>
-      <p>Dado competitivo valioso. Campo opcional não reduz conversão de forma significativa.</p>
-    </div>
-    <div class="rec-card do-now">
-      <span class="rec-badge badge-green">Fazer agora</span>
-      <h4 style="margin-top:12px;">Melhorar a thank you page</h4>
-      <p>Trocar o padrão RD por página personalizada com próximos passos, foto do André e reforço de autoridade.</p>
-    </div>
-    <div class="rec-card do-test">
-      <span class="rec-badge badge-amber">Testar A/B</span>
-      <h4 style="margin-top:12px;">Variante B (3 perguntas extras)</h4>
-      <p>14 dias, 50/50. Se CPR melhorar ou ficar neutro, adotar. Se piorar &gt;15%, reverter.</p>
-    </div>
-    <div class="rec-card dont">
-      <span class="rec-badge badge-red">Não fazer</span>
-      <h4 style="margin-top:12px;">NÃO copiar 18 perguntas / preço no form / trocar pra typeform</h4>
-      <p>18 perguntas s&oacute; funciona com audiência quente. Revelar preço mata o funil gratuito. Typeform perde UTMs e complica tracking.</p>
-    </div>
+    <div class="rec-card do-now"><span class="rec-badge badge-green">Fazer agora</span><h4 style="margin-top:12px;">Campo "casa de análise" (opcional)</h4><p>Intel competitiva grátis. Campo opcional não reduz conversão.</p></div>
+    <div class="rec-card do-now"><span class="rec-badge badge-green">Fazer agora</span><h4 style="margin-top:12px;">Melhorar thank you page</h4><p>Personalizada com próximos passos, foto do André e reforço de autoridade.</p></div>
+    <div class="rec-card do-test"><span class="rec-badge badge-amber">Testar A/B</span><h4 style="margin-top:12px;">Variante B (3 perguntas extras)</h4><p>14 dias, 50/50. Se CPR melhorar ou neutro, adotar. Se piorar >15%, reverter.</p></div>
+    <div class="rec-card dont"><span class="rec-badge badge-red">Não fazer</span><h4 style="margin-top:12px;">Copiar 16 perguntas / preço no form / typeform</h4><p>16 perguntas só funciona com audiência quente. Preço no form mata funil gratuito. Typeform perde UTMs.</p></div>
   </div>
 </div>
 
@@ -647,16 +556,15 @@
 <div class="section" id="comparativo">
   <h2>8. Comparativo lado a lado</h2>
   <table>
-    <thead><tr><th>Aspecto</th><th>Underblock Insider</th><th>Crypto Intelligence PRO (atual)</th><th>Crypto Intelligence PRO (proposta B)</th></tr></thead>
+    <thead><tr><th>Aspecto</th><th>Underblock Insider</th><th>Crypto Intelligence PRO (atual)</th><th>Crypto Intelligence PRO (B)</th></tr></thead>
     <tbody>
       <tr><td>Produto</td><td>Mentoria Underblock Insider</td><td>Crypto Intelligence PRO</td><td>Crypto Intelligence PRO</td></tr>
-      <tr><td>Preço</td><td>R$26.990/ano (explícito no form)</td><td>~R$20k/ano (revelado na reunião)</td><td>~R$20k/ano (revelado na reunião)</td></tr>
-      <tr><td>Perguntas</td><td>18</td><td>5 (+condicionais)</td><td>8 (+condicionais)</td></tr>
+      <tr><td>Preço</td><td>R$26.990/ano (no form)</td><td>~R$20k/ano (na reunião)</td><td>~R$20k/ano (na reunião)</td></tr>
+      <tr><td>Perguntas</td><td>16</td><td>5 (+condicionais)</td><td>8 (+condicionais)</td></tr>
       <tr><td>Formato</td><td>Typeform (1/tela)</td><td>Inline na LP</td><td>Inline na LP</td></tr>
-      <tr><td>Tempo médio</td><td>5-10 min</td><td>~1 min</td><td>~2 min</td></tr>
-      <tr><td>Dado competitivo</td><td>Sim (pergunta 12)</td><td>Não</td><td>Sim</td></tr>
-      <tr><td>Segmentação por dor</td><td>Não direto</td><td>Não</td><td>Sim</td></tr>
-      <tr><td>Ancoragem preço</td><td>Sim (R$30-50k)</td><td>Não</td><td>Não (fica pra reunião)</td></tr>
+      <tr><td>Dado competitivo</td><td>Sim (perg. 12)</td><td>Não</td><td>Sim</td></tr>
+      <tr><td>Segmentação dor</td><td>Não direto</td><td>Não</td><td>Sim</td></tr>
+      <tr><td>Ancoragem preço</td><td>Sim (R$30-50k)</td><td>Não</td><td>Não (reunião)</td></tr>
       <tr><td>Thank you page</td><td>Custom</td><td>Padrão RD</td><td>Custom (a fazer)</td></tr>
       <tr><td>CPL estimado</td><td>Alto</td><td>~R$200</td><td>~R$240-250</td></tr>
     </tbody>
@@ -666,24 +574,13 @@
 <div style="text-align:center; padding:40px 0; color:var(--text-dim); font-size:0.85rem; border-top:1px solid var(--card-border); margin-top:40px;">
   Boost Research &bull; Análise competitiva &bull; 04/mai/2026 &bull; Confidencial
 </div>
-
-</div><!-- /container -->
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="">
 </div>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
 <script>
-function openLightbox(el) {
-  document.getElementById('lightbox-img').src = el.src;
-  document.getElementById('lightbox').classList.add('active');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-}
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+function openLightbox(el){document.getElementById('lightbox-img').src=el.src;document.getElementById('lightbox').classList.add('active');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 </script>
-
 </body>
 </html>
