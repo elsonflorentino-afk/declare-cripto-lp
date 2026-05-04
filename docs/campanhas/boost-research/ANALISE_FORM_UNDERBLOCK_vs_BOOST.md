@@ -10,7 +10,7 @@
 
 A Mentoria Underblock Insider é o produto high-ticket de Vinícius Bazan (R$26.990, 50 vagas). O funil usa um formulário de aplicação com 18 perguntas na plataforma Respondi.app (typeform-like) como mecanismo de qualificação e venda.
 
-A Boost Research usa um formulário curto (5 campos) na LP analise.boostresearch.com.br para captura de leads via análise gratuita de carteira.
+A Boost Research usa um formulário curto (5 campos) na LP analise.boostresearch.com.br para captura de leads via análise gratuita de carteira. O produto final é o **Crypto Intelligence PRO** (ticket ~R$20k/ano).
 
 Os dois modelos atendem o mesmo ICP: investidor com patrimônio acima de R$100k interessado em cripto.
 
@@ -428,8 +428,10 @@ A Variante B (3 perguntas extras) provavelmente vai gerar:
 
 ## 8. Comparativo visual lado a lado
 
-| Aspecto | Underblock Insider | Boost Research (atual) | Boost Research (proposta B) |
+| Aspecto | Underblock Insider | Boost — Crypto Intelligence PRO (atual) | Boost (proposta B) |
 |---------|-------------------|----------------------|---------------------------|
+| Produto | Mentoria Underblock Insider | Crypto Intelligence PRO | Crypto Intelligence PRO |
+| Preço | R$26.990/ano (explícito no form) | ~R$20k/ano (revelado na reunião) | ~R$20k/ano (revelado na reunião) |
 | Perguntas | 18 | 5 (+condicionais) | 8 (+condicionais) |
 | Formato | Typeform (1 por tela) | Inline na LP | Inline na LP |
 | Tempo médio | 5-10 min | ~1 min | ~2 min |
